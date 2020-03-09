@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 9: Crear Habilidades Nuevas</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Crear Habilidades Nuevas</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         Como todo aventurero, nuestro personaje principal necesitara habilidades que pueda utilizar un su aventura.
+         Dichas habilidades pueden ser propias del jugador o incluso aprendidas de alguna forma durante el juego.
+         <br><br>
+         En esta clase aprenderemos acerca de las diferentes clases de habilidades para los personajes y como esto
+         afecta al balance de nuestro juego. También veremos la mecánica de turnos para las habilidades.
+         <br><br>
+         Además aprenderemos a crear <strong>habilidades nuevas</strong> con RPG Maker, asi como su configuración e implementación en nuestro proyecto.
+         <br><br>
+         &emsp;- Conocer la importancia de las habilidades en los juegos.
+         <br><br>
+         &emsp;- Conocer los diferentes tipos de habilidades y sus características.
+         <br><br>
+         &emsp;- Aprender a mantener el balance en las habilidades.
+         <br><br>
+         &emsp;- Aprender a configurar los turnos en el juego.
+         <br><br>
+         &emsp;- Aprender a crear y configurar habilidades nuevas.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Cómo crear una habilidad</h2>
+      <p class="texto">
+         Voy a adentrarme en la base de datos del RPG Maker MV. Concretamente, en la pestaña “Habilidades” para tratar de explicar
+         detalladamente qué hacer ahí.
+         <br><br>
+         Lo primero será diferenciar los tipos de habilidad que habrá en el videojuego. Con esto me refiero a, por ejemplo, 
+         habilidades mágicas (consumen puntos de magia o maná) y habilidades especiales (consumen TP o puntos técnicos, como los denomino).
+         Por supuesto, puedes tener más tipos de habilidad; un tercer tipo podría consumir MP y TP.
+         <br><br>
+         Para esto, iremos a la base de datos y a la pestaña “Tipos”.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad1.jpg" width="50%" alt=""></p>
+      <p class="texto">
+         En la columna “Tipos de habilidad” aumentaremos el máximo (si es necesario), y nombraremos las diferentes habilidades a utilizar.
+         En mi caso, tendré Magia y Técnica.
+         <br><br>
+         Una vez definidos los tipos de habilidad, iremos a la pestaña “Habilidades”. Aconsejo aumentar el número
+         máximo (en “Cambiar máximo”) según lo planeado para el videojuego. Es decir, si vas a tener 
+         hechizos del PJ, combos especiales, habilidades y hechizos de los enemigos, reserva una buena cantidad de
+         espacios (y divide en secciones, para que sea más fácil buscar luego, por si hay que editar).
+      </p>
+      <p class="img_centrada"><img src="img/habilidad2.jpg" width="40%" alt=""></p>
+      <p class="texto">
+         Tras esto, crearemos la habilidad convenientemente, eligiendo un lugar vacío de la lista o editando una existente.
+         <br><br>
+         Como puedes ver, cada habilidad tiene siete apartados a cumplimentar: configuración general, invocación, mensaje, arma
+         requerida, daño, efectos y nota.
+      </p>
+      <h2>Configuración general</h2>
+      <p class="texto">
+         Lo primero es ponerle un nombre que la defina, junto con el icono y la descripción (aconsejable, para que el jugador sepa qué hace).
+         <br><br>
+         Además, elige el tipo de habilidad (aparecen las etiquetas configuradas en la pestaña “Tipos”), el 
+         alcance (el objetivo donde se producirá el efecto de la habilidad) y la ocasión (dónde se podrá utilizar la
+         habilidad: nunca, sólo en batalla, sólo en el menú o siempre).
+         <br><br>
+         Si consume MP, introduce una cifra la casilla costo de MP; si consume TP, la cifra irá en costo de TP.
+         Es posible que una habilidad gaste MP y TP (habrá que poner una cifra en cada), o nada en absoluto (ambas se quedan en 0).
+      </p>
+      <p class="img_centrada"><img src="img/habilidad3.jpg" width="50%" alt=""></p>
+      <h2>Invocación</h2>
+      <p class="texto">
+         En este apartado se controla la velocidad (entre -2.000 y 2.000) con la que se realiza la acción: la cifra
+         se suma a la agilidad del PJ, PNJ o enemigo y se compara con el resto de acciones de ese mismo turno.
+         Es como la tirada de iniciativa en el rol de mesa.
+         <br><br>
+         El éxito marca la probabilidad de que la habilidad se realice: cuanto más bajo sea el porcentaje, menos probable
+         de que sea lleve a cabo.
+         <br><br>
+         El repetir se refiere al número de veces que hará efecto la habilidad.
+         <br><br>
+         La ganancia TP contempla la posibilidad de aumentar el número de TP con cada uso de la habilidad.
+         <br><br>
+         El tipo de acierto se refiere a cómo se determina si la habilidad surte efecto en el objetivo: acierto certero es un uso exitoso, ataque
+         físico compara la tasa de acierto del usuario con la tasa de evasión del objetivo, ataque mágico depende de la tasa
+         de evasión mágica del objetivo.
+         <br><br>
+         La animación se refiere al efecto visual que se reproduce con el uso de la habilidad.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad4.jpg" width="50%" alt=""></p>
+      <h2>Mensaje</h2>
+      <p class="texto">
+         En este caso, las dos líneas se pueden usar para escribir un texto que aparecerá en el log de batalla, cada vez
+         que se use la habilidad. En la imagen, el %1 se refiere al nombre de la habilidad.
+      </p>
+      <p class="nota">
+         Nota: acuérdate de dejar un espacio justo al principio, para que el nombre del PJ, PNJ o enemigo no se pegue al mensaje que escribas.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad5.jpg" width="50%" alt=""></p>
+      <h2>Arma requerida</h2>
+      <p class="texto">
+         En este apartado se puede seleccionar un arma que sea condición para usar la habilidad. Es decir, si creas una
+         habilidad que sea propia para una espada, aquí deberás elegir (en tipo de arma 1) “espada”.
+         <br><br>
+         También funciona como un condicional “o”, puesto que se puede elegir una segunda arma (en tipo de arma 2), para
+         usar la habilidad. Esto es, una técnica para arco y ballesta, por ejemplo.
+         <br><br>
+         En caso de no elegir armas, la habilidad podrá usarse con cualquier tipo (incluyendo sin armas).
+      </p>
+      <p class="img_centrada"><img src="img/habilidad6.jpg" width="50%" alt=""></p>
+      <h2>Configurando daño</h2>
+      <p class="texto">
+         Este apartado puede usarse o no, dependiendo de la habilidad. Básicamente, define el tipo y cuantía del daño que hará
+         la habilidad sobre el objetivo; también se contempla un uso positivo sobre el usuario.
+         <br><br>
+         En tipo hay siete opciones: ninguno, daño HP o MP, regenerar HP o MP y drenar HP o MP.
+         <br><br>
+         El elemento se refiere a la naturaleza
+         de la habilidad; tiene efecto si defines a un enemigo débil contra el fuego, por ejemplo. Si no, es un simple apunte narrativo.
+         <br><br>
+         En fórmula se define el cálculo para hallar el valor del daño (o de la cura o del drenaje). Debes tener en cuenta la
+         nomenclatura: se utiliza a para referirse al usuario, b para el objetivo y luego el punto (.) para acompañar a las etiquetas
+         de los parámetros correspondientes (ataque, defensa, ataque mágico, defensa mágica, etc.).
+         <br><br>
+         La variación se refiere al porcentaje de fluctuación del resultado obtenido en la fórmula. Por ejemplo, utilizando la de la
+         imagen: si el usuario tiene un ataque mágico (mat) de 10, el resultado sería de 25 + 10*2,5 = 50 con un 20% de variación.
+         Esto es, el resultado final estaría entre 50 – 50*0,2 (40, mínimo) y 50 + 50*0,2 (60, máximo).
+         <br><br>
+         Aciertos críticos se refiere a si habrá probabilidad (definida en el ex-parámetro tasa crítica) o no de que el resultado
+         obtenido (según la variación) se multiplique por la cifra predeterminada en el código interno del MV.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad7.jpg" width="50%" alt=""></p>
+      <h2>Configurando efectos</h2>
+      <p class="texto">
+         Hay cuatro pestañas de efectos: 
+         <br><br>
+         <strong>Recuperar:</strong> Para restaurar HP, MP y/o TP en porcentaje y/o con valor fijo.
+         <br><br>
+         <strong>Estado:</strong> Para añadir o quitar estados con una cierta probabilidad.
+         <br><br>
+         <strong>Parámetros:</strong> Añade o quita ventajas y desventajas durante un número definido de turnos.
+         <br><br>
+         <strong>Otro:</strong> Diferentes efectos añadidos, como aumentar un parámetro de forma permanente o activar un evento común.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad8.jpg" width="40%" alt=""></p>
+      <h2>Creando nota</h2>
+      <p class="texto">
+         Este cuadro de texto se usa para apuntar información o detalles sobre la habilidad, o para usar etiquetas propias
+         de algún plugin (Action Sequence de Yanfly), por ejemplo. Lo escrito aquí no se visualiza en la partida; es código
+         para uso interno o comentarios (estilo //texto-que-sea en JavaScript).
+      </p>
+      <p class="img_centrada"><img src="img/habilidad9.jpg" width="40%" alt=""></p>
+      <p class="nota">
+         Nota importante: para que el PJ pueda usar los tipos de habilidad creados, recuerda añadir esos atributos en la
+         pestaña “Actores” (si quieres que uno o varios PJs usen uno o varios tipos de habilidad) o “Clases” (si quieres definir
+         qué clases podrán usar uno o varios tipos de habilidad.
+      </p>
+      <p class="img_centrada"><img src="img/habilidad10.jpg" width="70%" alt=""></p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>

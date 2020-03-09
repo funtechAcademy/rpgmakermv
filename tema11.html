@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 11: Crear una NPC Tienda</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Crear una Tienda</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En algunas partes de la aventura necesitamos que el jugador pueda reabastecerse y en comprar nuevos suministros para su
+         aventura, por lo que es necesario crear lugares donde este pueda adquirirlos.
+         <br><br>
+         En esta clase veremos los conceptos básicos que deben respetar las tiendas y como estas afectan en la dificultad del juego.
+         <br><br>
+         Ademas aprenderemos a implementar todo esto en RPG Maker y veremos los diferentes tipos de tienda que podemos crear.
+         <br><br>
+         &emsp;- Conocer la importancia de los vendedores/tiendas en los juegos.
+         <br><br>
+         &emsp;- Conocer el balance al juego que aporta este recurso.
+         <br><br>
+         &emsp;- Aprender a crear una tienda básica
+         <br><br>
+         &emsp;- Aprender a diseñar un mapa de tienda.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Creando una tienda</h2>
+      <p class="texto">
+         Una tienda en RPG Maker es un concepto muy utilizado cuando queremos que el jugador disponga de un punto en donde comerciar y poder obtener beneficios varios. Las entidades comercian con la moneda del juego en este caso <strong>oro</strong> y no se admiten trueques u otro tipo de intercambio.
+         <br><br>
+         Para definir una tienda necesitamos crear un evento especifico, por lo que primero debemos cambiar al modo eventos, una vez alli haremos doble clic sobre el recuadro donde querramos posicionar al vendedor y se abrirá el panel de eventos.
+      </p>
+      <p class="img_centrada"><img src="img/11-1.png" width="80%" alt=""></p>
+      <p class="texto">
+         Una vez allí daremos <strong>doble clic</strong> sobre la sección de <strong>imagen</strong>, a continuación se nos abrirá un menu de selección de miniaturas de personajes, escogeremos la que mas se ajuste a nuestra necesidades.
+      </p>
+      <p class="img_centrada"><img src="img/11-2.png" width="80%" alt=""></p>
+      <p class="texto">
+         Una vez hecho esto, empezaremos con la configuración del evento en la sección de contenido.
+         <br><br>
+         En este caso daremos doble clic en la zona de contenido y nos aparecerá una ventana con todas las opciones de evento disponibles, nosotros buscaremos la de <strong>mostrar mensaje</strong> que esta en la pestaña 1.
+      </p>
+      <p class="img_centrada"><img src="img/11-3.png" width="50%" alt=""></p>
+      <p class="texto">
+         A continuación seleccionaremos un rostro adecuado para la miniatura escogida anteriormente y un texto para el diálogo.
+      </p>
+      <p class="img_centrada"><img src="img/11-4.png" width="60%" alt=""></p>
+      <p class="texto">
+         Con esto ya tendremos un NPC con un diálogo como ya habíamos visto antes, ahora necesitamos que nos deje elegir, para ello volveremos a la sección de contenido y daremos doble clic para desplegar las opciones de evento disponibles y seleccionaremos <strong>mostrar elecciones</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/11-5.png" width="40%" alt=""></p>
+      <p class="texto">
+         Aceptaremos el cuadro y ahora daremos un contenido para la elección <strong>SI</strong> y para la
+         elección <strong>NO</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/11-7.png" width="80%" alt=""></p>
+      <p class="texto">
+         - <strong>Opción SI</strong>: En esta opción queremos que se ejecute la tienda por lo que en este campo introduciremos el evento
+         de la tienda, haciendo doble clic en esa zona y seleccionando la opción <strong>procesar tienda</strong> de la pestaña 3.
+      </p>
+      <p class="img_centrada"><img src="img/11-6.png" width="60%" alt=""></p>
+      <p class="texto">
+         Ahora configuraremos el contenido de la tienda, de esta forma podemos crear tiendas que solo vendan armaduras o que vendan solo armas, etc.
+         <br><br>
+         Para esto, daremos doble clic en alguno de los espacios del meno de procesar tienda.
+      </p>
+      <p class="img_centrada"><img src="img/11-8.png" width="40%" alt=""></p>
+      <p class="texto">
+         Hecho esto, nos aparecerá una ventana para la selección de objetos en venta, divididos en 3 categorías (objeto,
+         arma y armadura), asi como también la configuración del precio que podemos dejarla a decisión del juego o ajustarla manualmente.
+      </p>
+      <p class="img_centrada"><img src="img/11-9.png" width="40%" alt=""></p>
+      <p class="texto">
+         Una vez cargada la tienda con algunos productos daremos a aceptar.
+      </p>
+      <p class="img_centrada"><img src="img/11-10.png" width="40%" alt=""></p>
+      <p class="texto">
+         - <strong>Opción NO</strong>: Para esta opción sencillamente queremos que la conversación con el NPC termine, por lo que no
+         hara falta colocar nada.
+         <br><br>
+         Con esto ya tendremos nuestro NPC tienda preparado para comerciar con nuestro personaje.
+      </p>
+      <p class="img_centrada"><img src="img/11-11.png" width="80%" alt=""></p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>

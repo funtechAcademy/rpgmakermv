@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 13: Interruptores</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Interruptores</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         Ha llegado el momento de darle a nuestro juego un comportamiento dinámico, esto significa que nuestro juego se comportará
+         de una forma distinta dependiendo de las condiciones actuales.
+         Dichas condiciones pueden cambiar mediante eventos, por ejemplo, tener un objeto en concreto, suceder a una hora determinada, etc.
+         <br><br>
+         En esta clase aprenderemos a crear variables o interruptores y sus diferentes tipos (globales o locales).
+         También aprenderemos a vincularlos a eventos del juego y asi obtener comportamientos dependientes de la situación.
+         <br><br>
+         Daremos también un vistazo a la programación básica con el uso de los condicionales y como integrar los interruptores en estos.
+         <br><br>
+         &emsp;- Conocer los interruptores y su uso en los juegos.
+         <br><br>
+         &emsp;- Conocer los eventos dependientes.
+         <br><br>
+         &emsp;- Aprender a crear interruptores globales.
+         <br><br>
+         &emsp;- Aprender a crear interruptores locales.
+         <br><br>
+         &emsp;- Aprender a crear eventos que cambien el estado de los interruptores.
+         <br><br>
+         &emsp;- Aprender a crear un evento condicional.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Qué son los interruptores</h2>
+      <p class="texto">
+         Los interruptores son un tipo de variable que almacenan solo 2 estados, <strong>on</strong> y <strong>off</strong>.
+         Estos dos estados nos permiten definir condiciones dependiendo del estado del interruptor.
+         <br><br>
+         Por ejemplo si queremos que ocurra un determinado evento solo cuando a sucedido otro previo que es necesario en la historia,
+         podemos usar los interruptores.
+      </p>
+      <p class="nota">
+         Nota: todos los interruptores de RPG Maker, estan por defecto en <strong>off</strong>.
+      </p>
+      <h2>Implementando un evento con interruptores</h2>
+      <p class="texto">
+         Vamos a realizar un ejercicio para ver la potencia de los eventos, en este ejercicio cambiaremos la apariencia de un NPC
+         dependiendo de un interruptor que se activará cuando hablemos con otro NPC.
+         <br><br>
+         Creamos entonces un evento y asignamos una imagen para el NPC con el que vamos a hablar para activar el interruptor.
+      </p>
+      <p class="img_centrada"><img src="img/13-1.png" width="70%" alt=""></p>
+      <p class="texto">
+         Ahora haremos que NPC nos diga un mensaje para ver si funciona correctamente el evento.
+      </p>
+      <p class="img_centrada"><img src="img/13-2.png" width="50%" alt=""></p>
+      <p class="texto">
+         Y ahora creamos la linea de evento para el interruptor, para ello iremos a la opción de <strong>Selección de interruptor</strong>,
+         dentro de este menú veremos todos los interruptores que posee el juego, existe un número máximo de interruptores,
+         pero este puede ser cambiado por un número mas alto.
+         <br><br>
+         Para nuestro ejemplo crearemos un nuevo interruptor dando click en la zona libre con los nombre de interruptores y escribiendo
+         el nombre en el campo <strong>Nombre</strong>, lo llamaremos *Ejemplo*.
+      </p>
+      <p class="img_centrada"><img src="img/13-3.png" width="50%" alt=""></p>
+      <p class="texto">
+         Ahora marcaremos teniendo seleccionado el interruptor <strong>Ejemplo</strong> marcaremos la
+         casilla <strong>ON</strong> de la sección <strong>Operación</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/13-4.png" width="40%" alt=""></p>
+      <p class="texto">
+         Con esto ya tenemos el NPC preparado para que cambie el estado del <strong>interruptor</strong>, ahora crearemos
+         el otro NPC que será el que cambie su apariencia, para esto crearemos un nuevo evento y le daremos una imagen inicial al NPC.
+      </p>
+      <p class="img_centrada"><img src="img/13-5.png" width="70%" alt=""></p>
+      <p class="texto">
+         Ahora haremos algo nuevo, crearemos una nueva pagina de evento que solo ejecutará si el evento esta
+         en <strong>ON</strong>, para ello iremos a la parte superior de la ventana de eventos y pincharemos
+         en el botón de <strong>Nueva Pág. de evento</strong>, con esto se nos creará una nueva pagina de evento.
+         <br><br>
+         A continuación dentro de l página nueva de evento, iremos al panel izquierdo y marcaremos en la sección
+         de <strong>Condiciones</strong> la casilla de <strong>Interruptor</strong> y seleccionaremos en el desplegable
+         nuestro interruptor llamado <strong>Ejemplo</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/13-7.png" width="50%" alt=""></p>
+      <p class="texto">
+         Con esto conseguiremos que solo se active si el interruptor ejemplo está a <strong>ON</strong>. Una vez hecho esto daremos
+         una imagen para el NPC en esta nueva página de evento (que sera la imagen a la que cambiará).
+      </p>
+      <p class="img_centrada"><img src="img/13-6.png" width="70%" alt=""></p>
+      <p class="texto">
+         Con esto ya tendremos creado nuestro interruptor para hacer el cambio de apariencia, solo tendremos que hablar con
+         el NPC <strong>desencadenante</strong>.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 4: Diálogos</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Diálogos</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En esta lección veremos uno de los pilares fundamentales de cualquier videojuego, los <strong>diálogos</strong>, veremos la importancia de
+         los diálogos de los personajes como medio para transmitir parte de la historia y de como esta se va desarrollando
+         mediante la información que podemos hacer que los NPCs (Non-Player Character) cuenten al jugador.
+         <br><br>
+         Ademas veremos como crearlos utilizando el asistente de diálogos de RPG Maker, los diferentes tipos, como diálogos
+         encadenados, elecciones, dar énfasis a texto mediante colores, etc y cómo implementarlos mediante un evento en el juego.
+         <br><br>
+         &emsp;- Conocer la importancia de los diálogos en los videojuegos.
+         <br><br>
+         &emsp;- Aprender a crear un dialogo simple con RPG Maker.
+         <br><br>
+         &emsp;- Aprender a crear un dialogo encadenado.
+         <br><br>
+         &emsp;- Aprender a crear un dialogo de decisión.
+         <br><br>
+         &emsp;- Aprender a crear un dialogo desencadenante de evento.
+         <br><br>
+         &emsp;- Aprender a colorear un texto.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Cómo crear un diálogo</h2>
+      <p class="texto">
+         Se trata de crear un evento (persona, ente invisible, narrador, monstruo, enemigo, cosa que habla, etc.), dándole un 
+         aspecto gráfico en ciertos casos.
+         <br><br>
+         La mecánica será igual para todos los casos. Lo único que va a diferir es la complejidad y el tamaño del diálogo o conversación.
+         Lo primero será crear el evento, crear un nuevo comando de evento (doble click o click derecho > nuevo…) y seleccionar 
+         Mostrar texto (pestaña 1, en el cuadro Mensaje).
+      </p>
+      <p class="img_centrada"><img src="img/eventMostrarTextoRPG.jpg" width="60%" alt=""></p>
+      <p class="texto">
+         De este modo, aparecerá la ventana de Mostrar texto, donde escribirás la parrafada que se te ocurra.
+         Tiene varias opciones que explico a continuación:
+      </p>
+      <p class="img_centrada"><img src="img/ventanaDialogoRPG.jpg" width="60%" alt=""></p>
+      <p class="texto">
+         <strong>Rostro:</strong> haciendo doble click, aparecerá una ventana donde podrás elegir la face que quieras
+         (incluso la del PJ, si estás escribiendo un texto pronunciado por el susodicho).
+         <br><br>
+         <strong>Texto:</strong> aquí introducirás las palabras y códigos para crear el mensaje. Si dejas el puntero del ratón sobre
+         el cuadro unos segundos, aparecerá un tag con los códigos (carácter de control) que puedes usar.
+         Por ejemplo: si escribes “\$” (sin comillas), se abrirá la ventana del dinero/oro al ejecutar el evento en la partida.
+         <br><br>
+         Si te fijas, en la parte derecha hay una raya finita: marca el límite para el texto. Si te pasas, el texto se cortará.
+         Lo recomendable, en ese caso, es pasar a la siguiente línea (dándole a Enter).
+         <br><br>
+         <strong>Fondo:</strong> el background donde se visualizará el texto (ventana, oscurecer o transparente). Por defecto, ventana.
+         <br><br>
+         <strong>Posición de ventana:</strong> dónde aparecerá el texto en el juego (superior, centro o inferior). Por defecto, inferior.
+         <br><br>
+         <strong>Vista previa:</strong> muestra cómo quedaría el texto en el juego, incluyendo algunos códigos (como, por ejemplo, colores).
+         <br><br>
+         <strong>Entrada de lote:</strong> activar esta opción te permite crear mensajes con más de cuatro líneas. Es otro límite, ya que a partir de la quinta línea (inclusive), se cortará el mensaje.
+      </p>
+      <p class="img_centrada"><img src="img/ejemploDialogoRPG.jpg" width="60%" alt=""></p>
+      <p class="texto">
+         Explicado esto, pasaré a definir casos específicos: un texto simple (informativo), un texto variable y un texto con opciones.
+      </p>
+      <h2>Cómo crear un texto simple o informativo</h2>
+      <p class="texto">
+         Interacciones fáciles como: un cartel indicador, un gato que maúlla, un perro que ladra, un PNJ que siempre dice lo mismo, etc. 
+         ¿Qué hay que hacer? Tan fácil como escribir el mensaje, poner una face (si es necesario) y configurar el resto de opciones al gusto.
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo1RPG.jpg" width="60%" alt=""></p>
+      <p class="texto">
+         El resultado en el juego:
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo2RPG.jpg" width="70%" alt=""></p>
+      <h2>Cómo crear un texto variable</h2>
+      <p class="texto">
+         Interacciones que cambian según unas condiciones como, por ejemplo, una variable que almacene los días de la semana;
+         de esta forma, el PNJ dirá algo diferente el lunes, el martes, etc. también, utilizando un interruptor para que,
+         una vez hecha la primera acción con un evento, salte a una segunda pestaña con otro texto.
+         <br><br>
+         <strong>¿Qué hay que hacer?</strong> 
+         <br><br>
+         Tomando el segundo ejemplo, se escribirá el primer mensaje en la página 1, se activará el interruptor automático A y se creará una nueva página del evento. Y, en esta segunda página, se aplicará la condición de tener el interruptor automático A activo y se escribirá otro texto. De esta forma, el PNJ creado dirá el texto de la página 1 en la primera interacción; luego, repetirá el texto de la segunda página.
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo3RPG.jpg" width="80%" alt=""></p>
+      <p class="texto">
+         El resultado en el juego:
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo4RPG.jpg" width="70%" alt=""></p>
+      <h2>Cómo crear un texto con opciones</h2>
+      <p class="texto">
+         Interacciones que dan la posibilidad de elegir, provocando un resultado en cada caso. En algunas ocasiones, se podrá volver
+         a elegir cada opción (como en un libro dividido en varios temas); en otras, habrá que elegir una vez, descartando
+         las demás opciones (una toma de decisión frente a un PNJ para abrir un cofre de tres posibles, por ejemplo).
+         Otra posibilidad es que un evento haga una pregunta y aparezcan dos o más opciones para responderla (una tendera, por ejemplo).
+         <br><br>
+         ¿Qué hay que hacer? 
+         <br><br>
+         Tomando el tercer ejemplo, se escribiría el texto con la correspondiente pregunta, se seleccionaría Mostrar
+         opciones (en la pestaña 1 de comandos, debajo de Mostrar texto), especificando el texto de cada opción (y su configuración).
+         Tras esto, de vuelta en el código, se escribiría el texto dentro de cada opción.
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo5RPG.jpg" width="50%" alt=""></p>
+      <p class="texto">
+         El resultado en el juego:
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo6RPG.jpg" width="70%" alt=""></p>
+      <h2>Código para darle color al texto</h2>
+      <p class="texto">
+         Para darle color a una palabra, a varias o a todo un texto, se utiliza el código `\c[n]` (sin las comillas), donde n es
+         un número entre 0 y 31. Así está programado en el RMMV. ¿Y cómo saber qué color es cada número? Yendo a la carpeta del
+         juego, dentro de img/system está el archivo Window. En la parte inferior-derecha podrás ver los colores; se cuentan de
+         izquierda a derecha y de arriba abajo, empezando por el 0 (blanco, el color por defecto).
+      </p>
+      <p class="img_centrada"><img src="img/DialogInformativo7RPG.jpg" width="40%" alt=""></p>
+      <p class="texto">
+         <strong>Por ejemplo, en el siguiente texto:</strong>
+         <br><br>
+         Hola, \c[3]mundo\c[0]. \c[19]Amanece otro día\c[0] esplendoroso.
+         <br><br>
+         La palabra “mundo” se verá en verde, la frase “Amanece otro día” en azul oscuro y el resto en color blanco.
+         <br><br>
+         Es importante no olvidarse de poner \c[0], porque si no todo el texto aparecerá del último color utilizado (que no sea el propio blanco).
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>

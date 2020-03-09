@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 14: Plugins</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Plugins</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En algunos casos RPG Maker tiene ciertas limitaciones nativas, es decir, algunas funcionalidades que tal vez queremos
+         implementar en nuestro juego no vienen por defecto en las herramientas, por lo que nos vemos obligados a
+         recurrir a archivos externos a RPG Maker para agregar dichas funcionalidades.
+         <br><br>
+         En esta clase veremos como instalar plugins en RPG Maker, ademas de ver como proceder para su activación y ejecución.
+         <br><br>
+         También veremos de donde obtener estos plugins y cuales son los mas usados por la comunidad de desarrollo de RPG Maker.
+         <br><br>
+         &emsp;- Conocer el concepto de plugin.
+         <br><br>
+         &emsp;- Conocer los limites de RPG Maker y cuando debemos recurrir a un plugin.
+         <br><br>
+         &emsp;- Aprender a instalar un plugin.
+         <br><br>
+         &emsp;- Aprender a ejecutar un plugin.
+         <br><br>
+         &emsp;- Conocer las páginas mas importantes de desarrollo de plugins.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>¿Qué es un plugin?</h2>
+      <p class="texto">
+         Un plugin es un recurso que añade nuevas funcionalidades a los programas, en el caso de RPG Maker son fragmentos de
+         código en un lenguaje de programación llamado JavaScript.
+         <br><br>
+         RPG Maker es amigable con los plugins desarrollados por terceros, lo que nos permite instalarlos sin muchas dificultades.
+         Para nuestro ejemplo descargaremos un plugin que cambia la resolución de pantalla.
+      </p>
+      <h2>Instalando el plugin</h2>
+      <p class="texto">
+         Primero nos dirigiremos a la página que desarrolla el plugin
+      </p>
+      <p class="nota">
+         <a href="http://yanfly.moe/yep/">http://yanfly.moe/yep/</a>
+      </p>
+      <p class="texto">
+         Una vez allí buscaremos el pluggin llamado `Screen Resolution`, este pluggin esta al final de la lista en la sección
+         de <strong>Misc Plugins</strong>. Cuando hayamos entrado al link, se nos cargará una página web con un texto, este texto es el
+         script de JavaScript del pluggin.
+      </p>
+      <p class="img_centrada"><img src="img/14-1.png" width="70%" alt=""></p>
+      <p class="texto">
+         La pregunta ahora es ¿donde copio este código? Para responder esa pregunta primero debemos saber la ubicación
+         de los archivos de nuestro proyecto, para esto en RPG Maker iremos al menu del panel superior y buscaremos la
+         opción de <strong>Partida</strong> y dentro buscaremos la opción de <strong>Abrir carpeta</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/14-2.png" width="70%" alt=""></p>
+      <p class="texto">
+         Esta carpeta contiene todos los datos de nuestro juego como la música, las imágenes, los sprites y por supuesto
+         los <strong>Scripts</strong>.
+         <br><br>
+         Dentro de esta carpeta buscaremos la subcarpeta llamada <strong>js</strong>, y dentro de esta buscaremos una
+         llamada <strong>plugins</strong>. Dentro de esta carpeta se encuentran todos los scripts de los plugins.
+         <br><br>
+         Dentro de la carpeta plugins, crearemos un nuevo archivo de texto, dentro de esta pegaremos el contenido del script
+         de la página web que contiene el script y guardaremos.
+         <br><br>
+         Aquí surge un problema ya que RPG Maker solo interpreta archivos con extensión <strong>.js</strong>
+      </p>
+      <p class="img_centrada"><img src="img/14-3.png" width="40%" alt=""></p>
+      <p class="texto">
+         Por lo que debemos cambiar la extensión del archivo, para esto daremos click derecho en el archivo y daremos a la
+         opción de <strong>Cambiar de nombre</strong> y cambiaremos el nombre del archivo a <strong>ScreenResolution.js</strong>,
+         una vez hecho esto cerraremos la carpeta e iremos al programa RPG Maker.
+         <br><br>
+         Dentro de RPG Maker, en el panel superior buscaremos el icono del <strong>Gestor de complementos</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/14-4.png" width="60%" alt=""></p>
+      <p class="texto">
+         Dentro del gestor veremos una ventana vacía, esto es debido a que aún no hemos habilitado ningún complemento, para esto
+         daremos doble click en cualquier espacio en blanco y se nos abrirá el explorador de complementos, donde seleccionaremos
+         nuestro plugin por el nombre del archivo.
+      </p>
+      <p class="img_centrada"><img src="img/14-5.png" width="60%" alt=""></p>
+      <p class="texto">
+         Una vez elegido, el gestor nos mostrará la opciones del plugin, este plugin modifica la resolución de la ventana del juego,
+         por lo que nos mostrara las variables con las dimensiones de <strong>Screen Width</strong> y <strong>Screen Height</strong>
+         (ancho y alto en ingles), para modificar estos valores es tan sencillo como dar doble click al valor y escribir uno nuevo.
+      </p>
+      <p class="img_centrada"><img src="img/14-6.png" width="50%" alt=""></p>
+      <p class="texto">
+         Aceptamos la ventana y con esto ya tenemos el plugin funcionando en nuestro juego.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>

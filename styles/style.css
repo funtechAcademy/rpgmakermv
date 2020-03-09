@@ -5,15 +5,17 @@ body{
 
 div#cabecera{
     text-align: center;
-    background: rgb(2,0,36);
+/*    background: rgb(2,0,36);
     background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(68,117,255,1) 0%, rgba(20,182,215,1) 96%);
     -webkit-box-shadow: 0px -3px 17px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -3px 17px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -3px 17px -4px rgba(0,0,0,0.75);*/
     box-shadow: 0px -3px 17px -4px rgba(0,0,0,0.75);
 
     border-radius: 0px 0px 10px 10px;
     -moz-border-radius: 0px 0px 10px 10px;
     -webkit-border-radius: 0px 0px 10px 10px;
+    background-image:url("../img/cabecera.png");
+    background-size:100% 100%; 
     border: 0px solid #000000;
 }
 
@@ -22,7 +24,7 @@ div#cabecera>h1{
     text-align: center;
     color: white;
     margin: 0px;
-    padding: 60px;
+    padding: 54px;
     font-family: 'Bai Jamjuree';
 }
 li{
@@ -59,7 +61,7 @@ div#contenido>ul{
     padding: 45px;
 }
 div#contenido>ul>li{
-    text-align: center;
+    text-align: left;
     font-family: 'Barlow Semi Condensed';
     font-size: 2em;
     
@@ -95,6 +97,18 @@ a.volver{
     display: inline-block;
     background-color: rgb(195, 243, 241);
     margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    width: fit-content;
+    margin-left: 50px;
+}
+.nota{
+    font-family: 'Sanchez';
+    color: teal;
+    display: inline-block;
+    background-color: rgb(195, 243, 241);
+    margin: 30px;
     padding: 20px;
     border-radius: 10px;
     font-size: 1.2em;

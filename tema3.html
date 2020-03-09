@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 3: La base de datos</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>La Base de Datos</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En este tema aprenderemos los conceptos de bases de datos en el marco del desarrollo de videojuegos y de su importancia
+         como fuente de recursos. Además veremos como funciona la base de datos de RPG Maker mediante la exploración de esta.
+         <br><br>
+         Aprenderemos también la configuración y modificación de la base de datos para adaptarla a nuestros proyectos.
+         <br><br>
+         Por otro lado daremos un vistazo al generador de personajes, y crearemos nuestros propios personajes para exportarlos
+         y usarlos en nuestro juego, teniendo siempre en cuenta la coherencia con nuestra historia.
+         <br><br>
+         &emsp;- Conocer el concepto de <strong>base de datos</strong> y su importancia.
+         <br><br>
+         &emsp;- Conocer la base de datos de RPG Maker, incluyendo sus diferentes secciones.
+         <br><br>
+         &emsp;- Aprender a modificar la base de datos e introducir nuevos datos en ella.
+         <br><br>
+         &emsp;- Aprender a utilizar el generador de personajes.
+         <br><br>
+         &emsp;- Aprender a exportar personajes desde el generador e importarlos a nuestro proyecto.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Jugueteando con la base de datos</h2>
+      <p class="texto">
+         Es la zona más extensa del programa; tiene quince pestañas, cada una con gran cantidad de opciones.
+         Desde aquí, se configura cada personaje, arma, armadura, objetos, clases, tilesets, etc.
+         Incluso las frases y palabras que aparecerán en el menú o en batalla.
+      </p>
+      <p class="img_centrada"><img src="img/baseDatosRPG.jpg" width="30%" alt=""></p>
+      <p class="texto">
+         Una vez dentro veremos la siguiente ventana:
+      </p>
+      <p class="img_centrada"><img src="img/panelBD_RPG.jpg" width="80%" alt=""></p>
+      <p class="texto">
+         <strong>Actores:</strong> permite crear personajes principales.
+         <br><br>
+         <strong>Clases:</strong> permite crear una clase; es decir, un grupo de funciones para aplicar a los personajes principales.
+         <br><br>
+         <strong>Habilidades:</strong> permite crear acciones que producirán ciertos efectos fuera o en batalla.
+         <br><br>
+         <strong>Artículos:</strong> permite crear objetos capaces de producir ciertos efectos o tener importancia en el juego.
+         <br><br>
+         <strong>Armas:</strong> permite crear objetos que provoquen una mejora en el ataque.
+         <br><br>
+         <strong>Armaduras:</strong> permite crear objetos que provoquen una mejora en la defensa.
+         <br><br>
+         <strong>Enemigos:</strong> permite crear diferentes tipos de adversarios.
+         <br><br>
+         <strong>Tropas:</strong> permite crear diferentes tipos de encuentros con enemigos, yendo éstos en solitario o en grupo.
+         <br><br>
+         <strong>Estados:</strong> permite crear aspectos que influyan en el estado normal de un personaje o enemigo.
+         <br><br>
+         <strong>Animaciones:</strong> permite crear efectos visuales para ciertas acciones del videojuego.
+         <br><br>
+         <strong>Juegos de casillas:</strong> permite crear y editar los tilesets utilizados.
+         <br><br>
+         <strong>Eventos comunes:</strong> permite definir eventos que vayan a usarse en más de una ocasión (como los eventos de creación rápida), para no estar repitiendo lo mismo una y otra vez.
+         <br><br>
+         <strong>Sistema:</strong> permite configurar los datos básicos del videojuego.
+         <br><br>
+         <strong>Tipos:</strong> permite definir los nombres de elementos, tipos de habilidad, tipo de arma, tipo de armadura y tipo de equipo
+         <br><br>
+         <strong>Términos:</strong> permite configurar el texto de comandos, parámetros y mensajes básicos que se verán en la partida.
+         <br><br>
+         En las pestañas donde hay una sección denominada “nota”, se podrán apuntar detalles que se verán sólo en el editor.
+         Y, además, aplicar líneas de código desde diferentes plugins.
+      </p>
+      <h2>Tanteando el generador de personajes</h2>
+      <p class="texto">
+         Herramienta utilizada para crear personajes principales y, también, para PNJs (personajes no jugadores).
+         Además de para enemigos de tipo humanoide. Estaría bien que actualizaran el generador para crear monstruos; o cuestión de buscar
+         material extra para esto, si existe. Básicamente, genera la face y los sprites correspondientes (de movimiento, de batalla y de estados).
+      </p>
+      <p class="img_centrada"><img src="img/genPersonajesRPG.jpg" width="40%" alt=""></p>
+      <p class="texto">
+         Si consigues material para añadir más recursos al generador, ten en cuenta que esos archivos irán en la carpeta 
+         “Generator” (en las subcarpetas correspondientes), en el directorio de instalación del RPG Maker MV.
+      </p>
+      <p class="img_centrada"><img src="img/carpetaGenRPG.jpg" width="40%" alt=""></p>
+      <p class="texto">
+         Paso a explicar las funciones del generador. Crear un personaje paso por paso es sencillo: elige sus características una a una
+         hasta que te agrade el resultado final.
+      </p>
+      <p class="img_centrada"><img src="img/GeneradorRPG.jpg" width="80%" alt=""></p>
+      <p class="texto">
+         <strong>Aleatorio:</strong> si te cansa lo de ir probando cada combinación, dale a este botón hasta que te satisfaga el personaje generado.
+         <br><br>
+         <strong>Imagen de rostro:</strong> guarda la face creada en un archivo con ocho espacios (en la carpeta faces). Ese mismo archivo servirá para guardar otras sietes caras de diferentes personajes o siete expresiones distintas del mismo personaje.
+         <br><br>
+         <strong>Personaje andante:</strong> guarda los sprites de movimiento del personaje (en la carpeta characters). Ese mismo archivo servirá para guardar siete más.
+         <br><br>
+         <strong>Personaje dañino:</strong> guarda los sprites del personaje cuando está fuera de combate (en la carpeta characters). En este caso, un mismo archivo servirá para guardar treinta y dos más.
+         <br><br>
+         <strong>Batallador:</strong> guarda los sprites del personaje en combate (en la carpeta sv_actors). En este caso, será un archivo por personaje, puesto que son cincuenta y cuatro sprites.
+         <br><br>
+         <strong>Guardar configuración:</strong> guarda la configuración con los parámetros actuales, por si quieres retocar en otro momento el personaje que estabas creando. El archivo generado tendrá extensión .json (archivo de datos en JavaScript).
+         <br><br>
+         <strong>Cargar configuración:</strong> permite cargar una configuración previamente guardada, para continuar la edición de un personaje ya empezado.
+      <h3>¿Cómo optimizar el uso de un mismo archivo?</h3>
+      <p class="texto">
+         Primero exporta para crear el archivo nuevo con el primer personaje generado (por ejemplo, la face).
+         <br><br>
+         Luego, genera otro personaje; selecciona imagen de rostro y haz click en la segunda posición (o cualquier otra,
+         menos la primera); dale a importar.
+         <br><br>
+         Abre el archivo creado y te aparecerán los rostros generados.
+         <br><br>
+         Finalmente, vuelve a exportar el archivo. Estos pasos también servirán para personaje andante y personaje.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+</body>
+</html>
