@@ -23,11 +23,11 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         En esta lección veremos uno de los pilares fundamentales de cualquier videojuego, los <strong>diálogos</strong>, veremos la importancia de
+         En este tema veremos uno de los pilares fundamentales de cualquier videojuego, los <strong>diálogos</strong>. Veremos la importancia de
          los diálogos de los personajes como medio para transmitir parte de la historia y de como esta se va desarrollando
          mediante la información que podemos hacer que los NPCs (Non-Player Character) cuenten al jugador.
          <br><br>
-         Ademas veremos como crearlos utilizando el asistente de diálogos de RPG Maker, los diferentes tipos, como diálogos
+         Además veremos como crearlos utilizando el asistente de diálogos de RPG Maker, los diferentes tipos, como diálogos
          encadenados, elecciones, dar énfasis a texto mediante colores, etc y cómo implementarlos mediante un evento en el juego.
          <br><br>
          &emsp;- Conocer la importancia de los diálogos en los videojuegos.
@@ -53,12 +53,12 @@
          Lo primero será crear el evento, crear un nuevo comando de evento (doble click o click derecho > nuevo…) y seleccionar 
          Mostrar texto (pestaña 1, en el cuadro Mensaje).
       </p>
-      <p class="img_centrada"><img src="img/eventMostrarTextoRPG.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-1.jpg" width="60%" alt=""></p>
       <p class="texto">
          De este modo, aparecerá la ventana de Mostrar texto, donde escribirás la parrafada que se te ocurra.
          Tiene varias opciones que explico a continuación:
       </p>
-      <p class="img_centrada"><img src="img/ventanaDialogoRPG.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-2.jpg" width="60%" alt=""></p>
       <p class="texto">
          <strong>Rostro:</strong> haciendo doble click, aparecerá una ventana donde podrás elegir la face que quieras
          (incluso la del PJ, si estás escribiendo un texto pronunciado por el susodicho).
@@ -78,7 +78,7 @@
          <br><br>
          <strong>Entrada de lote:</strong> activar esta opción te permite crear mensajes con más de cuatro líneas. Es otro límite, ya que a partir de la quinta línea (inclusive), se cortará el mensaje.
       </p>
-      <p class="img_centrada"><img src="img/ejemploDialogoRPG.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-3.jpg" width="60%" alt=""></p>
       <p class="texto">
          Explicado esto, pasaré a definir casos específicos: un texto simple (informativo), un texto variable y un texto con opciones.
       </p>
@@ -87,11 +87,11 @@
          Interacciones fáciles como: un cartel indicador, un gato que maúlla, un perro que ladra, un PNJ que siempre dice lo mismo, etc. 
          ¿Qué hay que hacer? Tan fácil como escribir el mensaje, poner una face (si es necesario) y configurar el resto de opciones al gusto.
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo1RPG.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-4.jpg" width="60%" alt=""></p>
       <p class="texto">
          El resultado en el juego:
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo2RPG.jpg" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-5.jpg" width="70%" alt=""></p>
       <h2>Cómo crear un texto variable</h2>
       <p class="texto">
          Interacciones que cambian según unas condiciones como, por ejemplo, una variable que almacene los días de la semana;
@@ -102,11 +102,11 @@
          <br><br>
          Tomando el segundo ejemplo, se escribirá el primer mensaje en la página 1, se activará el interruptor automático A y se creará una nueva página del evento. Y, en esta segunda página, se aplicará la condición de tener el interruptor automático A activo y se escribirá otro texto. De esta forma, el PNJ creado dirá el texto de la página 1 en la primera interacción; luego, repetirá el texto de la segunda página.
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo3RPG.jpg" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-6.jpg" width="80%" alt=""></p>
       <p class="texto">
          El resultado en el juego:
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo4RPG.jpg" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-7.jpg" width="70%" alt=""></p>
       <h2>Cómo crear un texto con opciones</h2>
       <p class="texto">
          Interacciones que dan la posibilidad de elegir, provocando un resultado en cada caso. En algunas ocasiones, se podrá volver
@@ -120,11 +120,11 @@
          opciones (en la pestaña 1 de comandos, debajo de Mostrar texto), especificando el texto de cada opción (y su configuración).
          Tras esto, de vuelta en el código, se escribiría el texto dentro de cada opción.
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo5RPG.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-8.jpg" width="50%" alt=""></p>
       <p class="texto">
          El resultado en el juego:
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo6RPG.jpg" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-9.jpg" width="70%" alt=""></p>
       <h2>Código para darle color al texto</h2>
       <p class="texto">
          Para darle color a una palabra, a varias o a todo un texto, se utiliza el código `\c[n]` (sin las comillas), donde n es
@@ -132,7 +132,7 @@
          juego, dentro de img/system está el archivo Window. En la parte inferior-derecha podrás ver los colores; se cuentan de
          izquierda a derecha y de arriba abajo, empezando por el 0 (blanco, el color por defecto).
       </p>
-      <p class="img_centrada"><img src="img/DialogInformativo7RPG.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-10.jpg" width="40%" alt=""></p>
       <p class="texto">
          <strong>Por ejemplo, en el siguiente texto:</strong>
          <br><br>
@@ -145,5 +145,8 @@
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+	</div>
 </body>
 </html>

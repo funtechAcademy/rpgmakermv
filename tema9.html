@@ -26,7 +26,7 @@
          Como todo aventurero, nuestro personaje principal necesitara habilidades que pueda utilizar un su aventura.
          Dichas habilidades pueden ser propias del jugador o incluso aprendidas de alguna forma durante el juego.
          <br><br>
-         En esta clase aprenderemos acerca de las diferentes clases de habilidades para los personajes y como esto
+         En este tema aprenderemos acerca de las diferentes clases de habilidades para los personajes y como esto
          afecta al balance de nuestro juego. También veremos la mecánica de turnos para las habilidades.
          <br><br>
          Además aprenderemos a crear <strong>habilidades nuevas</strong> con RPG Maker, asi como su configuración e implementación en nuestro proyecto.
@@ -54,7 +54,7 @@
          <br><br>
          Para esto, iremos a la base de datos y a la pestaña “Tipos”.
       </p>
-      <p class="img_centrada"><img src="img/habilidad1.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-1.jpg" width="50%" alt=""></p>
       <p class="texto">
          En la columna “Tipos de habilidad” aumentaremos el máximo (si es necesario), y nombraremos las diferentes habilidades a utilizar.
          En mi caso, tendré Magia y Técnica.
@@ -64,7 +64,7 @@
          hechizos del PJ, combos especiales, habilidades y hechizos de los enemigos, reserva una buena cantidad de
          espacios (y divide en secciones, para que sea más fácil buscar luego, por si hay que editar).
       </p>
-      <p class="img_centrada"><img src="img/habilidad2.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-2.jpg" width="40%" alt=""></p>
       <p class="texto">
          Tras esto, crearemos la habilidad convenientemente, eligiendo un lugar vacío de la lista o editando una existente.
          <br><br>
@@ -82,7 +82,7 @@
          Si consume MP, introduce una cifra la casilla costo de MP; si consume TP, la cifra irá en costo de TP.
          Es posible que una habilidad gaste MP y TP (habrá que poner una cifra en cada), o nada en absoluto (ambas se quedan en 0).
       </p>
-      <p class="img_centrada"><img src="img/habilidad3.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-3.jpg" width="50%" alt=""></p>
       <h2>Invocación</h2>
       <p class="texto">
          En este apartado se controla la velocidad (entre -2.000 y 2.000) con la que se realiza la acción: la cifra
@@ -102,7 +102,7 @@
          <br><br>
          La animación se refiere al efecto visual que se reproduce con el uso de la habilidad.
       </p>
-      <p class="img_centrada"><img src="img/habilidad4.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-4.jpg" width="50%" alt=""></p>
       <h2>Mensaje</h2>
       <p class="texto">
          En este caso, las dos líneas se pueden usar para escribir un texto que aparecerá en el log de batalla, cada vez
@@ -111,7 +111,7 @@
       <p class="nota">
          Nota: acuérdate de dejar un espacio justo al principio, para que el nombre del PJ, PNJ o enemigo no se pegue al mensaje que escribas.
       </p>
-      <p class="img_centrada"><img src="img/habilidad5.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-5.jpg" width="50%" alt=""></p>
       <h2>Arma requerida</h2>
       <p class="texto">
          En este apartado se puede seleccionar un arma que sea condición para usar la habilidad. Es decir, si creas una
@@ -122,7 +122,7 @@
          <br><br>
          En caso de no elegir armas, la habilidad podrá usarse con cualquier tipo (incluyendo sin armas).
       </p>
-      <p class="img_centrada"><img src="img/habilidad6.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-6.jpg" width="50%" alt=""></p>
       <h2>Configurando daño</h2>
       <p class="texto">
          Este apartado puede usarse o no, dependiendo de la habilidad. Básicamente, define el tipo y cuantía del daño que hará
@@ -144,7 +144,7 @@
          Aciertos críticos se refiere a si habrá probabilidad (definida en el ex-parámetro tasa crítica) o no de que el resultado
          obtenido (según la variación) se multiplique por la cifra predeterminada en el código interno del MV.
       </p>
-      <p class="img_centrada"><img src="img/habilidad7.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-7.jpg" width="50%" alt=""></p>
       <h2>Configurando efectos</h2>
       <p class="texto">
          Hay cuatro pestañas de efectos: 
@@ -157,22 +157,25 @@
          <br><br>
          <strong>Otro:</strong> Diferentes efectos añadidos, como aumentar un parámetro de forma permanente o activar un evento común.
       </p>
-      <p class="img_centrada"><img src="img/habilidad8.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-8.jpg" width="40%" alt=""></p>
       <h2>Creando nota</h2>
       <p class="texto">
          Este cuadro de texto se usa para apuntar información o detalles sobre la habilidad, o para usar etiquetas propias
          de algún plugin (Action Sequence de Yanfly), por ejemplo. Lo escrito aquí no se visualiza en la partida; es código
          para uso interno o comentarios (estilo //texto-que-sea en JavaScript).
       </p>
-      <p class="img_centrada"><img src="img/habilidad9.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-9.jpg" width="40%" alt=""></p>
       <p class="nota">
          Nota importante: para que el PJ pueda usar los tipos de habilidad creados, recuerda añadir esos atributos en la
          pestaña “Actores” (si quieres que uno o varios PJs usen uno o varios tipos de habilidad) o “Clases” (si quieres definir
          qué clases podrán usar uno o varios tipos de habilidad.
       </p>
-      <p class="img_centrada"><img src="img/habilidad10.jpg" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-10.jpg" width="70%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+	</div>
 </body>
 </html>

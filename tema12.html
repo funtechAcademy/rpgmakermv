@@ -25,12 +25,12 @@
       <p class="texto">
          Ya hemos aprendido los conceptos básicos para crear un juego medianamente aceptable, sin embargo, existen eventos en el
          juego que se realizan de forma automática y que podemos usarlos para contar parte de la historia, por ejemplo como
-         una cinemática inicial que explique por que comienza nuestra aventura.
+         una cinemática inicial que explique por qué comienza nuestra aventura.
          <br><br>
-         En esta clase aprenderemos a crear eventos automáticos en RPG Maker y a utilizarlos como medio para contar una historia
+         En este tema aprenderemos a crear eventos automáticos en RPG Maker y a utilizarlos como medio para contar una historia
          o una situación en concreto.
          <br><br>
-         Ademas idearemos la historia que relatará dicha cinemática, teniendo en cuenta la coherencia con el resto de lo que queramos contar.
+         Además idearemos la historia que relatará dicha cinemática, teniendo en cuenta la coherencia con el resto de lo que queramos contar.
          <br><br>
          &emsp;- Conocer la importancia de las escenas de inicio en los juegos.
          <br><br>
@@ -45,20 +45,20 @@
       <h2>Creando un evento automático</h2>
       <p class="texto">
          Las animaciones son eventos que se ejecutan automáticamente en nuestros juegos y pueden ser usadas para introducir al
-         jugador a nuestra historia ademas de que dotan al juego de vida propia.
+         jugador a nuestra historia además de que dotan al juego de vida propia.
          <br><br>
          Vamos a realizar un evento automático sencillo haciendo que un personaje se dirija de un punto a otro y realice un diálogo.
          <br><br>
          Empezaremos creando un NPC con la imagen que mas nos convenga a la historia.
       </p>
-      <p class="img_centrada"><img src="img/12-1.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-1.png" width="80%" alt=""></p>
       <p class="texto">
          A este evento con la imagen del NPC le daremos un nombre identificativo en la parte de arriba a la izquierda, en la
          propiedad de nombre (para este ejemplo lo llamaremos <strong>señor</strong>).
          <br><br>
          A continuación planificaremos de donde a donde el personaje se moverá, para este ejemplo ira de izquierda a derecha de la sala.
       </p>
-      <p class="img_centrada"><img src="img/12-2.png" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-2.png" width="70%" alt=""></p>
       <p class="texto">
          Ahora debemos configurar el evento, esto se realiza creando <strong>un evento a parte</strong> del NPC (por ejemplo en una esquina
          del mapa), este evento contendrá todo lo que sucederá en la cinemática, en este ejemplo queremos primero una pantalla
@@ -66,32 +66,32 @@
          <br><br>
          Primero teñiremos la pantalla, para esto añadiremos un nuevo evento y seleccionaremos <strong>teñir pantalla</strong> en la pestaña 3.
       </p>
-      <p class="img_centrada"><img src="img/12-3.png" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-3.png" width="60%" alt=""></p>
       <p class="texto">
-         Ya en la ventana de teñir seleccionaremos en color negro, ademas en la opción de duración colocaremos el valor de <strong>1</strong> y
+         Ya en la ventana de teñir seleccionaremos en color negro, además en la opción de duración colocaremos el valor de <strong>1</strong> y
          desmarcaremos la casilla de <strong>Esperar hasta el fin</strong>, finalizaremos dando a aceptar.
       </p>
-      <p class="img_centrada"><img src="img/12-4.png" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-4.png" width="50%" alt=""></p>
       <p class="texto">
          Para el texto que se mostrará sobre la pantalla negra agregaremos un nuevo evento haciendo doble clic sobre la zona de
          contenido y buscaremos la opción de evento de <strong>mostrar texto</strong> en la pestaña 1.
       </p>
-      <p class="img_centrada"><img src="img/12-5.png" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-5.png" width="60%" alt=""></p>
 
       <p class="texto">
-         Colocaremos el texto que queramos, ademas cambiaremos la opción fondo por <strong>transparente</strong> y en la opción de
+         Colocaremos el texto que queramos, además cambiaremos la opción fondo por <strong>transparente</strong> y en la opción de
          posición de ventana seleccionaremos <strong>centro</strong>.
       </p>
-      <p class="img_centrada"><img src="img/12-6.png" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-6.png" width="60%" alt=""></p>
       <p class="texto">
          Una vez terminado el texto volveremos a teñir la pantalla para quitar el negro. (con los valores como en la imagen).
       </p>
-      <p class="img_centrada"><img src="img/12-7.png" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-7.png" width="50%" alt=""></p>
       <p class="texto">
          Ahora para darle un comportamiento mas natural, haremos que el evento espere 60 fotogramas o lo que lo mismo 1 segundo.
          Para ello agregaremos un evento y en la pestaña 2 la opción de <strong>esperar</strong>.
       </p>
-      <p class="img_centrada"><img src="img/12-8.png" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-8.png" width="40%" alt=""></p>
       <p class="texto">
          Ahora agregaremos el evento para que el NPC creado antes se mueva automáticamente, para esto buscamos la opción de
          evento <strong>ajustar ruta de movimiento</strong> en la pestaña 2.
@@ -104,13 +104,13 @@
          <br><br>
          Para finalizar debemos marcar la casilla <strong>Esperar hasta fin</strong>
       </p>
-      <p class="img_centrada"><img src="img/12-9.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-9.png" width="80%" alt=""></p>
       <p class="texto">
          Ahora para darle mas realismo a la escena vamos hacer un efecto de sonido para dar la impresión de que lee un libro.
          <br><br>
          Para ello vamos a añadir un nuevo evento llamado <strong>Reproducir SE</strong>, que esta en la pestaña 2.
       </p>
-      <p class="img_centrada"><img src="img/12-10.png" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-10.png" width="50%" alt=""></p>
       <p class="nota">
          Seleccionamos el efecto sonoro que aparece en la imagen.
       </p>
@@ -123,41 +123,44 @@
          Elegimos al NPC sobre el cual se mostrará el icono y escogeremos el icono de <strong>exclamación</strong>, por ultimo
          marcaremos la casilla de <strong>Esperar hasta fin</strong>.
       </p>
-      <p class="img_centrada"><img src="img/12-11.png" width="30%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-11.png" width="30%" alt=""></p>
       <p class="texto">
          Con lo que el resultado que veremos luego en el juego será el siguiente:
       </p>
-      <p class="img_centrada"><img src="img/12-12.png" width="20%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-12.png" width="20%" alt=""></p>
       <p class="texto">
          Para finalizar añadiremos un texto con la conclusión a la que llega el personaje después de leer el libro, por lo que
          añadiremos un evento de diálogo con <strong>mostrar texto</strong>.
       </p>
-      <p class="img_centrada"><img src="img/12-13.png" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-13.png" width="70%" alt=""></p>
       <p class="texto">
          Ahora debemos tener en cuenta que, para que se realice el evento debemos tener al jugador (o al menos el NPC del personaje
          jugador) en el mapa de la cinemática, por obvias razones nuestro personaje no va a aparecer en la cinemática por lo que
-         debemos cambiar su opacidad para que no sea visible, para esto agregaremos una linea de evento y seleccionaremos la
+         debemos cambiar su opacidad para que no sea visible, para esto agregaremos una línea de evento y seleccionaremos la
          opción <strong>Ajustar ruta de movimiento</strong> de la pestaña 2 y dentro escogeremos la opción
          de <strong>Cambiar opacidad...</strong> que estableceremos a <strong>cero</strong>.
       </p>
-      <p class="img_centrada"><img src="img/12-14.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-14.png" width="80%" alt=""></p>
       <p class="texto">
          Con esto, conseguiremos que el jugador no sea visible hasta que volvamos a ajustar su opacidad.
          <br><br>
-         A continuación transportaremos al jugador a su zona de inicio, para esto agregaremos linea de evento y
+         A continuación transportaremos al jugador a su zona de inicio, para esto agregaremos línea de evento y
          seleccionaremos <strong>Transferir jugador</strong> de la pestaña 2 y escogeremos como destino la zona de inicio.
       </p>
-      <p class="img_centrada"><img src="img/12-15.png" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-15.png" width="60%" alt=""></p>
       <p class="texto">
          Una vez que el jugador este en su lugar correspondiente ya podemos cambiar su opacidad para que pueda ser visible, para
-         esto agregamos una nueva linea de evento y seleccionaremos <strong>Ajustar ruta de movimiento</strong> de la pestaña 2
+         esto agregamos una nueva línea de evento y seleccionaremos <strong>Ajustar ruta de movimiento</strong> de la pestaña 2
          y dentro escogeremos la opción de <strong>Cambiar opacidad...</strong> que estableceremos a <strong>255</strong>.
          <br><br>
          Con esto ya tendremos terminada la cinemática y bastará con lanzar el juego para poder verla.
       </p>
-      <p class="img_centrada"><img src="img/12-16.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-16.png" width="80%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+	</div>
 </body>
 </html>
