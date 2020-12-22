@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 15: Sistema de Tiempo</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Sistema de Tiempo</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         Los eventos comunes son muy útiles, y en este tema veremos como se crean, configuran y se lanzan.
+         <br><br>
+         Contienen códigos generales que están a disposición del juego en todo momento, independientemente del mapa en 
+         el que estés. Además, los eventos comunes están recomendados para acciones que vas a repetir muchas veces.
+      </p>
+      <h2>¿Qué es un evento común?</h2>
+      <p class="texto">
+         Un evento común es un evento que será usado en varios mapas. De esta forma, en lugar de estar copiando el 
+         mismo evento una y otra vez, se crea uno (en el mapa o mapas correspondientes) que inicie el evento común o 
+         lo llame. 
+         <br><br>
+         Para acceder a estos eventos, iremos a la base de datos y buscaremos la pestaña de <strong>eventos 
+         comunes</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-1.png" width="70%" alt=""></p>
+      <p class="texto">
+         Cada evento común tiene cuatro apartados:
+         <br><br>
+         &emsp;- Nombre: Importante elegir uno que defina la naturaleza del evento, para saber de qué va. <br><br>
+         &emsp;- Disparador: Al igual que el resto de eventos, los comunes tienen que activarse de alguna forma. 
+         La peculiaridad de éstos es que sólo tienen tres posibilidades:<br>
+         &emsp;&emsp;• Ninguno: Se ejecuta cuando se hace una llamada.<br>
+         &emsp;&emsp;• Ejecución automática: Se ejecuta cuando el interruptor asignado se activa.<br>
+         &emsp;&emsp;• Paralelo: Se ejecuta mientras el interruptor asignado esté activo.<br>
+         &emsp;- Interruptor: Simplemente se reserva uno para eventos comunes con ejecución automática o en 
+         paralelo.<br><br>
+         &emsp;- Contenido: Aquí irá el código, las líneas de comandos de evento.<br><br>
+      </p>
+      <h2>Crear y configurar el evento común</h2>
+      <p class="texto">
+         Vamos a empezar con el sistema de tiempo para RPG Maker MV. 
+         <br><br>
+         El orden da igual: puedes crear primero el contenido y luego configurar el resto de apartados, o al revés. 
+         En este caso, empezaremos por el contenido del evento común. 
+         <br><br>
+         Debes tener presente que este evento común va a simular el paso del tiempo dentro del juego. 
+         <br><br>
+         Existen plugins que toman el tiempo del sistema, por lo que el juego utilizaría tiempo real (no una 
+         simulación). 
+         <br><br>
+         La diferencia más evidente es que, en una simulación, el tiempo solamente pasa cuando juegas; en el otro caso, 
+         el tiempo pasa aunque no se esté jugando.
+         <br><br>
+         Lo primero será asignar una porción de tiempo a cada frame del juego para que la simulación tenga sentido. 
+         <br><br>
+         Esto se hace con el comando “Esperar” (en la segunda pestaña).
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-2.png" width="60%" alt=""></p>
+      <p class="texto">
+         Por defecto, la duración es de 60 frames (fotogramas). Este número puede oscilar entre 1 y 999. 
+         <br><br>
+         Si quieres que el tiempo pase más rápido, elige un número por debajo de 60; en caso contrario, un número por 
+         encima. 
+         <br><br>
+         En nuestro caso, seleccionaremos 6 fotogramas; esto es, cada segundo real se simula en el juego en una décima
+         parte (6/60).
+         <br><br>
+          Tras esto, tenemos que asignar variables para contemplar segundos, minutos y horas.
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-3.png" width="70%" alt=""></p>
+      <p class="texto">
+         El comando <strong>"Control de las variables"</strong> está en la primera pestaña. 
+         <br><br>
+         En la primera ventana que aparece, haz clic sobre el recuadro al lado de “simple” (en la imagen, donde dice 
+         random) y en la siguiente ventana asigna posiciones a las variables que vayas a utilizar. 
+         <br><br>
+         Lo siguiente será utilizar la variable segundo con la operación “sumar” y el operando constante con valor 1. 
+         <br><br>
+         Esta línea, justo debajo del comando “Esperar”, hará que tras 6 frames (siguiendo nuestro ejemplo), se sume 1 
+         a segundo. 
+         <br><br>
+         A partir de aquí, utilizaremos tres derivaciones condicionales para añadir minutos, para añadir horas y para 
+         resetear el reloj (cuando se llega a las 00:00:00).
+      </p>
+      <br><br>
+      <p class="texto">
+         El comando <strong>“Derivación condicional”</strong> está en la primera pestaña. 
+         Una vez en la nueva ventana, haz clic sobre Variable y elige la correspondiente a segundo, aplicando el signo 
+         igual (=) y poniendo 60 en constante. 
+         <br><br>
+         Tras darle a “Aceptar”, dentro del contenido y debajo de la línea condicional (y antes de “Fin”), añadiremos 
+         dos líneas más con el comando “Control de las variables”. 
+         <br><br>
+         La primera usando segundo, operación ajustar y operando constante a 0; la segunda con minuto, operación sumar 
+         y operando constante a 1. 
+         <br><br>
+         Con esto, cada vez que segundo llegue a 60, se sumará 1 en  minuto; además, segundo volverá a 0.
+      </p>
+      <br><br>
+      <p class="texto">
+         En la siguiente derivación condicional utilizaremos minuto, aplicando el signo igual (=) y 60 en constante. 
+         <br><br>
+         Añadiremos dos líneas más con el comando “Control de las variables”. 
+         <br><br>
+         La primera usando minuto, operación ajustar y operando constante a 0; la segunda con hora, operación sumar y 
+         operando constante en 1. 
+         <br><br>
+         Con esto, cada vez que minuto llegue a 60, se sumará 1 en hora; además, minuto volverá a 0.
+      </p>
+      <br><br>
+      <p class="texto">
+         En la última derivación condicional utilizaremos hora, aplicando el signo igual (=) y 24 en constante. 
+         <br><br>
+         Añadiremos una línea más con el comando “Control de las variables”, usando hora, operación ajustar y operando
+         constante a 0. 
+         <br><br>
+         Con esto, cada vez que hora llegue a 24, se reiniciará el reloj (simulando que pasó un día).
+      </p>
+      <br><br>
+      <p class="texto">
+         Finalmente, ponle un nombre al evento común, ajusta el disparador en paralelo y asigna un interruptor (con 
+         el nombre que prefieras) para activarlo.
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-4.png" width="60%" alt=""></p>
+      <h2>Iniciar el evento común</h2>
+      <p class="texto">
+         Al tener el disparador en paralelo, este evento común se ejecutará si el interruptor asignado está activo. 
+         <br><br>
+         ¿Qué hay que hacer para esto? 
+         <br><br>
+         Ir al mapa donde quieras que el tiempo empiece a contar, y crear un evento. En nuestro caso, en la casa del 
+         PJ (donde se inicia la partida, tras la selección de personaje y la introducción).
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-5.png" width="60%" alt=""></p>
+      <p class="texto">
+         Puedes colocarlo (el nuevo evento) en una esquina del mapa, ya que el PJ no va a interactuar con el mismo. 
+         <br><br>
+         Lo bueno del evento común (el creado en la base de datos) es que, estando en paralelo, sólo necesita 
+         activarse una vez (en el mapa escogido) y seguirá ejecutándose en el resto. 
+         <br><br>
+         Si por algún motivo quieres parar el tiempo, simplemente desactiva el interruptor, creando un evento para 
+         ello en el mapa o mapas correspondientes.
+      </p>
+      <br><br>
+      <p class="texto">
+         ¿Y qué hay del contenido y configuración del nuevo evento? 
+         <br><br>
+         Un evento con dos páginas: en la primera, se activa el interruptor designado en el evento común (“paso del 
+         tiempo”, en nuestro  caso). 
+         <br><br>
+         Se inicializan las tres variables (simulando la hora que prefieras).
+         <br><br>
+         Y finalmente se activa un interruptor local para pasar a la segunda página, donde el evento se cierra 
+         (si no, estaría ejecutándose en bucle infinito). 
+         <br><br>
+         Además, el disparador de este evento debe estar en paralelo, para que no choque con otros eventos dentro 
+         <br><br>
+         del mapa y siga ejecutándose, mientras el PJ interactúa.
+      </p>
+      <p class="img_centrada"><img src="img/tema15/15-6.png" width="50%" alt=""></p>
+      <p class="texto">
+         Además de simular el paso del tiempo en la partida, este evento común puede utilizarse para, por ejemplo, 
+         que el PJ pueda consultar un reloj (en un tile), para crear otros eventos comunes basados en esto o para 
+         visualizar la hora en pantalla.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+	</div>
+</body>
+</html>

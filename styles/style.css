@@ -138,6 +138,10 @@ a.volver
    margin-top: 20px;
    font-size: 1.5em;
    color: rgba(68,117,255,1);
+   text-align: right;
+   display: inline-block;
+   width: 100%;
+   box-sizing: border-box;
 }
 
 .advertencia
