@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 16: Switches y Variables</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Switches y Variables</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En este tema aprenderemos a utilizar las variables y los switches en nuestros eventos.
+         <br><br>
+         Dichos elementos nos permiten asignar comportamientos a los eventos para que dependan de ciertas condiciones.
+      </p>
+      <h2>Un Poco de lo Básico</h2>
+      <p class="texto">
+         Si estas familiarizado con algún lenguaje de programación, probablemente ya sabes como se utilizan las 
+         variables. 
+         <br><br>
+         Sin embargo si no lo estas, vamos a ver a las variables y switches como cajas en la vida real. Dichas cajas 
+         pueden contener cualquier cosa pero por fuera siguen viéndose como cajas. 
+         <br><br>
+         Este principio se aplica igual en la programación, ya que una variable puede contener algún valor que podemos 
+         utilizar mas adelante en nuestro código y como su nombre indica, este contenido puede variar dependiendo de 
+         nuestras necesidades.
+         <br><br>
+         Por otro lado los switches los veremos como interruptores y como tales solo tienen dos posiciones (encendido 
+         y apagado). 
+         <br><br>
+         Aplicando este principio a la programación, los switches son como variables pero que solo pueden almacenar 
+         valores true o false y al igual que las anteriores el contenido puede variar dependiendo de nuestras 
+         necesidades.
+      </p>
+      <h2>El Funcionamiento de las Variables</h2>
+      <p class="texto">
+         Pero, ¿cómo podemos usar todo esto en RPG Maker? 
+         <br><br>
+         Pues, aquí algunas ideas:
+         <br><br>
+         • Hacer un seguimiento de los cofres abiertos a lo largo del juego.<br>
+         • Sabes si un jefe ha sido derrotado.<br>
+         • Avisar al jugador que no puede acceder a un área sin un a llave.<br>
+         • Cambiar la recompensa de una misión dependiendo de cómo el jugador la completó. Por ejemplo, dando una 
+           recompensa mayor si mato a todos los bandidos de la zona en lugar de solo esquivarlos.
+         <br><br>
+         Veamos un ejemplo de como funcionan las variables y los switches, creando un evento donde tengamos que darle 
+         a un botón para abrir una puerta.
+         <br><br>
+         Para ello iremos al menú de eventos presionando F6, a continuación daremos click derecho a la zona del mapa 
+         donde queremos colocar el botón que abrirá la puerta, se desplegará un menú y pulsaremos el botón de nuevo, 
+         para crear así un nuevo evento.
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-1.png" width="70%" alt=""></p>
+      <p class="texto">
+         Dentro de la ventana del asistente de eventos tenemos las siguientes opciones:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-2.png" width="70%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;• En la parte superior izquierda tenemos las <strong>Condiciones</strong> para el evento. Si no has 
+                 activado ninguna el evento en cuestión siempre estará activo.
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-3.png" width="40%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;• Debajo de la anterior tenemos la selección de <strong>Imagen</strong>, donde podemos elegir un 
+                 tileset que se mostrara en el mapa, ya sea un enemigo o un NPC.
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-4.png" width="20%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;• En la parte inferior tenemos la lista de <strong>Opciones</strong>:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-5.png" width="20%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;&emsp;- <strong>Andar</strong>: Detecta si el jugador cambia de posición. De ser así, el NPC girará con
+                       él.
+         <br><br>
+         &emsp;&emsp;- <strong>Animado</strong>: Cuando está marcada, el NPC se moverá. Esta opción debe utilizarse si 
+                       se quieren emular gestos.
+         <br><br>
+         &emsp;&emsp;- <strong>Dirección Fija</strong>: Cuando está activada, el NPC permanecerá en su sitio apuntando 
+                       siempre a la misma dirección.
+         <br><br>
+         &emsp;&emsp;- <strong>Atravesable</strong>: Cuando está activada, el jugador sera capaz de pasar a través del 
+                       NPC.
+         <br><br><br>
+         &emsp;• En la parte derecha de las opciones de imagen, tenemos las opciones de <strong>Movimiento 
+                 Automático</strong>, que se divide en tres funciones:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-6.png" width="30%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;&emsp;- <strong>Tipo</strong>: Define el tipo de movimiento que usa el evento. Tenemos cuatro tipos de 
+                       movimiento:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Fijo</strong>: El evento permanece en el sitio inicial sin moverse. Podemos 
+                             usarlo, por ejemplo, para eventos que queramos que se mantengan en su sitio, como un cofre 
+                             o una puerta.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Aleatorio</strong>: El evento se mueve en direcciones aleatorias.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Enfocado</strong>: Un evento con este tipo de movimiento intentará acercarse al 
+                             jugador por su cuenta.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Personalizado</strong>: El evento se movera a la posicion donde hagamos click. 
+                             Esto también hace que el evento se mueva de regreso a la posición inicial. 
+         <br><br><br>
+         &emsp;&emsp;- <strong>Velocidad</strong>: Define que tan rápido se mueve el evento dependiendo del patrón 
+                       establecido.
+         <br><br>
+         &emsp;&emsp;- <strong>Freq.</strong>: Define la frecuencia en la que se ejecuta el patrón de movimiento 
+                       definido.
+         <br><br><br>
+         &emsp;• Debajo tenemos <strong>Prioridad</strong>. Esta opción define la capa gráfica en la que se encuentra 
+                 el evento:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-7.png" width="30%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;&emsp;- <strong>Debajo de los Personajes</strong>: El evento se encuentra debajo del jugador. Esta 
+                       característica se usa cuando el evento es un botón del suelo por ejemplo.
+         <br><br>
+         &emsp;&emsp;- <strong>Igual que los Personajes</strong>: El evento se encuentra a la misma altura que el 
+                       jugador.
+         <br><br>
+         &emsp;&emsp;- <strong>Encima de los Personajes<strong>: El evento se encuentra sobre la cabeza del jugador. 
+                       Esta característica se usa en candelabros por ejemplo.
+         <br><br><br>
+         &emsp;• Debajo de la anterior tenemos <strong>Accionamiento</strong>, que define qué acción desencadenará el 
+                 evento:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-8.png" width="30%" alt=""></p>
+      <p class="texto">
+         <br>
+         &emsp;&emsp;- <strong>Botón de Acción</strong>: Define que un evento se activará cuando se presione el botón 
+                       de acción (tecla espacio o tecla intro).
+         <br><br>
+         &emsp;&emsp;- <strong>Toque del Jugador</strong>: Se activa cuando el jugador pasa encima del evento. Está 
+                       relacionado con la prioriadad <strong>Debajo de los Personajes</strong>.
+         <br><br>
+         &emsp;&emsp;- <strong>Toque del Evento</strong>: Se activa cuando el propio evento toca al jugador. Por 
+                       ejemplo podrías usarlo cuando quieres crear proyectiles que el jugador debe esquivar.
+         <br><br>
+         &emsp;&emsp;- <strong>Proceso Automático</strong>: Esto define que el evento siempre esta en ejecución y 
+                       repetirá sus acciones hasta que algo lo detenga. Probablemente este disparador sea la forma 
+                       mas fácil de crashear tu juego cuando lo ejecutes. En general solo se usa para crear cinemáticas.
+         <br><br>
+         &emsp;&emsp;- <strong>Proceso Paralelo</strong>: Al igual que <strong>Proceso Automático</strong>, siempre 
+                       esta activo, pero se ejecuta de manera paralela al juego, por lo que no interrumpe el flujo 
+                       normal del mismo.
+         <br><br><br>
+         &emsp;• A la derecha, tenemos el <strong>Contenido</strong> del evento. Aquí se irán pasando todas las 
+                 opciones seleccionadas a un lenguaje de programación, en este caso Ruby.
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-9.png" width="50%" alt=""></p>
+      <p class="texto">
+         <br><br>
+         Una vez comprendida la página de eventos, ya podemos continuar con nuestro proyecto. Para ello debemos tener 
+         claro los siguientes puntos:
+         <br><br>
+         &emsp;• Queremos un botón que el personaje pueda pulsar.
+         <br><br>
+         &emsp;•  No queremos que la puerta de entrada sea revelada, hasta que se haya pulsado dicho botón.
+         <br><br>
+         &emsp;•  Queremos que el botón refleje el hecho de que ha sido pulsado.
+         <br><br>
+         ¿Cómo conseguimos todo eso? Pues, con un switch. Para crear todo esto configuraremos un botón tal como se 
+         muestra en la imagen.
+         <br><br>
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-10.png" width="50%" alt=""></p>
+      <p class="texto">
+         Podemos añadir al evento un texto, que se mostrará cuando activemos el botón (cuando lo pisemos). 
+         <br><br>
+         Añadiremos con el menú de eventos la opción de activar interruptor global. 
+         <br><br>
+         Ahora seleccionaremos el interruptor que queremos activar, en este ejemplo será "0001 Switch".
+         <br><br>
+         Una vez terminado, añadiremos una nueva página de evento y en las condiciones, marcaremos Switch y 
+         seleccionaremos el switch previamente configurado, tal y como se ve en la imagen: 
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-11.png" width="50%" alt=""></p>
+      <p class="texto">
+         Podemos añadir un texto donde se nos diga que ya se ha presionado el botón.
+         <br><br>
+         Ahora crearemos el evento de la puerta secreta. Dicho evento también dependerá del switch creado en el evento
+         anterior. Lo crearemos como se ve en la figura:
+      </p>
+      <p class="img_centrada"><img src="img/tema16/16-12.png" width="50%" alt=""></p>
+      <p class="texto">
+         Añadiremos también al evento la opción de transferir al personaje al mapa de la cueva.
+         <br><br>
+         Aprendido esto, ya podemos crear cualquier tipo de evento que dependa de otro.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+   </div>
+</body>
+</html>
