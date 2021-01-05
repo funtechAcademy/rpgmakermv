@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 17: Compañeros de Viaje</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Compañeros de Viaje</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En este tema aprenderemos a crear y configurar compañeros para el personaje principal, así como sus 
+         habilidades y debilidades.
+      </p>
+      <h2>Los Actores</h2>
+      <p class="texto">
+         Hasta ahora hemos tenido como personaje principal a Harold. Sin embargo, ha llegado el momento de conocer 
+         mejor como está configurado y que podemos cambiar, para adaptarlo a nuestra historia.
+         <br><br>
+         Para empezar, presionaremos F9 para abrir la ventana de la base de datos. Dentro tendremos la siguiente 
+         vista:
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-01.png" width="80%" alt=""></p>
+      <p class="texto">
+         En RPGmaker, los personajes son llamados Actores y se pueden configurar de acuerdo a nuestras necesidades. 
+         <br><br>
+         Por defecto se crean 4 actores (incluyendo al principal). Podemos cambiar la cantidad dándole al botón de 
+         cambiar máximo.
+         <br><br>
+         Explicaremos cada apartado del menú:
+         <br><br>
+         &emsp;• <strong>Configuracon General</strong>: Cubre la información básica del actor como su nombre, clase, 
+                 nivel, etc.
+         <br><br>
+         &emsp;• <strong>Gráficos</strong>: Hay un set de 3 imágenes, podemos cambiarlas con el generador de personajes.
+         <br><br>
+         &emsp;• <strong>Equipamiento Inicial</strong>: Define el equipo con el que iniciar el actor. En algunas 
+                 historias podríamos prescindir de este equipo, por ejemplo si el personaje inicia siendo prisionero.
+         <br><br>
+         &emsp;• <strong>Atributos</strong>: Las características (o atributos) son un tema muy extenso en RPGmaker. 
+                 Lo trataremos en detalle más adelante en el curso. 
+         <br><br>
+         &emsp;Sin embargo, puedes ver que los cuatro actores por defecto tienen 
+               este campo vacío. Esto se debe a que las características (o roles) las tienen las clases a las que 
+               pertenecen y no ellos mismos.
+      </p>
+      <h2>Roles</h2>
+      <p class="texto">
+         Cada uno de los actores generados tienen su propio Rol. Por ejemplo, Harold es del Rol Héroe. 
+         <br><br>
+         Como puedes ver, cada Rol tiene características diferentes (atributos). 
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-02.png" width="80%" alt=""></p>
+      <p class="texto">
+         Veamos en detalle la ventana de clases.
+      </p>
+      <p class="texto">
+         &emsp;• <strong>Configuración general</strong>: Aquí definimos los ajustes básicos del Rol.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-03.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Curva de EXP</strong>: Es una contracción de curva de experiencia. Define a que 
+                       velocidad la clase en cuestión sube de nivel basándose en ciertos parámetros que podemos ver si 
+                       hacemos click sobre los números entre corchetes.
+         <br><br><br>
+         &emsp;• <strong>Curvas de Parámetro</strong>: Afecta a cómo la clase sube dichos atributos en cada nivel. 
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-04.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;Puedes modificar el parámetro haciendo doble click. Dentro de los parámetros tenemos:
+         <br><br>
+         &emsp;&emsp;- <strong>PV Max.</strong>: Puntos de vida máximos. Si decae a cero el personaje muere y 
+                       necesitara ser revivido.
+         <br><br>
+         &emsp;&emsp;- <strong>PM Max.</strong>: Puntos mágicos máximos. Se usa para lanzar hechizos.
+         <br><br>
+         &emsp;&emsp;- <strong>Ataque</strong>: Cantidad de daño que la clase hace con un arma determinada.
+         <br><br>
+         &emsp;&emsp;- <strong>Defensa</strong>: influye sobre la cantidad de daño que el jugador recibe de los 
+                       enemigos. La formula por defecto es [ATK*4 – DEF*2].
+         <br><br>
+         &emsp;&emsp;- <strong>Ataq. Mág.</strong>: Poder de ataque mágico. Es la cantidad de daño mágico que el 
+                       jugador realiza, se puede utilizar en las formulas de hechizos para determinar su daño.
+         <br><br>
+         &emsp;&emsp;- <strong>Defen. Mág.</strong>: Poder de defensa mágico. Es la cantidad de mitigación de daño 
+                       mágico que el jugador recibe. Se puede también utilizar en las formulas de reducción de daño.
+         <br><br>
+         &emsp;&emsp;- <strong>Agilidad</strong>: Mientras mayor sea la agilidad, mayor será la velocidad del turno del 
+                       jugador.
+         <br><br>
+         &emsp;&emsp;- <strong>Suerte</strong>: A diferencia de otros juegos, en RPGmaker la suerte actuá con 
+                       aleatoriedad en muchos atributos, por ejemplo, en la posibilidad de quedar envenenando, etc.
+         <br><br><br>
+         &emsp;• <strong>Habilidades a aprender</strong>: Las habilidades son un aspecto crítico en RPG maker ya que 
+                 sin ellas, el jugador solo podría atacar con su arma, lo cual seria en muchos casos insuficiente para 
+                 vencer a un jefe. Por defecto tenemos algunos ejemplos de habilidades incluidos en Harold.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-05.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Atributos</strong> (Características): Lista de los atributos que usará este objeto.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-06.png" width="40%" alt=""></p>
+      <p class="texto">
+         Veamos las atributos que vienen con la clase Héroe:
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa del Objetivo</strong>: Determina que miembro del grupo es seleccionado como 
+                       objetivo de los enemigos. Por defecto es del 100%. En algunos casos nos puede interesar que una 
+                       clase en particular tenga una alta tasa de esta característica, ya que si queremos que sea 
+                       nuestro tanque, debe tener al que los enemigos tomen como objetivo.
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa de Acierto</strong>: Determina la precisión de los ataques. La formula clásica es la 
+                       tasa base + un bonus de precisión, que puede ser añadido por alguna habilidad.
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa de Críticos</strong>: Es la posibilidad del jugador de hacer un daño que sea del 
+                       triple de lo normal.
+         <br><br>
+         &emsp;&emsp;- <strong>Añadir Tipo de Habilidad</strong>: Este atributo establece qué tipo de de habilidades 
+                       usará la clase. En RPG maker tenemos dos tipos: <strong>Especial</strong> y 
+                       <strong>Mágica</strong>. Una clase necesita tener establecido un tipo de habilidades antes de 
+                       poder usarla.
+         <br><br>
+         &emsp;&emsp;- <strong>Eq. Tipo de Arma y Tipo de Armadura</strong>: Define que tipo de armas y armaduras puede 
+                       equipar la clase. Por ejemplo, un mago solo debería poder equipar togas y trajes de tela y no 
+                       armaduras pesadas.
+      </p>
+      <h2>Habilidades</h2>
+      <p class="texto">
+         En esta pestaña tenemos las diferentes habilidades que pueden tener los actores, ya sean mágicas o especiales.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-07.png" width="80%" alt=""></p>
+      <p class="texto">
+         Entre las opciones de configuración tenemos:
+         <br><br>
+         &emsp;• <strong>Configuración General</strong>: Especifica los valores básicos de la habilidad. 
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-08.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Tipo de Habilidad</strong>: Denota que categoría de habilidad debe ser desbloqueada por 
+                       el jugador antes de poder usarla. 
+         <br><br>
+         &emsp;&emsp;- <strong>Costes de Puntos Mágicos</strong>: Cantidad de puntos mágicos que consume la habilidad.
+         <br><br>
+         &emsp;&emsp;- <strong>Costes de Puntos de Técnica</strong>: Cantidad de puntos de técnica que consume la 
+                       habilidad. Los puntos de técnica se ganan cuando el jugador recibe daño o utiliza habilidades.
+         <br><br>
+         &emsp;&emsp;- <strong>Afecta a</strong>: Alcance. Define a cuantos enemigos afecta el ataque, en este caso 
+                       solo afecta a uno.
+         <br><br>
+         &emsp;&emsp;- <strong>Ocasión</strong>: Define cuando puede usarse la habilidad.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Siempre</strong>: La habilidad puede usarse fuera y dentro del combate.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Pantalla de Batalla</strong>: La habilidad solo se puede usar en combate.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Pantalla de Menú</strong>: La habilidad solo se puede usar en el menú del jugador.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Nunca</strong>: La habilidad no puede usarse. Podemos disponer de ella en un 
+                             evento por ejemplo.
+         <br><br><br>
+         &emsp;• <strong>Daño</strong>: Además de su nombre, podemos desglosar ciertas características: 
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-09.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Tipo</strong>: Define el tipo de efecto que tendrá la habilidad. 
+         <br><br>
+         &emsp;&emsp;- <strong>Elemento</strong>: Determina el tipo de elemento de la habilidad.
+         <br><br>
+         &emsp;&emsp;- <strong>Fórmula</strong>: Aquí se define matemáticamente cual es la cantidad de daño que hará la 
+                       habilidad. Explicaremos esto mas adelante. Por ahora debes saber que la letra a designa al 
+                       usuario de la habilidad y la letra b al objetivo de la habilidad. Los estados que podemos tener 
+                       en cuenta son:
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-10.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Variación</strong>: Determina el grado de variabilidad del daño de la habilidad. Por 
+                       ejemplo si una habilidad hace 100 puntos de daño y la varianza esta al 20%, el daño en el 
+                       objetivo estará en un intervalo entre 80 y 120 puntos.
+         <br><br>
+         &emsp;&emsp;- <strong>Golpes Críticos</strong>: Determina si la habilidad puede hacer golpes críticos o no.
+         <br><br><br>
+         &emsp;• <strong>Efectos</strong>: Esto es para las habilidades lo que las características (atributos) son 
+                 para los actores. Podemos añadir diferentes efectos dependiendo de nuestras necesidades.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-11.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Invocación</strong>: Define la habilidad en si misma.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-12.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Velocidad</strong>: Ajusta la agilidad del usuario hacia arriba o hacia abajo mientras 
+                       se use la habilidad.
+         <br><br>
+         &emsp;&emsp;- <strong>Éxito</strong>: Define el porcentaje de éxito de la habilidad, puede que algunos casos 
+                       quieras un porcentaje bajo como en habilidades que maten de un solo uso, etc.
+         <br><br>
+         &emsp;&emsp;- <strong>Repetición</strong>: Define cuantas veces se realiza la habilidad con una  sola 
+                       invocación.
+         <br><br>
+         &emsp;&emsp;- <strong>TP Ganado</strong>: Es la cantidad de Puntos Técnicos que gana el jugador cada vez que 
+                       usa la habilidad.
+         <br><br>
+         &emsp;&emsp;- <strong>Tipo de Golpe</strong>: Tenemos tres posibilidades:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Golpe Certero</strong>: Una habilidad con esta característica ignora la precisión 
+                             del jugador y el indice de evasión del enemigo, por lo que tendrá un 100% de precisión.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque Físico</strong>: Una habilidad con esta característica utiliza la precisión 
+                             del jugador y el indice de evasión del enemigo para definir la tasa de éxito.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque Mágico</strong>: Una habilidad con esta característica utiliza la 
+                             tasa de evasión mágica del objetivo para definir la tasa de éxito.
+         <br><br><br>
+         &emsp;&emsp;- <strong>Animación</strong>: Es la animación que se muestra cuando se lanza la habilidad.
+         <br><br><br>
+         &emsp;• <strong>Mensage</strong>: Es el texto que se mostrará cuando se lanza el ataque.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-13.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Arma Requerida</strong>: Define con que armas se usará la habilidad. Es una característica 
+                 restrictiva.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-14.png" width="40%" alt=""></p>
+      <p class="texto">
+         Una vez que ya hemos visto a fondo la configuración de la base de datos con respecto a los actores, ahora 
+         veremos como añadir compañeros de equipo. 
+         <br><br>
+         Antes que nada, recordemos que por defecto RPG maker nos asigna 4 compañeros por lo que si queremos iniciar 
+         la aventura solos, debemos configurar la base de datos. 
+         <br><br>
+         Para ello, buscaremos en base de datos la pestaña de Sistema y en la parte superior izquierda buscaremos 
+         las opciones de grupo inicial y eliminaremos a cada compañero a excepción de Harold.
+      </p>
+      <p class="img_centrada"><img src="img/tema17/17-15.png" width="80%" alt=""></p>
+      <p class="texto">
+         Si queremos añadir seguidores, bastará con crear un evento que añada la opción de cambiar el número del grupo, 
+         dentro tener marcada la opción de añadir y seleccionar al actor que deseamos.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+   </div>
+</body>
+</html>
