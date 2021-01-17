@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 18: Tu Primera Mazmorra</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Tu Primera Mazmorra</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En capítulos anteriores, hemos ido creando algunos mapas con interacciones diversas, que hacen que nuestro 
+         mapa se parezca cada vez mas a un juego en lugar solo eventos desordenados.
+         <br><br>
+         Ahora nos centraremos en un aspecto mas técnico del juego. 
+         <br><br>
+         Y es que como en cualquier aventura que desarrollemos, debemos tener en cuenta que el jugador debe superar 
+         retos específicos que le permitan tener cierta satisfacción al completarlos, por lo que las mazmorras son 
+         una excelente forma de aplicar estos conceptos. 
+         <br><br>
+         Sin embargo una mazmorra no se trata solo de crear un nuevo mapa y llenarlo de enemigos, si no mas bien, 
+         debemos tener en cuenta el nivel aproximado en el que llega el jugador, el peso en la historia, el tipo de 
+         enemigos que colocaremos, etc.
+      </p>
+      <h2>Los Enemigos</h2>
+      <p class="texto">
+         Dentro de los enemigos que podemos colocar en la mazmorra, tenemos de dos tipos: <strong>aleatorios</strong> 
+         y <strong>estáticos</strong>.
+         <br><br>
+         Lo veremos ahora en detalle.
+      </p>
+      <h2>Enemigos Aleatorios</h2>
+      <p class="texto">
+         Estos enemigos son configurados directamente en las propiedades del mapa. Para ello daremos click derecho 
+         en el nombre del mapa y luego en editar.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-01.png" width="40%" alt=""></p>
+      <p class="texto">
+         A continuación, en el panel derecho que pone <strong>Encuentros</strong> daremos doble click y nos aparecerá 
+         una ventana de selección donde escogeremos el <strong>Grupo enemigo</strong> que añadiremos a los encuentros 
+         aleatorios y la probabilidad con la que aparecerán. 
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-02.png" width="80%" alt=""></p>
+      <p class="texto">
+         Esto hará que cada vez que avancemos una determinada cantidad de pasos, nos aparezca un enemigo de la lista 
+         que coloquemos. 
+         <br><br>
+         Ademas podemos escoger la <strong>región</strong> en la que queramos que aparezcan.
+      </p>
+      <h2>Enemigos Estáticos</h2>
+      <p class="texto">
+         Estos enemigos son creados como eventos y son visibles en el mapa. 
+         <br><br>
+         Ya hemos visto en temas anteriores como crear un evento de npc enemigo. Sin embargo, ahora debemos hacer 
+         énfasis en qué tipo de enemigo colocaremos y de cómo este afecta a la trama del juego, ya que un npc 
+         representa un evento importante en la historia del juego.
+         <br><br>
+         Debemos tener en cuenta además que este enemigo proporciona un ítem en particular o acciona algún evento en 
+         el entorno, como una puerta, una llave, etc.
+         <br><br>
+         Un enemigo de estas características debe tener también un diálogo que presente una nueva perspectiva en la 
+         historia.
+         <br><br>
+         Todas estas consideraciones deben ser analizadas previamente y estar escritas en nuestro <strong>guión del 
+         juego</strong>, por lo que te recomendamos tener al día dicho guión.
+         <br><br>
+         En este ejemplo, tenemos un enemigo con un diálogo y que al ser derrotado nos da una poción.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-03.png" width="80%" alt=""></p>
+      <h2>Diseño del Mapa</h2>
+      <p class="texto">
+         Cuando hablamos de una mazmorra, nos referimos a una zona del juego donde tendremos que enfrentarnos a más 
+         enemigos que en una zona normal, por lo que debe tener <strong>tilesets</strong> que nos den una referencia 
+         de donde nos encontramos. 
+         <br><br>
+         Además, dependiendo del nivel de la mazmorra, podemos cargarla con más o menos elementos que harán que se 
+         diferencien unas de otras.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-04.png" width="80%" alt=""></p>
+      <p class="texto">
+         En este ejemplo podemos ver como el mapa se torna algo laberíntico. Además de tener posicionados 
+         estratégicamente enemigos a la entrada de cada sub-zona.
+         <br><br>
+         Recuerda que para poder hacer uso de los tilesets de mazmorra debemos configurar los tilesets del mapa en las 
+         propiedades. 
+         <br><br>
+         Para ello, daremos clic derecho en el nombre del mapa y daremos click en editar. Nos aparecerá la ventana con 
+         las propiedades, buscaremos la propiedad <strong>tileset</strong> y seleccionaremos la opción 
+         <strong>Dungeon</strong>.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-05.png" width="80%" alt=""></p>
+      <h2>Tesoros</h2>
+      <p class="texto">
+         Como en cualquier mazmorra, nuestro personaje debería encontrar tesoros para lo cual utilizaremos el evento 
+         predefinido <strong>Tesoro</strong>. 
+         <br><br>
+         Para ello daremos click derecho en la zona del mapa en la que queramos posicionar el tesoro y buscaremos la 
+         opción <strong>Crear eventos predefinidos</strong>. A continuación buscaremos la opción 
+         <strong>Tesoro</strong>.
+         <br><br>
+         Nos aparecerá una ventana donde se nos permitirá configurar el contenido del cofre y el tileset del cofre 
+         (por defecto se pone el rojo con dorado).
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-06.png" width="50%" alt=""></p>
+      <p class="texto">
+         En este caso, el cofre contiene una espada.
+         <br><br>
+         Una vez colocados diferentes tesoros, deberíamos obtener algo como la siguiente imagen.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-07.png" width="80%" alt=""></p>
+      <p class="texto">
+         Como podemos observar, la colocación de estos cofres también sigue cierta estrategia ya que para llegar a 
+         cualquiera, debemos antes derrotar a enemigos <strong>estáticos</strong>.
+      </p>
+      <h2>El Jefe de la Mazmorra</h2>
+      <p class="texto">
+         Para finalizar con el diseño, no podemos olvidar al jefe de la mazmorra que como es lógico, es el enemigo mas 
+         fuerte y mas complejo de la mazmorra.
+         <br><br>
+         Debemos recordar que antes de desplegarlo tenemos que haber trabajado su concepto en nuestro <strong>guión 
+         del juego</strong>.
+         <br><br>
+         Además debe ser un enemigo que crearemos específicamente para este fin, por lo que debemos crear un nuevo 
+         enemigo en la base de datos, tal como aprendimos en temas anteriores.
+      </p>
+      <p class="img_centrada"><img src="img/tema18/18-08.png" width="80%" alt=""></p>
+      <p class="texto">
+         Este enemigo debe tener habilidades y atributos únicos para obtener una mejor experiencia al enfrentarnos a él.
+         <br><br>
+         De esta forma, el jugador podrá tener una referencia, como el enemigo eléctrico, el dragón de hielo, el hada 
+         de fuego, etc.
+         <br><br>
+         Teniendo en cuenta todos estos conceptos, podremos crear una mazmorra bastante entretenida. 
+         <br><br>
+         Estos son conceptos básicos pero depende de ti mejorar la mazmorra a medida que vayas aprendiendo nuevas cosas.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+   </div>
+</body>
+</html>
+
+
