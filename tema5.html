@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 5: Cofres</title>
+   <title>Tema 5: Uso Avanzado De Variables</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Cofres</h1>
+      <h1>Uso Avanzado De Variables</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -21,107 +21,101 @@
    </div>
    <!-- FIN_LOADER -->
    <div id="contenido">
-      <h2>Objetivos del Tema</h2>
+      <h2>Objetivos Del Tema</h2>
       <p class="texto">
-         Los ítems en los videojuegos son también una parte fundamental de los mismos, normalmente podemos conseguirlos al derrotar
-         enemigos pero también pueden ser encontrados en alijos o cofres.
+         Hasta ahora, nos hemos ocupado de transiciones de área de un cuadrado de ancho. Sin embargo, ¿qué pasa si 
+         hacemos un área expansiva, como un desierto, y queremos hacer salidas para el jugador? Se pueden necesitar 
+         decenas de eventos para cubrir una sola dirección. ¿Por qué gastar de 10 a 40 eventos para transiciones de 
+         área en un solo mapa cuando puedes cubrirlos todos en uno?.
          <br><br>
-         En este tema aprenderemos a crear cofres con contenido variado, desde espadas rotas y sin valor hasta armaduras legendarias
-         pasando incluso por incluso cofres trampa, el limite es nuestra imaginación.
-         Aprenderemos a integrarlos en el juego como un evento.
-         <br><br>
-         &emsp;- Conocer la importancia de la obtención de ítems en el juego y los ítems clave como llaves, objetos de misión, etc.
-         <br><br>
-         &emsp;- Aprender a relacionar la probabilidad de aparición de un objeto del juego.
-         <br><br>
-         &emsp;- Aprender a balancear el juego mediante ítems
-         <br><br>
-         &emsp;- Aprender a crear eventos de cofre y modificar su contenido.
-         <br><br>
-         &emsp;- Aprender a crear cofres trampa.
-         <br><br>
-         &emsp;- Aprender a crear cofres desencadenantes de eventos.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         En este tema aprenderemos a utilizar las variables para hacer estas transiciones de área.
       </p>
-      <h2>Cómo crear cofres extendidos</h2>
+      <h2>Usemos Las Variables Para Hacer Transiciones</h2>
       <p class="texto">
-         La idea básica es crear tesoros (con la forma gráfica de un cofre, tronco de árbol, bolsa, barril, etc.) que den más de un
-         objeto como premio. ¿Y eso cómo se hace? Vamos a ello.
-         <br><br>
-         El programa trae definidos una serie de eventos por defecto (creación rápida de eventos, en el menú que se abre pinchando en
-         cualquier tile del mapa con el botón derecho del ratón), entre los que está el de tesoro.
+         Lo primero que haremos será volver a cambiar al modo Evento. Ahora buscaremos un buen lugar en el segundo 
+         mapa que el jugador no pueda alcanzar. Por ejemplo, uno de los cuadrados de la cima de la montaña (3,1). 
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-1.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema5/5-1.png" width="50%" alt=""></p>
       <p class="texto">
-         Será el primer paso, así que elige el lugar donde quieras poner el tesoro y crea el evento.
-         Por defecto, la ventana que se abre dispone el sprite de un cofre y la posibilidad de elegir entre oro,
-         un artículo, un arma o una armadura. Estos tres tipos de objeto se definen en la base de datos.
-         En mi caso, dejé la imagen del cofre rojo y elegí un arma (arco corto, creado por mí).
+         Luego, crearemos un nuevo evento en esa casilla. Estableceremos el Accionamiento del evento como Paralelo. 
+         <br><br>
+         A continuación, tendremos que comprobar las posiciones X, Y del jugador en todo momento. Es decir, la razón 
+         por la que usamos Proceso paralelo. 
+         <br><br>
+         El secreto está en el comando Control de variables, específicamente en la categoría de Operando, Datos del 
+         juego.
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-2.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema5/5-2.png" width="70%" alt=""></p>
       <p class="texto">
-         Click en aceptar y, luego, doble click sobre el cofre (o botón derecho, editar).
-         Aparecerá la ventana del evento, en la que has de tener en cuenta varias cosas:
+         La categoría de Datos del juego tiene como valor predeterminado el ID de mapa. Hagamos click en el botón 
+         etiquetado como "..." en el extremo más alejado de la barra, para cambiar el tipo de datos que deseamos 
+         asignar a la variable.
          <br><br>
-         &emsp;- Darle un nombre al evento. Recomendable si va a haber más eventos en el mapa (sean del tipo que sean), para
-         luego ubicarlos con mayor facilidad.
-         <br><br>
-         &emsp;- En opciones, deja marcada dirección fija. Para evitar que el cofre se mueva como si fuese un PNJ vivo.
-         <br><br>
-         &emsp;- En prioridad, deja igual que los personajes. Esto, en realidad, define el nivel al que está el objeto; en este
-         caso, a la misma altura que el personaje.
-         <br><br>
-         &emsp;- En disparador, deja botón de acción. De esta manera, el jugador tendrá que usar la tecla de acción.
+         Una vez que hagamos click en el botón, notaremos una gran cantidad de cosas posibles que puede conectar a 
+         una variable. Lo que estamos buscando es la posición del jugador en el mapa (también conocido como sus 
+         coordenadas X e Y). Por lo tanto, hacemos clic en la opción Personaje, que por defecto es el Mapa X del 
+         jugador. ¡Exactamente lo que necesitamos! 
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-3.jpg" width="30%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema5/5-3.png" width="50%" alt=""></p>
       <p class="texto">
-         Si te fijas, este evento tiene dos páginas (o pestañas); en la segunda, no hay contenido y lo único que cambia es el 
-         sprite del cofre (aparece abierto), además de la condición interrup. auto. A marcada.
-         <br><br>
-         Esto es, simplemente la apariencia que tendrá el evento tras ejecutarlo la primera vez. En resumen, para que el
-         cofre (o lo que sea), no siga soltando el mismo premio indefinidamente.
-         <br><br>
-         Volviendo a la página (o pestaña) 1, vamos a centrarnos en el contenido de ésta.
-         <br><br>
-         Por defecto, tenemos el sonido, la animación y el mensaje que se ejecutará al accionar el evento.
-         Puedes personalizarlo como prefieras. En este caso, voy a explicar cómo añadir objetos y que, eso, se visualice en el juego.
+         Seleccionaremos esa opción, y luego nos aseguraremos de que estámos guardando el valor en una nueva variable 
+         (llamaremos a la variable POSICION-X), quedando el Control de variables de la siguiente forma. 
       </p>
-      <h2>Añadiendo objetos al tesoro</h2>
+      <p class="img_centrada"><img src="img/tema5/5-4.png" width="50%" alt=""></p>
       <p class="texto">
-         Click derecho sobre la línea cambiar armas (o lo que hayas elegido) y, luego, en nuevo.
-      </p>
-      <p class="img_centrada"><img src="img/tema5/5-4.jpg" width="50%" alt=""></p>
-      <p class="texto">
-         Aparecerá la ventana de comandos de evento; en la primera pestaña, en la parte de grupo, están las cuatro instrucciones que se pueden usar: <strong>cambiar oro</strong>, <strong>cambiar artículos</strong>, <strong>cambiar armas</strong> y <strong>cambiar armaduras</strong>.
+         Ahora crearemos un nuevo comando de Control de variables, pero en este caso en lugar de guardar el Mapa X del
+         jugados, guardaremos el Mapa Y del jugador y a la variable la llamaremos POSICION-Y.
          <br><br>
-         En cualquier de los casos, aparecerá una ventanita:
+         Bajaremos el tamaño de nuestro mapa a la zona que hemos pintado (22x13) para ver más claros los límites del 
+         juego.
          <br><br>
-         Utiliza aumentar en operación, y constante (seleccionando una cifra) en operando. En mi caso, añadiré una poción débil al cofre.
+         Lo que haremos ahora será determinar los límites de cada lado del mapa en el que queremos tener transiciones 
+         de área. Para Visualizar mejor la idea, los límites quedarían así (de forma figurada).
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-5.jpg" width="40%" alt=""></p>
-      <p class="nota">
-         Si quieres añadir más objetos, repite el proceso tantas veces como haga falta.
-      </p>
-      <h2>Añadiendo el texto correspondiente al mensaje</h2>
+      <p class="img_centrada"><img src="img/tema5/5-5.png" width="80%" alt=""></p>
       <p class="texto">
-         El siguiente paso es añadir las líneas de texto correspondientes, teniendo en cuenta los objetos (y el oro) que hayas
-         añadido anteriormente. Para esto, click derecho sobre la línea texto y, luego, click en editar.
-         Aparecerá la ventana de mostrar texto, en la cual se enumerarán los objetos faltantes (puedes cambiar el orden).
+         Tenemos una única transición marcada por el número 4 hacia el norte. Además, tenemos 9 cuadrados a la 
+         izquierda, 14 cuadrados en la parte inferior y 10 cuadrados a la derecha. Serían 33 eventos de transición, 
+         si los hiciéramos uno por uno, por lo que no lo haremos así.
+         <br><br>
+         Analicemos esos límites del mapa. 
+         <br><br>
+         &emsp;• El cuadrado superior del límite izquierdo es (0,3).
+         <br><br>
+         &emsp;• El cuadrado inferior del límite izquierdo es (0,11). 
+         <br><br>
+         &emsp;• El cuadrado más a la izquierda del límite inferior es (1,12).
+         <br><br>
+         &emsp;• El cuadrado más a la derecha del límite inferior es (20,12). 
+         <br><br>
+         &emsp;• El cuadrado superior del límite derecho es (21,2)
+         <br><br>
+         &emsp;• El cuadrado inferior del límite derecho es (21,11).
+         <br><br>
+         ¿Qué significa esto? Bueno, podemos ver algunas tendencias.
+         <br><br>
+         &emsp;• Cuando se traza el límite horizontal, encontraremos que el valor de Y permanece igual (12).
+         <br><br>
+         &emsp;• Cuando se traza un límite vertical, el valor de X permanece igual (0 y 21). 
+         <br><br>
+         Por lo tanto, nuestras derivaciones condicionales deben leerse de la siguiente manera:
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-6.jpg" width="60%" alt=""></p>
-      <p class="nota">
-         <strong>Importante:</strong> si vas a añadir más de cuatro objetos, acuérdate de marcar la opción entrada de lote en mostrar texto.
-      </p>
+      <p class="img_centrada"><img src="img/tema5/5-6.png" width="30%" alt=""></p>
       <p class="texto">
-         El resultado en el juego:
+         Ahora lo único que nos quedaría sería dentro de cada derivación condicional hacer la transición al mapa 
+         correspondiente. Nosotros utilizaremos el primer mapa para hacer la prueba, quedando el evento de la 
+         siguiente forma.
       </p>
-      <p class="img_centrada"><img src="img/tema5/5-7.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema5/5-7.png" width="80%" alt=""></p>
+      <p class="texto">
+         Ahora toca volver a probar el juego...
+      </p>
+      <p class="img_centrada"><img src="img/tema5/5-8.gif" width="50%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
    <div id="pie">
       <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
-	</div>
+   </div>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Tema 6: Puntos de Guardado</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Puntos de Guardado</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Objetivos del Tema</h2>
+      <p class="texto">
+         En algunos casos los jugadores no podrán continuar con su aventura por el momento, por lo que es menester darles la opción de 
+         guardar sus progresos. 
+         <br><br>
+         En este tema aprenderemos acerca de la importancia de los puntos de guardado en los videojuegos y la lógica a seguir con respecto 
+         a la dificultad del juego aportada por esta opción, debido a que no es lo mismo tener solo una oportunidad de guardar que muchas.
+         <br><br>
+         Aprenderemos a crear un punto de guardado sencillo, utilizando eventos y distribuiremos los diferentes eventos de guardado por 
+         el mapa, manteniendo siempre la coherencia con nuestro juego.
+         <br><br>
+         &emsp;- Conocer la importancia de los puntos de guardado en los videojuegos.
+         <br><br>
+         &emsp;- Conocer el balance de los videojuegos, mediante la mecánica de guardado.
+         <br><br>
+         &emsp;- Aprender a crear puntos de guardado básicos.
+         <br><br>
+         &emsp;- Aprender a distribuirlos por los mapas.
+         <br><br>
+         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+      </p>
+      <h2>Cómo crear un punto de guardado</h2>
+      <p class="texto">
+         La idea es controlar dónde y cuándo podrá guardar la partida el jugador, provocando que la persona tras los mandos 
+         piense un poco antes de actuar.
+         <br><br>
+         Lo primerísimo será ir a la Base de datos > Sistema > Comandos de menú y desmarcar “Guardar”. ¿Y esto por qué? 
+         Porque, de esta manera, el comando “Guardar” no aparecerá en el menú, haciendo que la partida sea inguardable.
+      </p>
+      <p class="img_centrada"><img src="img/tema6/6-1.jpg" width="50%" alt=""></p>
+      <h2>Creando un punto de guardado sencillo</h2>     
+      <p class="texto">
+         Si no quieres liarte con esto, pero necesitas crear puntos de guardado en los mapas que componen tu juego, la opción más 
+         simple es utilizar el modo speed. De hecho, una vez que crees el evento, luego podrás copiarlo tantas veces como quieras. 
+         Para empezar, crea un evento donde quieras poner el punto de guardado.
+         <br><br>
+         Dentro de este evento, selecciona la imagen que prefieras (en mi caso, un círculo de invocación azul) y la 
+         opción “paso a paso” (permitirá que la imagen elegida se mueva, tras activar el evento). Además, 
+         prioridad en “igual que los personajes” y disparador “botón de acción”. 
+         Como la idea es que se repita indefinidamente, sólo tendremos una página en el evento.
+      </p>
+      <p class="img_centrada"><img src="img/tema6/6-2.jpg" width="60%" alt=""></p>
+      <p class="texto">
+         En el contenido, puedes dar a elegir directamente o escribir un texto junto a las opciones. En cualquier caso, 
+         dentro del “sí” (o lo que hayas escrito), mete el comando de evento “abrir pantalla de 
+         guardado” (está en la pestaña 3, control de escena).
+      </p>
+      <p class="img_centrada"><img src="img/tema6/6-3.jpg" width="80%" alt=""></p>
+      <p class="texto">
+         Y ya está. Por supuesto, puedes añadirle alguna animación y algún sonido (y lo que te apetezca) para que sea más cool.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+	</div>
+</body>
+</html>

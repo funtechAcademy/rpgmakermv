@@ -68,9 +68,19 @@ div#contenido>h2
 div#contenido>h3
 {
    margin: 0px;
-   padding: 45px;
+   padding: 30px;
    margin-left: 15px;
    font-size: 2em;
+   font-family: 'Barlow Semi Condensed';
+   color: rgba(68,117,255,1);
+}
+
+div#contenido>h4
+{
+   margin: 0px;
+   padding: 30px;
+   margin-left: 15px;
+   font-size: 1.5em;
    font-family: 'Barlow Semi Condensed';
    color: rgba(68,117,255,1);
 }
@@ -167,28 +177,32 @@ a.volver
    margin-left: 50px;
 }
 
-.nota
+.codigop
 {
    font-family: 'Sanchez';
    color: teal;
    display: inline-block;
    background-color: rgb(195, 243, 241);
+   margin: 10px;
+   padding: 20px;
+   border-radius: 10px;
+   font-size: 1em;
+   width: fit-content;
+   margin-left: 50px;
+}
+
+.nota
+{
+   font-family: 'Sanchez';
+   color: teal;
+   display: inline-block;
+   background-color: rgb(195, 243, 204);
    margin: 30px;
    padding: 20px;
    border-radius: 10px;
    font-size: 1.2em;
    width: fit-content;
    margin-left: 50px;
-}
-
-div#contenido>h3
-{
-   margin: 0px;
-   padding: 30px;
-   margin-left: 15px;
-   font-size: 2em;
-   font-family: 'Barlow Semi Condensed';
-   color: rgba(68,117,255,1);
 }
 
 #pageloader /*Loader*/

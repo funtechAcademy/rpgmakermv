@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+   <script src="js/scripts.js"></script>
+   <title>Soluciones A Los Retos</title>
+</head>
+<body>
+   <div id="cabecera">
+      <h1>Soluciones A Los Retos</h1>
+   </div>
+   <!-- INICIO_LOADER -->
+   <div id="pageloader">
+      <img src="img/LogoOjo_FTA.png" class="spining" width="100px">
+   </div>
+   <!-- FIN_LOADER -->
+   <div id="contenido">
+      <h2>Tema 6: Otras Herramientas de Eventos</h2>
+      <h3 id="R1">Reto 1</h3>
+      <p class="texto">
+         Usando un evento con ejecución automática, crearemos un evento de dos páginas que reciba al jugador con un 
+         cuadro de texto al llegar a la segunda área.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-1.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/solu/solu-2.png" width="80%" alt=""></p>
+      <h3 id="R2">Reto 2</h3>
+      <p class="texto">
+         Usando un evento con ejecución automática, usaremos los comandos de evento Fadeout y Fadein (Iniciar Transición
+         y Finalizar transición) para hacer que la pantalla se apague momentáneamente y luego revele el cofre del 
+         tesoro, en lugar de que aparezca inmediatamente.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-3.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/solu/solu-4.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/solu/solu-5.png" width="80%" alt=""></p>
+      <h3 id="R3">Reto 3</h3>
+      <p class="texto">
+         Modificaremos los eventos de los cinco árboles para que también muestren un cuadro de texto que les diga a 
+         los jugadores cuántos árboles ha mirado hasta ese momento.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-6.png" width="60%" alt=""></p>
+      <h2>Tema 7: Los Actores</h2>
+      <h3 id="R4">Reto 1</h3>
+      <p class="texto">
+         Cambia a Harold para que pueda usar tanto arcos como espadas.
+         <br><br>
+         Para hacer esto, puedes agregar la característica <strong>Equipar tipo de arma (Arco)</strong> para Harold o 
+         su clase (Héroe), y tendrá el mismo efecto general para nuestros propósitos. Hemos elegido agregarlo a su 
+         clase.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-7.png" width="80%" alt=""></p>
+      <h3 id="R5">Reto 2</h3>
+      <p class="texto">
+         Aumenta la pestaña de Habilidades como máximo a 40 y crea una habilidad en el espacio 11 que requiera el uso 
+         de un arco.
+         <br><br>
+         Haremos una nueva habilidad que llamaremos "Flecha Centella". Es del tipo de habilidad mágica y cuesta 10 PM 
+         por uso. Tiene un alcance de 1 enemigo y solo se puede usar en batalla. Su tipo de golpe es Ataque mágico, 
+         mientras que su animación es Flecha especialñ. Lo configuramos para que requiriera el uso de un arco.
+         <br><br>
+         Para la fórmula de daño de la habilidad, usaremos [( a.atk * 4 - b.def * 2) + (a.mat * 2 - b.mdf * 2)]. 
+         Hemos empalmado las fórmulas de daño de Ataque y Centella sin los 100 de daño de Centella). Hace Daño de PV, de 
+         elemento Rayo con una variación del 10% y puede infligir golpes críticos. No tiene efectos especiales.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-8.png" width="80%" alt=""></p>
+      <h3 id="R6">Reto 3</h3>
+      <p class="texto">
+         Dale a Harold la habilidad que has creado.
+         <br><br>
+         Para agregar una habilidad a un Rol, hacemos doble click con el botón izquierdo (o hacemos click con el 
+         botón derecho y luego seleccione Editar) dentro de la lista de Habilidades de ese Rol. Puedes hacer lo mismo 
+         en una habilidad ya agregada, para editarla o borrarla.
+         <br><br>
+         Como queremos agregar la nueva habilidad, la añadiremos al espacio en blanco directamente debajo de Centella. 
+         <br><br>
+         Para este reto, establezcamos el nivel en el que aprender nuestra habilidad con el arco en 1. Eso significa 
+         que Harold tendrá esa habilidad con el arco desde el comienzo del juego.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-9.png" width="80%" alt=""></p>
+      <h3 id="R7">Reto 4</h3>
+      <p class="texto">
+         Aumenta la pestaña de Objetos como máximo a 40. Crea un objeto normal que se pueda usar para atacar enemigos 
+         y se consuma con el uso y un objeto clave.
+         <br><br>
+         El objeto que crearemos será una bomba. Hará exactamente 50 de daño físico a todos los enemigos cuando se usa 
+         (puede escribir números en la fórmula de daño). Se consume cuando se usa y cuesta 100 de oro comprar en una 
+         tienda (lo que significa que se vende por 50 de oro). Tiene un tipo de golpe físico y la animación de Disparo 
+         todos.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-10.png" width="80%" alt=""></p>
+      <p class="texto">
+         El Objeto clave que crearemos será una llave antigua. No tiene precio, no se puede consumir y puede afectar a
+         Nada y una ocasión de Nunca. 
+         <br><br>
+         Un elemento de este tipo parece inútil a primera vista, pero se puede utilizar junto con el elemento 
+         condicional. Se utiliza principalmente para eventos que involucran puertas o portones cerrados, para permitir 
+         a los jugadores abrirlos, si tienen el elemento clave apropiado.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-11.png" width="80%" alt=""></p>
+      <h3 id="R8">Reto 5</h3>
+      <p class="texto">
+         Aumente la pestaña de Armas como máximo a 40 y crea un arco para que lo use Harold.
+         <br><br>
+         Crearemos un nuevo arco llamado Arco de Harold y le daremos un valor de ataque de 20.
+         <br><br>
+         No tiene valor, por lo que no se puede vender, y tiene la animación Puñalada Físico. Tiene los siguientes 
+         rasgos:
+         <br><br>
+         &emsp;• Hace daño físico.
+         <br><br>
+         &emsp;• Otorga una bonificación del 5% de tasa de acierto a su portador.
+         <br><br>
+         &emsp;• Evita que se usen escudos (mediante el uso del rasgo Sellar equipo) al mismo tiempo que el arco.
+         <br><br>
+         &emsp;• Otorga una bonificación del 5% a la tasa crítica del portador.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-12.png" width="80%" alt=""></p>
+      <p class="nota">
+         Nota: Este es el arco de Harold. ¿Qué impide que otro usuario de arco use este arco? La forma más fácil de 
+         crear un arma que solo un determinado personaje puede usar es crear un tipo de arma completamente nuevo para 
+         ese personaje. Podrías llamar al nuevo tipo de arma ArcoH (abreviatura de "Arco de Harold") y luego permitir 
+         que Harold use armas del tipo ArcoH.
+      </p>
+      <h2>Tema 9: Los Enemigos</h2>
+      <h3 id="R9">Reto 1</h3>
+      <p class="texto">
+         Aumenta la tabla de enemigos como máximo a 40 y crea un nuevo enemigo.
+         <br><br>
+         Haremos un nuevo enemigo llamado Orco de Guerra. A la imagen, le daremos un Tono de 190 para darle al gráfico 
+         Orco un tinte azulado. Usar el Tono es muy recomendable para tener enemigos de distintos colores. En lugar 
+         de cambiar el color del sprite manualmente varias veces, podemos tener un solo sprite y modificarlo con el 
+         Tono dentro de RMMV.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-13.png" width="60%" alt=""></p>
+      <p class="texto">
+         Le daremos 250 de PV Max., 30 de Ataque, 15 de Defensa, 15 de Ataque Mágico, 15 de Defensa Mágica, 25 de 
+         Agilidad y 25 de Suerte.
+         <br><br>
+         El Orco de Guerra otorga 33 de EXP. y 50 de Dinero cuando es derrotado y tiene una probabilidad de 1/8 de 
+         lanzar una bomba.
+         <br><br>
+         En cuanto a los atributos, tiene una tasa de acierto del 95%, un 5% de evasión y daño físico para sus ataques 
+         normales. Su patrón de ataque consiste únicamente en atacar normalmente.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-14.png" width="80%" alt=""></p>
+      <p class="nota">
+         Nota: Hay un método para el aparente caos de esta definicióin de monstruo. Por ahora, hay que tener en cuenta 
+         que el Orco de Guerra representa un arquetipo de monstruo; en lugar de tener estadísticas equilibradas, 
+         tiene un ataque más fuerte a expensas de sus estadísticas defensivas.
+      </p>
+      <p class="nota">
+         Nota: El ataque es inútil contra enemigos que no usan Magia. Del mismo modo, si alguna vez se hace un enemigo 
+         que solo usa Magia, su estadística de Ataque servirá igualmente de poco.
+      </p>
+      <h3 id="R10">Reto 2</h3>
+      <p class="texto">
+         Aumenta la pestaña de Grupos de enemigos como máximo a 40 y crea un Grupo de enemigos que contenga un Slime 
+         y uno de los nuevos enemigos que crees.
+         <br><br>
+         Marcaremos de la lista de la derecha el Limo (Slime) y hacemos click en Añadir. Luego, marcaremos el enemigo 
+         que creamos anteriormente y repetiremos la acción.
+         <br><br>
+         Podemos nombrar manualmente el Grupo de enemigos o utilizar Nombre automático.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-15.png" width="70%" alt=""></p>
+      <p class="texto">
+         Ahora tenemos varias cosas que hacer para que el juego sea un poco más único. 
+         <br><br>
+         Primero, vamos a editar el cofre del tesoro del segundo mapa para que le dé a Harold el nuevo arco que 
+         creamos anteriormente, en lugar de la vara.
+         <br><br>
+         Una vez hecho esto, agreguemos el nuevo grupo de enemigos al mapa.
+         <br><br>
+         Para agregar el nuevo Grupo de enemigos al mapa, tendremos que ir a las Propiedades del segundo mapa 
+         haciendo click derecho en su nombre en la pantalla del mapa y seleccionando Editar. No hemos rellenado la 
+         zona de Encuentros aún, pero son plug-and-play. Básicamente, si interactuamos (como de costumbre) con la 
+         lista actualmente vacía, obtendremos las siguientes opciones:
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-16.png" width="40%" alt=""></p>
+      <p class="texto">
+         Grupo de enemigos es un menú desplegable que te permite seleccionar qué Grupo de enemigos deseamos agregar a 
+         la tabla de encuentros. En este caso elegiremos el nuevo Grupo que hemos creado.
+         <br><br>
+         La Probabilidad, determina la frecuencia con la que aparece el encuentro. Debido a que síolo tenemos un 
+         encuentro, el valor real de Probabilidad no es importante. Cuando tienes varios encuentros, la probabilidad 
+         de encontrar un Grupo de enemigos en particular es igual a Probabilidad del Grupo ÷ Probabilidad total. 
+         <br><br>
+         Entonces, si tuviéramos tres grupos de enemigos con el mismo peso, la posibilidad de encontrarnos con cada 
+         grupo sería de 1 de 3 (33%).
+         <br><br>
+         La Región especifica si el Grupo de enemigos se puede encontrar en cualquier lugar del mapa o si su 
+         ausencia/presencia está determinada por una Región en particular (ya veremos más adelante lo que son las 
+         regiones)
+         <br><br>
+         Hagamos que nuestro Grupo de enemigos solo tenga la oportunidad de aparecer en la Región 1. Haremos click en 
+         Especificando la ID de las regiones y veremos que los tres cuadros numéricos se iluminan. Podemos 
+         especificar hasta tres regiones en las que se puede encontrar ese grupo de enemigos en el mapa actual. 
+         Escribamos un 1 en el primer cuadro. 
+      </p>
+      <p class="nota">
+         Nota: En la Confifuracion General del mapa, Pasos determina la cantidad promedio de pasos que el jugador debe 
+         hacer para encontrar grupos de enemigos dentro de las áreas apropiadas. El valor predeterminado es 30.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-17.png" width="80%" alt=""></p>
+      <h2>Tema 12: Fórmulas De Daño</h2>
+      <h3 id="R11">Reto 1</h3>
+      <p class="texto">
+         Haz un grupo de enemigos con un solo monstruo que diga algunas palabras antes de morir.
+         <br><br>
+         La muerte (aplicada automáticamente a través del estado Muerte cuando un enemigo o actor no tiene PV) tiene 
+         prioridad sobre cualquier otra consideración en la batalla, por lo que tendremos que hacer que el enemigo sea 
+         inmortal (hay un estado predeterminado en RMMV que cubre exactamente eso), tiene un condicional que se activa 
+         cuando el monstruo cae al 0% de PV, hacer que el monstruo diga sus palabras y luego elimine el estado 
+         Inmortal, para que la secuencia de muerte pueda activarse.
+         <br><br>
+         Este evento de grupo de enemigos se puede realizar con dos páginas de eventos. 
+         <br><br>
+         La primera debe tener un turno 0 en la Condición y un Lapso de batalla (ya que solo queremos que este evento 
+         se ejecute una vez por batalla). Puedes usar el comando de evento Cambiar estado del enemigo para establecer 
+         el estado Inmortal del monstruo.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-18.png" width="80%" alt=""></p>
+      <p class="texto">
+         La segunda página del evento para este ejercicio debe tener una condición de PV del enemigo <= 0% y un 
+         Lapso de batalla. Debido a que se prioriza la muerte, el monstruo debe decir sus palabras antes de 
+         eliminar el estado.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-19.png" width="80%" alt=""></p>
+      <p class="texto">
+         Por último, crearemos el evento de Procesar batalla en el lugar del mapa en el que queramos luchar 
+         contra nuestro enemigo.
+      </p>
+      <p class="img_centrada"><img src="img/solu/solu-20.png" width="80%" alt=""></p>
+      <h3 id="R12">Reto 2</h3>
+      <p class="texto">
+         Crea un enemigo con tres habilidades diferentes (incluida la habilidad de ataque normal). Tener una de las 
+         habilidades requerirá que el enemigo esté en un estado determinado para usarla, y otra de sus habilidades 
+         otorgará este estado.
+         <br><br>
+         Puedes encontrar el ejemplo de habilidad en el espacio de Habilidad #255 y el ejemplo de enemigo en el 
+         espacio de Enemigo #255.
+      </p>
+      <h3 id="R13">Reto 3</h3>
+      <p class="texto">
+         Crea un enemigo que use una sola habilidad en una cuenta regresiva de tres turnos.
+         <br><br>
+         Quizás la mejor manera de hacerlo dentro de los límites de RMMV es crear una "habilidad" para cada turno de 
+         cuenta regresiva, como lo hicimos para el patrón de ataque del jefe que ya vimos. Si observamos el cuadro de 
+         mensaje de una habilidad, veremos que tiene dos líneas. En la línea 1, puede escribir “Está cargando un 
+         ataque enormemente poderoso” y en la línea 2, puede escribir el número apropiado (3, 2 o 1).
+         <br><br>
+         Recordando todo sobre las calificaciones y los usos condicionales de las habilidades, también podemos hacer 
+         que el monstruo use un patrón de ataque normal que cambia a la cuenta regresiva cuando el monstruo tiene la 
+         mitad de PV o menos.
+         <br><br>
+         Puedes encontrar los nuevos ejemplos de habilidades en los espacios de Habilidad #251 a #254 y el ejemplo de 
+         enemigo en el espacio Enemigo #254. Puedes encontrar también al enemigo en el espacio de  Grupo de enemigos
+         de ejemplo #254.
+      </p>
+      <h3 id="R14">Reto 4</h3>
+      <p class="texto">
+         Crea una fórmula de daño que incluya una variable.
+         <br><br>
+         Una variable debe expresarse en la forma $gameVariables.value(n), donde "n" es el ID de la variable.
+         <br><br>
+         Recuerda que una variable es, después de todas las consideraciones, un número. Puedes utilizar la variable 
+         como multiplicador de ataque, por ejemplo.
+         <br><br>
+         El valor predeterminado de las variables es cero, por lo que es posible que desees formar un grupo de 
+         enemigos con su nuevo enemigo para darle a la variable un valor distinto de cero y asegurarse de que la 
+         fórmula de daño esté funcionando correctamente.
+         <br><br>
+         La Habilidad #251 tiene la fórmula de daño apropiada y el Grupo de enemigos #254 (como en el ejercicio 
+         anterior) contiene al enemigo que usa la habilidad correspondiente.
+      </p>
+      <br><br>
+      <a class="texto volver" href="index.html">Volver al índice</a>
+   </div>
+   <div id="pie">
+      <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
+   </div>
+</body>
+</html>

@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 12: Eventos Automáticos (Cinemáticas)</title>
+   <title>Tema 12: Fórmulas De Daño</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Eventos Automáticos (Cinemáticas)</h1>
+      <h1>Fórmulas De Daño</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,139 +23,243 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         Ya hemos aprendido los conceptos básicos para crear un juego medianamente aceptable, sin embargo, existen eventos en el
-         juego que se realizan de forma automática y que podemos usarlos para contar parte de la historia, por ejemplo como
-         una cinemática inicial que explique por qué comienza nuestra aventura.
+         Hasta ahora, hemos creado una nueva habilidad, así como un elemento que usaba el cuadro de fórmula de daño. 
          <br><br>
-         En este tema aprenderemos a crear eventos automáticos en RPG Maker y a utilizarlos como medio para contar una historia
-         o una situación en concreto.
+         Sin embargo, hemos utilizado la fórmula predeterminada. ¿Y si quisiéramos utilizar fórmulas diferentes? 
          <br><br>
-         Además idearemos la historia que relatará dicha cinemática, teniendo en cuenta la coherencia con el resto de lo que queramos contar.
+         En este tema aprenderemos a crear Fórmulas de daño adaptadas a nuestras necesidades.
          <br><br>
-         &emsp;- Conocer la importancia de las escenas de inicio en los juegos.
+         También veremos la pestaña de Estados y como aplicar estas fórmulas.
          <br><br>
-         &emsp;- Aprender a crear eventos automáticos.
+         &emsp;• Crear Fórmulas de daño.
          <br><br>
-         &emsp;- Aprender a crear escenas iniciales.
-         <br><br>
-         &emsp;- Desarrollar un argumento para dicha escena inicial.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Pestaña de Estados de la base de datos.
       </p>
-      <h2>Creando un evento automático</h2>
+      <h2>Las Fórmulas De Daño</h2>
       <p class="texto">
-         Las animaciones son eventos que se ejecutan automáticamente en nuestros juegos y pueden ser usadas para introducir al
-         jugador a nuestra historia además de que dotan al juego de vida propia.
+         Si echas un vistazo a las habilidades prefabricadas en RMMV, verás que no todas las habilidades son iguales. 
          <br><br>
-         Vamos a realizar un evento automático sencillo haciendo que un personaje se dirija de un punto a otro y realice un diálogo.
+         A continuación se muestran algunos ejemplos de diferentes circunstancias que pueden cubrirse con diferentes 
+         fórmulas de daños.
          <br><br>
-         Empezaremos creando un NPC con la imagen que mas nos convenga a la historia.
+         &emsp;• Un ataque que atraviesa la defensa del enemigo: Si deseas modificar la fíormula básica, utiliza
+               [a.atk*4] en vez de [a.atk*4-b.def*2]. Una habilidad que no tenga en cuenta la defensa de un enemigo 
+               en la fórmula de daño hará daño según el ataque del usuario. Asimismo, puede realizar un hechizo con 
+               el formato [a.mat], en lugar de [a.mat-b.mdf], tener una habilidad de perforación de defensa mágica.
+         <br><br>
+         &emsp;• Un ataque que causa daño basado en el PV del objetivo: También puede conectar PV Máximo y PV 
+               (PV actual) en fórmulas (PM máximo y PM actual). ¿Y si quisieras realizar un ataque de gravedad en la 
+               línea del hechizo de Demi en Final Fantasy? Las habilidades de gravedad, por definición, no pueden 
+               matar a su objetivo. Entonces, usemos PV. Escribiremos [b.hp/4] que resultaría en una habilidad que 
+               causa un daño equivalente a una cuarta parte del PV restante del enemigo. Si tuviéramos que cambiar PV 
+               por PV Máximo, la misma habilidad haría una cuarta parte de su PV máximo en daño.
+         <br><br>
+         &emsp;• Una habilidad que aumenta las estadísticas del usuario mientras daña al enemigo: Si observas la 
+               funcionalidad de stock de RMMV, notarás que esto es aparentemente imposible. Si creas un ataque y usas 
+               Efectos para agregar estados o estadísticas de mejora/desventaja, verás que el objetivo también las 
+               obtendrá. Pero quizás quieras una habilidad que aumente mi Agilidad durante dos turnos cada vez que me 
+               conecto con ella. Podríamos usar .addBuff() para lograr eso (.addDebuff() reduce una estadística en su 
+               lugar). Entonces, una habilidad que aumenta la agilidad del usuario durante dos turnos mientras daña a 
+               un enemigo se vería como: [a.addBuff(6,2);a.atk*4-b.def*2]. 
+         <br><br>
+         &emsp;¿Qué pasa con los números entre paréntesis en el .addBuff()? Cuando agregamos ventajas o desventajas a 
+               través del cuadro de fórmulas de daño, puedes declarar el parámetro (estadística) a afectar, así como 
+               la duración del turno. El primer parámetro es la Agilidad y el segundo la Duración del turno.
+      </p>
+      <h2>Abreviaturas De Los Parámetros</h2>
+      <p class="texto">
+         Si tienes curiosidad por ver las diversas abreviaturas de parámetros en RPGMaker MV, hagamos un breve viaje 
+         a la tierra de JavaScript.
+         <br><br>
+         &emsp;• Si estás usando Windows, abre el Bloc de notas y luego dirígete a la carpeta js de su proyecto de 
+               juego. El archivo JavaScript que nos interesa se llama rpg_objects.js.
+         <br><br>
+         &emsp;• Si estás utilizando Mac OS, cualquier procesador de texto básico le servirá tanto como el Bloc de 
+               notas. Busca el archivo rpg_objects.js en la carpeta js de su proyecto de juego.
+         <br><br>
+         &emsp;• En cualquier caso, abriremos el archivo JavaScript y nos dirigiremos a Game_BattlerBase. Si te 
+               desplazas hacia abajo después de encontrar esta zona del archivo, en la parte derecha del código 
+               encontrarás un objeto JavaScript (Object.defineProperties) que contiene una lista de parámetros y sus 
+               valores internos. Dado que el código MV relevante tiene más de tres páginas, vamos a ver los más 
+               utilizados. 
       </p>
       <p class="img_centrada"><img src="img/tema12/12-1.png" width="80%" alt=""></p>
-      <p class="texto">
-         A este evento con la imagen del NPC le daremos un nombre identificativo en la parte de arriba a la izquierda, en la
-         propiedad de nombre (para este ejemplo lo llamaremos <strong>señor</strong>).
-         <br><br>
-         A continuación planificaremos de donde a donde el personaje se moverá, para este ejemplo ira de izquierda a derecha de la sala.
+      <p class="nota">
+         Nota: Las ventajas y desventajas solo se aplican a los primeros ocho de la lista (en otras palabras, desde 
+         MHP hasta LUK).
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-2.png" width="70%" alt=""></p>
+      <h2>Los Estados</h2>
       <p class="texto">
-         Ahora debemos configurar el evento, esto se realiza creando <strong>un evento a parte</strong> del NPC (por ejemplo en una esquina
-         del mapa), este evento contendrá todo lo que sucederá en la cinemática, en este ejemplo queremos primero una pantalla
-         en negro mostrando un texto, para luego dar lugar a la cinemática.
+         Los estados principalmente funcionan de la misma manera.
          <br><br>
-         Primero teñiremos la pantalla, para esto añadiremos un nuevo evento y seleccionaremos <strong>teñir pantalla</strong> en la pestaña 3.
+         Puedes declarar .addState(X), donde X es la entrada de la base de datos para el estado que desea utilizar. El 
+         número de turnos que durará un estado está determinado por las propiedades del estado en la base de datos. 
+         <br><br>
+         Entonces si tenemos la lista predeterminada de estados (de los cuales hay 10), podemos realizar un ataque 
+         que envenene al usuario y dañe al enemigo de la siguiente manera: a.addState(4);a.atk*4-b.def*2.
+         <br><br>
+         Es bueno tener en cuenta que solo necesitamos usar los comandos cuando deseamos aplicar efectos tanto al 
+         usuario como al objetivo. Si tienes un hechizo de curación que también aumenta la agilidad, puedes cubrirlo 
+         bien con una fórmula de daño y el efecto de adición de beneficio (o puedes usar también un efecto de 
+         recuperación de PV para la parte de curación del hechizo).
+         <br><br>
+         Echemos un vistazo a la pestaña Estados de la Base de datos.
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-3.png" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-2.png" width="80%" alt=""></p>
       <p class="texto">
-         Ya en la ventana de teñir seleccionaremos en color negro, además en la opción de duración colocaremos el valor de <strong>1</strong> y
-         desmarcaremos la casilla de <strong>Esperar hasta el fin</strong>, finalizaremos dando a aceptar.
+         Como señalamos anteriormente, usar .addState requiere que se establezca qué estado desea agregar, y examina 
+         el valor de la base de datos para determinar qué agregar. Entonces, Muerte es 1, mientras que Ceguera es 5, 
+         por ejemplo. 
+         <br><br>
+         Los estados tienen una o dos cosas nuevas, pero no muchas que no hayamos visto ya en una forma similar.
+         <br><br>
+         &emsp;• <strong>Configuración general</strong>:
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-3.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Restricción</strong>: Define lo que le sucede a alguien afectado por el estado. La 
+                     mayoría de las opciones son acciones más forzadas que restricciones. En el caso de Muerte, el 
+                     actor o enemigo <strong>No se puede mover</strong> (lógicamente, ¡ya que están muertos!). Sin 
+                     embargo, también tienes <strong>Nada</strong>, <strong>Atacar a los enemigos</strong>, 
+                     <strong>Atacar a cualquiera</strong>, y <strong>Ataca a los aliados</strong>.
+         <br><br><br>
+         &emsp;• <strong>Condiciones de eliminación</strong>: Definimos cuando se elimina un estado. Esto es más 
+               importante para los actores, dado que los enemigos dejan de existir después de que terminas de luchar 
+               con ellos. Si no define ninguna condición de eliminación, la única forma de eliminar el estado sería 
+               tener un elemento o evento que haga precisamente eso.
       </p>
       <p class="img_centrada"><img src="img/tema12/12-4.png" width="50%" alt=""></p>
       <p class="texto">
-         Para el texto que se mostrará sobre la pantalla negra agregaremos un nuevo evento haciendo doble clic sobre la zona de
-         contenido y buscaremos la opción de evento de <strong>mostrar texto</strong> en la pestaña 1.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-5.png" width="60%" alt=""></p>
-
-      <p class="texto">
-         Colocaremos el texto que queramos, además cambiaremos la opción fondo por <strong>transparente</strong> y en la opción de
-         posición de ventana seleccionaremos <strong>centro</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-6.png" width="60%" alt=""></p>
-      <p class="texto">
-         Una vez terminado el texto volveremos a teñir la pantalla para quitar el negro. (con los valores como en la imagen).
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-7.png" width="50%" alt=""></p>
-      <p class="texto">
-         Ahora para darle un comportamiento mas natural, haremos que el evento espere 60 fotogramas o lo que lo mismo 1 segundo.
-         Para ello agregaremos un evento y en la pestaña 2 la opción de <strong>esperar</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-8.png" width="40%" alt=""></p>
-      <p class="texto">
-         Ahora agregaremos el evento para que el NPC creado antes se mueva automáticamente, para esto buscamos la opción de
-         evento <strong>ajustar ruta de movimiento</strong> en la pestaña 2.
+         &emsp;&emsp;- <strong>Al final de la batalla</strong>: Es autoexplicativo. Una vez que la batalla termina, 
+                     también termina el estado.
          <br><br>
-         El panel que nos aparece, antes que nada debemos especificar el NPC que se moverá, para esto debemos ir al desplegable
-         que esta arriba a la izquierda (para nuestro ejemplo el NPC se llama <strong>señor</strong>), por otro lado en la parte
-         central tenemos una botonera con comandos de movimiento, la forma de especificarlo es ir colocando en secuencia los
-         movimientos que queramos, en este caso queremos que el NPC se mueva a la izquierda unos 6 pasos, por lo que tendremos
-         que colocar <strong>Mover hacia izquierda</strong> 6 veces.
+         &emsp;&emsp;- <strong>Por otra restricción</strong>: Será reemplazado por un nuevo estado con una restricción 
+                     de acción diferente. Por ejemplo, puede tener un estado de Rabia que se ve afectado por 
+                     restricciones, de modo que si su actor afectado por Rabia queda aturdido u obstaculizado de 
+                     alguna otra manera, pierde el estado.
          <br><br>
-         Para finalizar debemos marcar la casilla <strong>Esperar hasta fin</strong>
+         &emsp;&emsp;- <strong>Eliminación automática</strong>: Te permite establecer si el estado se elimina 
+                     automáticamente después de un cierto número de turnos o no.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Fin de la acción</strong>: Significa que el estado se eliminará después de que el 
+                           actor o enemigo afectado realice una determinada cantidad de acciones.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Fin de turno</strong>: Significa que el estado se eliminará después de un cierto 
+                           número de turnos de batalla.
+         <br><br><br>
+         &emsp;&emsp;- <strong>Duración en turnos</strong>: Solo se puede editar si ha seleccionado Fin de la acción o 
+                     Fin de turno en Eliminación automática. El primer cuadro define el número mínimo de turnos que 
+                     durará el estado, mientras que el segundo cuadro indica el número máximo de turnos.
+         <br><br>
+         &emsp;&emsp;- <strong>Remover por daño</strong>: Da un porcentaje de probabilidad basado en el número 
+                     colocado en la casilla correspondiente para eliminar el estado cuando el actor o enemigo sufre 
+                     daño.
+         <br><br>
+         &emsp;&emsp;- <strong>Remover al caminar</strong>: El estado se elimina automáticamente después de que el 
+                     actor da un cierto número de pasos en el mapa. Puede tener cualquier número del 0 al 9999 en ese 
+                     cuadro.
+         <br><br><br>
+         &emsp;• <strong>Mensajes</strong>: Hay cuatro tipos de Mensajes puedes editar. 
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-9.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema12/12-5.png" width="50%" alt=""></p>
       <p class="texto">
-         Ahora para darle mas realismo a la escena vamos hacer un efecto de sonido para dar la impresión de que lee un libro.
-         <br><br>
-         Para ello vamos a añadir un nuevo evento llamado <strong>Reproducir SE</strong>, que esta en la pestaña 2.
+         &emsp;Aparecen cuando un actor recibe un estado, un enemigo recibe un estado, el final de un turno cuando un 
+               actor o enemigo todavía se ve afectado por un estado (si el estado persiste) y cuando el estado se 
+               elimina.
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-10.png" width="50%" alt=""></p>
       <p class="nota">
-         Seleccionamos el efecto sonoro que aparece en la imagen.
+         Nota: Vale la pena mencionar que el estado 0001 es un estado especial que se aplica automáticamente cada vez 
+         que los Puntos de Vida (PV) de un personaje llegan a 0. Por defecto, se llama Muerte.
       </p>
+      <h2>Volvamos A Las Fórmulas De Daño</h2>
       <p class="texto">
-         Haremos que espere un segundo (de la forma que ya hemos visto), para a continuación reproducir el sonido que acabamos de colocar una vez mas.
+         De vuelta a las fórmulas de daño, ya vimos la existencia de addBuff() y addState(). 
          <br><br>
-         Ahora queremos que el NPC de a entender su sorpresa al leer el libro con un icono sobre su cabeza (un icono de globo),
-         añadiremos un nuevo evento llamado <strong>mostrar icono de globo</strong>.
+         De paso, removeBuff() y removeState() también existen. Los métodos de eliminación solo aceptan un único 
+         parámetro entre paréntesis. 
          <br><br>
-         Elegimos al NPC sobre el cual se mostrará el icono y escogeremos el icono de <strong>exclamación</strong>, por ultimo
-         marcaremos la casilla de <strong>Esperar hasta fin</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-11.png" width="30%" alt=""></p>
-      <p class="texto">
-         Con lo que el resultado que veremos luego en el juego será el siguiente:
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-12.png" width="20%" alt=""></p>
-      <p class="texto">
-         Para finalizar añadiremos un texto con la conclusión a la que llega el personaje después de leer el libro, por lo que
-         añadiremos un evento de diálogo con <strong>mostrar texto</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-13.png" width="70%" alt=""></p>
-      <p class="texto">
-         Ahora debemos tener en cuenta que, para que se realice el evento debemos tener al jugador (o al menos el NPC del personaje
-         jugador) en el mapa de la cinemática, por obvias razones nuestro personaje no va a aparecer en la cinemática por lo que
-         debemos cambiar su opacidad para que no sea visible, para esto agregaremos una línea de evento y seleccionaremos la
-         opción <strong>Ajustar ruta de movimiento</strong> de la pestaña 2 y dentro escogeremos la opción
-         de <strong>Cambiar opacidad...</strong> que estableceremos a <strong>cero</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema12/12-14.png" width="80%" alt=""></p>
-      <p class="texto">
-         Con esto, conseguiremos que el jugador no sea visible hasta que volvamos a ajustar su opacidad.
+         En el caso de removeBuff(), declaras para cuál de las ocho estadísticas principales deseas eliminar un 
+         beneficio. Para removeState(), le indicas qué estado se eliminará.
          <br><br>
-         A continuación transportaremos al jugador a su zona de inicio, para esto agregaremos línea de evento y
-         seleccionaremos <strong>Transferir jugador</strong> de la pestaña 2 y escogeremos como destino la zona de inicio.
+         En el caso que vimos anteriormente ([a.addBuff(6,2);a.atk*4-b.def*2] hemos utilizado un punto y coma para 
+         dividirlos de la fórmula de daño. Hay una regla poco conocida sobre las fórmulas de daño que no se menciona 
+         dentro de RMMV, pero aquí está: 
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-15.png" width="60%" alt=""></p>
+      <p class="advertencia">
+         En cualquier fórmula, debe terminar la fórmula con un valor de daño (o curación, según sea el caso). 
+      </p>
       <p class="texto">
-         Una vez que el jugador este en su lugar correspondiente ya podemos cambiar su opacidad para que pueda ser visible, para
-         esto agregamos una nueva línea de evento y seleccionaremos <strong>Ajustar ruta de movimiento</strong> de la pestaña 2
-         y dentro escogeremos la opción de <strong>Cambiar opacidad...</strong> que estableceremos a <strong>255</strong>.
+         La forma más fácil de probar o refutar esa afirmación es editando la fórmula de daño de tu nueva habilidad 
+         de arco y agregando un punto y coma después del daño con un comando addState() o addBuff() (recuerda que "a" 
+         antes del comando denota usuario, mientras que "b" denota objetivo). Si lo hiciste correctamente, verás que 
+         tu habilidad ahora no hace nada más que aplicar el beneficio o el estado. Ahora, cambia las dos mitades de 
+         la fórmula y volverás a hacer daño.
          <br><br>
-         Con esto ya tendremos terminada la cinemática y bastará con lanzar el juego para poder verla.
+         Aquí hay algunas otras cosas interesantes que puede hacer con las fórmulas de daño:
+         <br><br>
+         &emsp;• Crear una habilidad que cause más daño según los estados activos del objetivo: Digamos que quieres 
+               un enemigo que envenene al grupo del jugador y luego intente consumir ese veneno para causar daño a 
+               sus víctimas. Podrías tener una fórmula como esta:
+         <br><br>
+         &emsp;&emsp;if (b.isStateAffected(x)) {b.removeState(x); Winter.phys(1.0,a,b);} else {0}
+         <br><br>
+         &emsp;isStateAffected() es otro método dentro de RMMV. Como sugiere el nombre, comprueba si el objetivo tiene 
+         X estado, donde X es el número del estado en la base de datos.
+         <br><br>
+         &emsp;Si el objetivo tiene X estado, la habilidad elimina el estado y luego aplica una fórmula de daño 
+               personalizada (esa es la parte Winter.phys). 
       </p>
-      <p class="img_centrada"><img src="img/tema12/12-16.png" width="80%" alt=""></p>
+      <p class="nota">
+         Nota: También necesitaremos otra habilidad que inflija un estado que su nueva habilidad pueda eliminar, si 
+         desea probar la fórmula.
+      </p>
+      <p class="texto">
+         &emsp;Si el objetivo no tiene X estado, entonces la habilidad hace 0 de daño.
+      </p>
+      <p class="nota">
+         Los que tengáis experiencia en programación reconoceréis la fórmula anterior como una rama condicional "If". 
+         La caja de fórmula de daño es completamente robusta. Puede contener cualquier cantidad de JavaScript que 
+         pueda caber en la misma (lo cual, dado que el cuadro de daño de MV no tiene límite de caracteres, es 
+         bastante inmenso).
+      </p>
+      <h2>Retos</h2>
+      <h3>Reto 1</h3>
+      <p class="texto">
+         Haz un grupo de enemigos con un solo monstruo que diga algunas palabras antes de morir.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R11">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 2</h3>
+      <p class="texto">
+         Crea un enemigo con tres habilidades diferentes (incluida la habilidad de ataque normal). Tener una habilidad 
+         requiere que el enemigo esté en un estado para usar, y otra de sus habilidades otorga ese estado.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R12">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 3</h3>
+      <p class="texto">
+         Crea un enemigo que use una sola habilidad en una cuenta regresiva de tres turnos.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R13">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 4</h3>
+      <p class="texto">
+         Crea una fórmula de daño que incluya una variable.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R14">
+            Ejemplo de Solución
+         </a>
+      </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>

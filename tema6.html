@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 6: Puntos de Guardado</title>
+   <title>Tema 6: Otras Herramientas de Eventos</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Puntos de Guardado</h1>
+      <h1>Otras Herramientas de Eventos</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -21,62 +21,135 @@
    </div>
    <!-- FIN_LOADER -->
    <div id="contenido">
-      <h2>Objetivos del Tema</h2>
+      <h2>Objetivos Del Tema</h2>
       <p class="texto">
-         En algunos casos los jugadores no podrán continuar con su aventura por el momento, por lo que es menester darles la opción de 
-         guardar sus progresos. 
+         Event Searcher es una nueva utilidad en RMMV que se puede utilizar como su nombre lo indica: para buscar 
+         eventos. 
          <br><br>
-         En este tema aprenderemos acerca de la importancia de los puntos de guardado en los videojuegos y la lógica a seguir con respecto 
-         a la dificultad del juego aportada por esta opción, debido a que no es lo mismo tener solo una oportunidad de guardar que muchas.
+         ¿Con qué propósito?
          <br><br>
-         Aprenderemos a crear un punto de guardado sencillo, utilizando eventos y distribuiremos los diferentes eventos de guardado por 
-         el mapa, manteniendo siempre la coherencia con nuestro juego.
+         Imagina que tienes veinte eventos y necesitas encontrar en cuántos de los eventos llamas a una determinada 
+         variable o conmutador. Ahí es donde el Buscador de eventos puede ayudar. 
          <br><br>
-         &emsp;- Conocer la importancia de los puntos de guardado en los videojuegos.
+         Otra herramienta interesante es la prueba de eventos mientras los estamos definiendo.
          <br><br>
-         &emsp;- Conocer el balance de los videojuegos, mediante la mecánica de guardado.
-         <br><br>
-         &emsp;- Aprender a crear puntos de guardado básicos.
-         <br><br>
-         &emsp;- Aprender a distribuirlos por los mapas.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         En este tema aprenderemos a utilizar ambas herramientas.
       </p>
-      <h2>Cómo crear un punto de guardado</h2>
+      <h2>El Buscador De Eventos</h2>
       <p class="texto">
-         La idea es controlar dónde y cuándo podrá guardar la partida el jugador, provocando que la persona tras los mandos 
-         piense un poco antes de actuar.
+         Para acceder al Buscador de eventos, deberemos ir a la sección Ajustes del menú principal y hacer click
+         en Buscador de eventos. 
          <br><br>
-         Lo primerísimo será ir a la Base de datos > Sistema > Comandos de menú y desmarcar “Guardar”. ¿Y esto por qué? 
-         Porque, de esta manera, el comando “Guardar” no aparecerá en el menú, haciendo que la partida sea inguardable.
+         Una vez allí, deberíamos ver la siguiente pantalla.
       </p>
-      <p class="img_centrada"><img src="img/tema6/6-1.jpg" width="50%" alt=""></p>
-      <h2>Creando un punto de guardado sencillo</h2>     
+      <p class="img_centrada"><img src="img/tema6/6-1.png" width="60%" alt=""></p>
       <p class="texto">
-         Si no quieres liarte con esto, pero necesitas crear puntos de guardado en los mapas que componen tu juego, la opción más 
-         simple es utilizar el modo speed. De hecho, una vez que crees el evento, luego podrás copiarlo tantas veces como quieras. 
-         Para empezar, crea un evento donde quieras poner el punto de guardado.
+         Para usarlo en nuestro proyecto como ejemplo, supongamos que queremos asegurarnos de tener cinco eventos que 
+         suman al valor de la variable Arbol.
          <br><br>
-         Dentro de este evento, selecciona la imagen que prefieras (en mi caso, un círculo de invocación azul) y la 
-         opción “paso a paso” (permitirá que la imagen elegida se mueva, tras activar el evento). Además, 
-         prioridad en “igual que los personajes” y disparador “botón de acción”. 
-         Como la idea es que se repita indefinidamente, sólo tendremos una página en el evento.
+         En el cuadro <strong>Buscar</strong>, haríamos click en la opción <strong>Variable</strong>. 
+         <br><br>
+         Como primera variable de nuestro proyecto, Arbol aparecerá por defecto. De lo contrario, deberemos hacer 
+         click en el botón que muestra <strong>0001 Arbol</strong> y seleccionaremos la variable correcta. 
+         <br><br>
+         Nos aseguramos de que la variable Arbol esté seleccionada y hacemos click en Buscar. 
+         <br><br>
+         Deberíamos ver aparecer cinco resultados, como en la siguiente imagen.
       </p>
-      <p class="img_centrada"><img src="img/tema6/6-2.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema6/6-2.png" width="60%" alt=""></p>
       <p class="texto">
-         En el contenido, puedes dar a elegir directamente o escribir un texto junto a las opciones. En cualquier caso, 
-         dentro del “sí” (o lo que hayas escrito), mete el comando de evento “abrir pantalla de 
-         guardado” (está en la pestaña 3, control de escena).
+         Incluso nos da la ubicación precisa de cada resultado relevante. Impresionante, ¿no? 
+         <br><br>
+         Esta herramienta tiene muchas posibilidades y es realmente buena para fines de verificación de errores. 
       </p>
-      <p class="img_centrada"><img src="img/tema6/6-3.jpg" width="80%" alt=""></p>
+      <h2>La Prueba de Eventos</h2>
       <p class="texto">
-         Y ya está. Por supuesto, puedes añadirle alguna animación y algún sonido (y lo que te apetezca) para que sea más cool.
+         Ahora, pasemos a la segunda característica nueva de RMMV, que es útil por razones similares, la prueba de 
+         eventos en construcción.
+         <br><br>
+         Aunque no es una fórmula mágica que pueda resolver todos los problemas, Test es una nueva función en MV que 
+         te permite comprobar que los comandos de tu evento funcionan según lo previsto sin tener que cargar una 
+         prueba de juego. 
+         <br><br>
+         Para probar las líneas de código del evento, tan solo tenamos que seleccionar el comando a probar y dar 
+         click en Test del menú del botón derecho.
+      </p>
+      <p class="img_centrada"><img src="img/tema6/6-3.png" width="60%" alt=""></p>
+      <p class="nota">
+         Nota: Test es útil para verificar secuencias de eventos que están encerradas por sí mismas (es decir, eventos 
+         que no dependen de otros eventos para completarse). No servirá de nada si intentamos usarlo para probar la 
+         validez del evento paralelo que creamos anteriormente, por ejemplo, ya que se basa en que el jugador ingrese 
+         a ciertos cuadrados para activar el evento transferir. Úselo para probar los eventos de transferencia en sí 
+         mismos, aunque eso es de uso limitado si desea saber si todo el evento funciona bien o no. 
+      </p>
+      <p class="texto">
+         Continúa y experimente un poco con esta herramienta.
+      </p>
+      <p class="nota">
+         Nota: Se puede probar varias líneas de código durante una sola prueba. Para hacerlo, solo necesitamos hacer 
+         click en la primera línea de código deseada, mantener presionada la tecla Mayúsculas y luego hacer click en 
+         la última línea de código que desea probar. 
+         <br><br>
+         Debería ver los comandos de eventos relevantes resaltados en azul. Luego puede hacer clic derecho en 
+         cualquier lugar del área resaltada y seleccionar la opción Test.
+      </p>
+      <h2>Retos</h2>
+      <p class="texto">
+         A continuación realizaremos una serie de retos para afianzar los conocimientos en interruptores, variables
+         y eventos.
+      </p>
+      <h3>Reto 1</h3>
+      <p class="texto">
+         Usando un evento con ejecución automática, crearemos un evento de dos páginas que reciba al jugador con un 
+         cuadro de texto al llegar a la segunda área.
+         <br><br>
+         Al igual que con los eventos paralelos, te recomiendo que coloques este evento en un lugar al que el jugador 
+         no pueda acceder.
+         <br><br>
+         Solo la primera página del evento debe ser de ejecucián automática. La segunda página debe estar en blanco, 
+         con un disparador que no sea Proceso automático o Proceso paralelo. Activar un interruptor automático en la 
+         página 1 y usarlo como un condicional en la página 2 probablemente funcionará mejor.
+         <br><br>
+         <a class="link_b" href="soluciones.html#R1">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 2</h3>
+      <p class="texto">
+         Usando un evento con ejecución automática, usaremos los comandos de evento Fadeout y Fadein (Finalizar 
+         transición e Iniciar Transición) para hacer que la pantalla se apague momentáneamente y luego revele el 
+         cofre del tesoro, en lugar de que aparezca inmediatamente.
+         <br><br>
+         La forma más fácil de lograr esto es haciendo un poco de trampa. El cofre está configurado para aparecer 
+         cuando Arbol sea igual a 5. Lo haremos de modo que el cofre aparezca cuando Arbol sea igual a 6. Luego, con 
+         Finalizar transición, puede crear una ejecución automática cuando Arbol es igual a 5, agregaremos 1 al valor 
+         de Arbol e Iniciar transición, en ese orden.
+         <br><br>
+         También se recomienda el uso de un interruptor automático para este evento. Una ejecución automática dejada 
+         sin marcar podrá dejar colgado tu juego.
+         <br><br>
+         <a class="link_b" href="soluciones.html#R2">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 3</h3>
+      <p class="texto">
+         Modificaremos los eventos de los cinco árboles para que también muestren un cuadro de texto que les diga a 
+         los jugadores cuántos árboles ha mirado hasta ese momento.
+         <br><br>
+         Colocaremos el cursor sobre el cuadro de texto en el comando de evento Mostrar texto y lo dejaremos encima
+         hasta que aparezca la información de ayuda sobre las herramientas. Veremos una opción de texto que nos 
+         permitirá imprimir el valor de una variable como texto.
+         <br><br>
+         <a class="link_b" href="soluciones.html#R3">
+            Ejemplo de Solución
+         </a>
       </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
    <div id="pie">
       <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
-	</div>
+   </div>
 </body>
 </html>

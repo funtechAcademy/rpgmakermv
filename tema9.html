@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 9: Crear Habilidades Nuevas</title>
+   <title>Tema 9: Los Enemigos</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Crear Habilidades Nuevas</h1>
+      <h1>Los Enemigos</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,154 +23,245 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         Como todo aventurero, nuestro personaje principal necesitara habilidades que pueda utilizar un su aventura.
-         Dichas habilidades pueden ser propias del jugador o incluso aprendidas de alguna forma durante el juego.
+         ¿Qué sería de un videojuego sin sus antagonistas? Ciertamente, los enemigos tienen casi la misma importancia 
+         que el personaje principal, debido a que la historia también se desarrolla en torno a ellos.
          <br><br>
-         En este tema aprenderemos acerca de las diferentes clases de habilidades para los personajes y como esto
-         afecta al balance de nuestro juego. También veremos la mecánica de turnos para las habilidades.
+         En este tema daremos un vistazo al concepto de enemigos y su importancia en los videojuegos y su papel en el 
+         balanceo del juego, así como también los tipos de enemigos, ya sean enemigos especiales (jefes) y enemigos 
+         de entorno (mobs).
          <br><br>
-         Además aprenderemos a crear <strong>habilidades nuevas</strong> con RPG Maker, asi como su configuración e implementación en nuestro proyecto.
+         Aprenderemos también a incluirlos con RPG Maker y a configurar sus diferentes variaciones para adaptarlos al 
+         gameplay.
          <br><br>
-         &emsp;- Conocer la importancia de las habilidades en los juegos.
+         &emsp;• Conocer la importancia de los enemigos en un videojuego.
          <br><br>
-         &emsp;- Conocer los diferentes tipos de habilidades y sus características.
+         &emsp;• Aprender a darle un trasfondo narrativo a los enemigos especiales.
          <br><br>
-         &emsp;- Aprender a mantener el balance en las habilidades.
+         &emsp;• Aprender a balancear la dificultad del juego con estos elementos.
          <br><br>
-         &emsp;- Aprender a configurar los turnos en el juego.
+         &emsp;• Aprender a agregar enemigos especiales con RPG Maker.
          <br><br>
-         &emsp;- Aprender a crear y configurar habilidades nuevas.
+         &emsp;• Aprender a crear grupos de enemigos con RPG Maker.
          <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Aprender a configurar los diferentes tipos de enemigos.
       </p>
-      <h2>Cómo crear una habilidad</h2>
+      <h2>Enemigos En Los Videojuegos</h2>
       <p class="texto">
-         Voy a adentrarme en la base de datos del RPG Maker MV. Concretamente, en la pestaña “Habilidades” para tratar de explicar
-         detalladamente qué hacer ahí.
-         <br><br>
-         Lo primero será diferenciar los tipos de habilidad que habrá en el videojuego. Con esto me refiero a, por ejemplo, 
-         habilidades mágicas (consumen puntos de magia o maná) y habilidades especiales (consumen TP o puntos técnicos, como los denomino).
-         Por supuesto, puedes tener más tipos de habilidad; un tercer tipo podría consumir MP y TP.
-         <br><br>
-         Para esto, iremos a la base de datos y a la pestaña “Tipos”.
+         A lo largo del desarrollo necesitaremos implementar NPCs enemigos con los que solo iniciaremos una batalla 
+         cuando interactuemos con ellos, además que, si queremos darle profundidad a nuestro juego, podemos darles 
+         un dialogo previo a la batalla y que luego, al ser derrotados, nos den mas información acerca de la historia.
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-1.jpg" width="50%" alt=""></p>
+      <h2>Configurando Los Enemigos</h2>
       <p class="texto">
-         En la columna “Tipos de habilidad” aumentaremos el máximo (si es necesario), y nombraremos las diferentes habilidades a utilizar.
-         En mi caso, tendré Magia y Técnica.
-         <br><br>
-         Una vez definidos los tipos de habilidad, iremos a la pestaña “Habilidades”. Aconsejo aumentar el número
-         máximo (en “Cambiar máximo”) según lo planeado para el videojuego. Es decir, si vas a tener 
-         hechizos del PJ, combos especiales, habilidades y hechizos de los enemigos, reserva una buena cantidad de
-         espacios (y divide en secciones, para que sea más fácil buscar luego, por si hay que editar).
+         Iremos a la Base de Datos y pincharemos en la pestaña Enemigos.
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-2.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema9/9-1.png" width="80%" alt=""></p>
       <p class="texto">
-         Tras esto, crearemos la habilidad convenientemente, eligiendo un lugar vacío de la lista o editando una existente.
+         En esta figura, podemos ver a Limo (Slime), uno de los monstruos más débiles pero más icónicos del género 
+         RPG japones.
          <br><br>
-         Como puedes ver, cada habilidad tiene siete apartados a cumplimentar: configuración general, invocación, mensaje, arma
-         requerida, daño, efectos y nota.
+         Como los actores, los enemigos tienen ocho estadísticas. También otorgan recompensas, en experiencia y oro, 
+         cuando son derrotados y pueden potencialmente dejar caer elementos para el jugador. 
+         <br><br>
+         Podemos configurar hasta tres elementos para que caiga un enemigo, con una probabilidad de 1 / X (donde X 
+         puede ser cualquier número entre 1 y 1000). 
+         <br><br>
+         Los patrones de acción son los que dan al enemigo la mayor parte de su mordedura. El humilde Slime solo 
+         puede usar el ataque básico que vimos anteriormente.
+         Slime tiene un 5% de probabilidad de fallar en sus ataques (95% de índice de acierto), así como un 5% de 
+         probabilidad de esquivar ataques físicos (5% de evasión). Sus ataques infligen daño físico. Puede dar a los 
+         enemigos resistencias e inmunidades a los tipos de daño y efectos de estado (definidos con los estados en 
+         RMMV).
       </p>
-      <h2>Configuración general</h2>
+      <h2>Grupos De Enemigos</h2>
       <p class="texto">
-         Lo primero es ponerle un nombre que la defina, junto con el icono y la descripción (aconsejable, para que el jugador sepa qué hace).
-         <br><br>
-         Además, elige el tipo de habilidad (aparecen las etiquetas configuradas en la pestaña “Tipos”), el 
-         alcance (el objetivo donde se producirá el efecto de la habilidad) y la ocasión (dónde se podrá utilizar la
-         habilidad: nunca, sólo en batalla, sólo en el menú o siempre).
-         <br><br>
-         Si consume MP, introduce una cifra la casilla costo de MP; si consume TP, la cifra irá en costo de TP.
-         Es posible que una habilidad gaste MP y TP (habrá que poner una cifra en cada), o nada en absoluto (ambas se quedan en 0).
+         Podrías diseñar miles de monstruos, pero en realidad debes formar una tropa para que inicien un encuentro 
+         válido. La primera tropa de la lista es un par de murciélagos. Hablemos un poco sobre cada uno de los 
+         comandos disponibles.
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-3.jpg" width="50%" alt=""></p>
-      <h2>Invocación</h2>
+      <p class="img_centrada"><img src="img/tema9/9-2.png" width="80%" alt=""></p>
       <p class="texto">
-         En este apartado se controla la velocidad (entre -2.000 y 2.000) con la que se realiza la acción: la cifra
-         se suma a la agilidad del PJ, PNJ o enemigo y se compara con el resto de acciones de ese mismo turno.
-         Es como la tirada de iniciativa en el rol de mesa.
-         <br><br>
-         El éxito marca la probabilidad de que la habilidad se realice: cuanto más bajo sea el porcentaje, menos probable
-         de que sea lleve a cabo.
-         <br><br>
-         El repetir se refiere al número de veces que hará efecto la habilidad.
-         <br><br>
-         La ganancia TP contempla la posibilidad de aumentar el número de TP con cada uso de la habilidad.
-         <br><br>
-         El tipo de acierto se refiere a cómo se determina si la habilidad surte efecto en el objetivo: acierto certero es un uso exitoso, ataque
-         físico compara la tasa de acierto del usuario con la tasa de evasión del objetivo, ataque mágico depende de la tasa
-         de evasión mágica del objetivo.
-         <br><br>
-         La animación se refiere al efecto visual que se reproduce con el uso de la habilidad.
+         &emsp;• <strong>Configuración general</strong>
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-4.jpg" width="50%" alt=""></p>
-      <h2>Mensaje</h2>
+      <p class="img_centrada"><img src="img/tema9/9-3.png" width="70%" alt=""></p>
       <p class="texto">
-         En este caso, las dos líneas se pueden usar para escribir un texto que aparecerá en el log de batalla, cada vez
-         que se use la habilidad. En la imagen, el %1 se refiere al nombre de la habilidad.
+         &emsp;&emsp;- <strong>Nombre automático</strong>: Nombra la tropa en función del número y tipo de monstruos 
+                     que contiene. Las tropas predeterminadas se nombran todas con el estilo de nombre automático.
+         <br><br>
+         &emsp;&emsp;- <strong>Cambiar fondo</strong>: Te permite cambiar el fondo durante las pruebas de batalla. 
+                     Esto no tiene ningún efecto en las batallas de tu juego.
+         <br><br>
+         &emsp;&emsp;- <strong>Test de batalla</strong>: Te permite crear un grupo de hasta cuatro actores equipados 
+                     con elementos que elijas para enfrentarte a la tropa actualmente seleccionada. Durante una 
+                     prueba de batalla, el grupo obtiene 99 copias de cada elemento de la base de datos.
+         <br><br>
+         &emsp;&emsp;- <strong>Añadir</strong>: Permite incluir un monstruo en una tropa, mientras si haces click en 
+               un monstruo individual y presionas <strong>Eliminar</strong> lo borra de la tropa.
+         <br><br>
+         &emsp;&emsp;- <strong>Alinear</strong>: Sobre un monstruo colocado en una tropa te permite cambiar su 
+                     posición en la batalla. Esto es meramente estético y no tiene ningún efecto en el combate. Puedes 
+                     usar <strong>Alinear</strong> para devolver todos los monstruos a sus posiciones predeterminadas.
+         <br><br><br>
+         &emsp;• Los eventos regresan con fuerza en la pestaña Grupos enemigos, en forma de <strong>Eventos de 
+               batalla</strong>. Tienen seis <strong>Condiciones</strong> diferentes, disponibles en el menú 
+               desplegable:
+      </p>
+      <p class="img_centrada"><img src="img/tema9/9-4.png" width="70%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>No ejecutar</strong>: Si no usa ninguno de los condicionales, el evento por defecto es 
+                     No ejecutar. Como su propio nombre indica, un evento con No ejecutar nunca se activará.
+         <br><br>
+         &emsp;&emsp;- <strong>Fin del turno</strong>: Un evento con este condicional se activará después de que todos 
+                     los luchadores (grupo miembros y enemigos) han tomado su turno.
+         <br><br>
+         &emsp;&emsp;- <strong>Turno</strong>: Le permite establecer un turno determinado para activar el evento. 
+                  Verá que hay dos cuadros numéricos. El primero determina el turno en el que se desencadena el 
+                  evento, mientras que el segundo define el intervalo en el que se repite el evento. Puede dejar ese 
+                  espacio en blanco y el evento solo se activará una vez.
+         <br><br>
+         &emsp;&emsp;- <strong>PV del enemigo</strong>: Debe especificar un enemigo en particular dentro de la tropa 
+                     para este condicional. Cuando ese enemigo alcance el valor de PV que designaste, el evento se 
+                     activará.
+         <br><br>
+         &emsp;&emsp;- <strong>PV del actor</strong>: Igual que el anterior, pero para actores en lugar de enemigos. 
+                     Puedes declarar un actor que ni siquiera existe dentro de tu juego (siempre que el actor exista 
+                     dentro de la base de datos), para que lo tengas en cuenta.
+         <br><br>
+         &emsp;&emsp;- <strong>Interruptor</strong>: ¡Interruptores! Esto es realmente útil para un monstruo jefe,
+                     por ejemplo, para que sea invencible a no ser que utilices un determinado arma. Puedes activar 
+                     un interruptor, en función de cualquier condición relevante en otro lugar, que haga que su 
+                     monstruo jefe sea una versión más débil de sí mismo (al reducir sus estadísticas de forma 
+                     permanente, por ejemplo.
+         <br><br><br>
+         &emsp;• <strong>Lapso</strong>: Los eventos de batalla también tienen tres tipos de duración, que determinan 
+               cuántas veces se activa el evento:
+         <br><br>
+         &emsp;&emsp;- <strong>Batalla</strong>: Un evento con el intervalo de batalla se activa solo una vez por 
+                     batalla, incluso si es las condiciones se siguen cumpliendo durante todo el combate.
+         <br><br>
+         &emsp;&emsp;- <strong>Turno</strong>: Un evento con este intervalo se activa una vez por turno, incluso si 
+                     sus condiciones se cumplen varias veces en el mismo turno.
+         <br><br>
+         &emsp;&emsp;- <strong>Momento</strong>: Un evento con este intervalo se activa repetidamente, una vez que se 
+                     cumplen las condiciones. Rara vez se usa este tipo de intervalo, ya que tiene una buena
+                      posibilidad de hacer que su juego se cuelgue en un bucle infinito si falla.
+      </p>
+      <h2>¡Quiero que mi monstruo haga algo más que atacar con un arma!</h2>
+      <p class="texto">
+         Un buen deseo y también fácil de cumplir. 
+         <br><br>
+         Echemos un vistazo más de cerca a Patrones de acción. Como probablemente ya habrás notado, muchas listas en 
+         RMMV se pueden editar de la misma manera. Es decir, haga doble clic con el botón izquierdo o con el botón 
+         derecho y seleccione Editar. Cuando haces lo mismo en el área de Patrones de acción de la página de un 
+         enemigo, tenemos las siguientes opciones:
+      </p>
+      <p class="img_centrada"><img src="img/tema9/9-5.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Habilidad y prioridad</strong>: 
+         <br><br>
+         &emsp;&emsp;- <strong>Habilidad</strong>: Es un menú desplegable que te permite seleccionar la habilidad que 
+                     quieres que use el enemigo.
+         <br><br>
+         &emsp;&emsp;- <strong>Prioridad</strong>: Es un valor que no hace nada en sí mismo. Sin embargo, cuando un 
+                     enemigo tiene múltiples habilidades, busca en sus valores de calificación para determinar qué 
+                     usar. 
+         <br><br>
+         &emsp;&emsp;Supongamos que le damos a nuestro nuevo enemigo dos nuevas habilidades, Habilidad A y 
+                     Habilidad B. Entonces, ahora, el enemigo tiene Ataque, Habilidad A y Habilidad B en su lista de 
+                     Patrones de acción. Si dejamos la calificación de Ataque en 5, le damos a la Habilidad A una 
+                     calificación de 4 y a la Habilidad B una calificación de 3, así es como funcionan las 
+                     probabilidades:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque</strong>: El estándar/base para el patrón de acción, ya que tiene la 
+                           calificación más alta. 
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad A</strong>: Se usará dos tercios del tiempo, en comparación con Ataque. 
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad B</strong>: Se usará un tercio del tiempo, en comparación con Ataque.
+         <br><br>
+         &emsp;&emsp;No parece que esta explicación ayude, pero profundicemos. Si nuestro enemigo hipotético usa un 
+                     total de 100 acciones, podemos esperar aproximadamente el siguiente número de usos de cada 
+                     habilidad:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque</strong>: 50/100 usos.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad A</strong>: 50*2/100*3 = 100/300. Cuando simplificamos eso, se 
+                           convierte en 33,3/100. Llamemos a eso 33/100.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad B</strong>: 17/100 (para agregar hasta 100 acciones).
+         <br><br>
+         &emsp;&emsp;Si volvemos al conjunto anterior de viñetas, nos damos cuenta de que las matemáticas funcionan. 
+                     El ataque se usa con mayor frecuencia, seguido de la habilidad A y por último de la habilidad B.
+         <br><br>
+         &emsp;&emsp;Bien, ¿qué pasa si la diferencia de calificación es de más de dos puntos? Las habilidades que 
+                     tienen una calificación de más de dos puntos por debajo de la habilidad utilizable más alta nunca 
+                     se utilizarán. Nunca jamás.
+         <br><br>
+         &emsp;&emsp;¿Qué hay de esas condiciones? ¿Afectan la calificación? Ciertamente lo hacen. El juego busca 
+                     habilidades usables. Por lo tanto, si tiene una habilidad con calificación 9 y una condición 
+                     para usar solo en cada tercer turno, entonces no importa qué calificación tengan otras 
+                     habilidades en los otros turnos, que no sean terceros. 
+         <br><br>
+         &emsp;&emsp;Tomemos nuestro ejemplo inicial y agreguemos una habilidad C que se basa en tal condicional:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad C (Calificación 9)</strong>: 100% de probabilidad de usar cada tercer 
+                           turno; 0% de probabilidad en cada turno que no sea tercero.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque (Calificación 5)</strong>: 0% de probabilidad de usar en cada turno que 
+                           no sea el tercero; no hay posibilidad de usar cada tercer turno.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad A (Calificación 4)</strong>: 33% de probabilidad de usar en cada turno 
+                           que no sea el tercero; no hay posibilidad de usar cuando el turno de la Habilidad C llega.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Habilidad B (Calificación 3)</strong>: 17% de probabilidad de usar cuando la 
+                           Habilidad C no está disponible; nula en esas posibilidades cuando la habilidad C es 
+                           utilizable.
+         <br><br>
+         &emsp;&emsp;Siéntete libre de probar el sistema de clasificación por ti mismo, dando a los enemigos 
+                     habilidades adicionales y usando la Prueba de batalla para ver con qué frecuencia los Slimes 
+                     usan cada habilidad.
       </p>
       <p class="nota">
-         Nota: acuérdate de dejar un espacio justo al principio, para que el nombre del PJ, PNJ o enemigo no se pegue al mensaje que escribas.
+         Nota: Para que esa habilidad se use en cada tercer turno, colocaría un 3 en el segundo cuadro numérico para 
+         el condicional del número de turno. Puedes determinar la primera vez que un enemigo usa una habilidad, según 
+         el número de turno que pones en el primer cuadro.
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-5.jpg" width="50%" alt=""></p>
-      <h2>Arma requerida</h2>
       <p class="texto">
-         En este apartado se puede seleccionar un arma que sea condición para usar la habilidad. Es decir, si creas una
-         habilidad que sea propia para una espada, aquí deberás elegir (en tipo de arma 1) “espada”.
-         <br><br>
-         También funciona como un condicional “o”, puesto que se puede elegir una segunda arma (en tipo de arma 2), para
-         usar la habilidad. Esto es, una técnica para arco y ballesta, por ejemplo.
-         <br><br>
-         En caso de no elegir armas, la habilidad podrá usarse con cualquier tipo (incluyendo sin armas).
+         Mediante el uso hábil de condicionales, podemos crear enemigos que tengan Patrones de ataque predeterminados. 
+         Por ejemplo, a contibuación mostramos un ejemplo de patrón de jefe. 
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-6.jpg" width="50%" alt=""></p>
-      <h2>Configurando daño</h2>
+      <p class="img_centrada"><img src="img/tema9/9-6.png" width="50%" alt=""></p>
       <p class="texto">
-         Este apartado puede usarse o no, dependiendo de la habilidad. Básicamente, define el tipo y cuantía del daño que hará
-         la habilidad sobre el objetivo; también se contempla un uso positivo sobre el usuario.
-         <br><br>
-         En tipo hay siete opciones: ninguno, daño HP o MP, regenerar HP o MP y drenar HP o MP.
-         <br><br>
-         El elemento se refiere a la naturaleza
-         de la habilidad; tiene efecto si defines a un enemigo débil contra el fuego, por ejemplo. Si no, es un simple apunte narrativo.
-         <br><br>
-         En fórmula se define el cálculo para hallar el valor del daño (o de la cura o del drenaje). Debes tener en cuenta la
-         nomenclatura: se utiliza a para referirse al usuario, b para el objetivo y luego el punto (.) para acompañar a las etiquetas
-         de los parámetros correspondientes (ataque, defensa, ataque mágico, defensa mágica, etc.).
-         <br><br>
-         La variación se refiere al porcentaje de fluctuación del resultado obtenido en la fórmula. Por ejemplo, utilizando la de la
-         imagen: si el usuario tiene un ataque mágico (mat) de 10, el resultado sería de 25 + 10*2,5 = 50 con un 20% de variación.
-         Esto es, el resultado final estaría entre 50 – 50*0,2 (40, mínimo) y 50 + 50*0,2 (60, máximo).
-         <br><br>
-         Aciertos críticos se refiere a si habrá probabilidad (definida en el ex-parámetro tasa crítica) o no de que el resultado
-         obtenido (según la variación) se multiplique por la cifra predeterminada en el código interno del MV.
+         Es para un enemigo que ataca en el primer turno, se salta un turno y luego usa un ataque de poder (en este 
+         caso, Triple Ataque). Esa secuencia se repite hasta que el jugador o el jefe es derrotado. El salto de turno 
+         es una habilidad que no tiene ningún efecto salvo mostrar un mensaje (en el caso de Espera de 
+         MV: “<nombreenemigo> espera”).
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-7.jpg" width="50%" alt=""></p>
-      <h2>Configurando efectos</h2>
-      <p class="texto">
-         Hay cuatro pestañas de efectos: 
-         <br><br>
-         <strong>Recuperar:</strong> Para restaurar HP, MP y/o TP en porcentaje y/o con valor fijo.
-         <br><br>
-         <strong>Estado:</strong> Para añadir o quitar estados con una cierta probabilidad.
-         <br><br>
-         <strong>Parámetros:</strong> Añade o quita ventajas y desventajas durante un número definido de turnos.
-         <br><br>
-         <strong>Otro:</strong> Diferentes efectos añadidos, como aumentar un parámetro de forma permanente o activar un evento común.
-      </p>
-      <p class="img_centrada"><img src="img/tema9/9-8.jpg" width="40%" alt=""></p>
-      <h2>Creando nota</h2>
-      <p class="texto">
-         Este cuadro de texto se usa para apuntar información o detalles sobre la habilidad, o para usar etiquetas propias
-         de algún plugin (Action Sequence de Yanfly), por ejemplo. Lo escrito aquí no se visualiza en la partida; es código
-         para uso interno o comentarios (estilo //texto-que-sea en JavaScript).
-      </p>
-      <p class="img_centrada"><img src="img/tema9/9-9.jpg" width="40%" alt=""></p>
       <p class="nota">
-         Nota importante: para que el PJ pueda usar los tipos de habilidad creados, recuerda añadir esos atributos en la
-         pestaña “Actores” (si quieres que uno o varios PJs usen uno o varios tipos de habilidad) o “Clases” (si quieres definir
-         qué clases podrán usar uno o varios tipos de habilidad.
+      Nota: Naturalmente, si implementaras un patrón de este tipo en tu propio juego, querrás que el salto de turno 
+      muestre un mensaje de advertencia al jugador para que sepan que deben proteger (como en la opción del menú de 
+      batalla para mitigar el daño) o prepararse de otra manera para el ataque de poder.
       </p>
-      <p class="img_centrada"><img src="img/tema9/9-10.jpg" width="70%" alt=""></p>
+      <h2>Retos</h2>
+      <h3>Reto 1</h3>
+      <p class="texto">
+         Aumenta la tabla de enemigos como máximo a 40 y crea un nuevo enemigo.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R9">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 2</h3>
+      <p class="texto">
+         Aumenta la pestaña de Tropas como máximo a 40 y crea una tropa que contenga un Slime y uno de los nuevos 
+         enemigos que crees.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R10">
+            Ejemplo de Solución
+         </a>
+      </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>

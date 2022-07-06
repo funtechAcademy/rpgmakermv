@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 10: Creación de Enemigos</title>
+   <title>Tema 10: Añadiendo Los Enemigos</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Creación de Enemigos</h1>
+      <h1>Añadiendo Los Enemigos</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,139 +23,45 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         Ya hemos visto los enemigos que hay en RPG Maker y como añadirlos en nuestros juegos, pero ¿y si creamos los nuestros?,
-         así podríamos tener enemigos que se adaptasen a nuestras necesidades, sin mencionar que tendrían la apariencia que nosotros quisiéramos.
+         En este tema aprenderemos a incluir los enemigos en RPG Maker y a configurar sus diferentes variaciones para 
+         adaptarlos al gameplay.
          <br><br>
-         En este tema aprenderemos a diseñar <strong>nuevos enemigos</strong> desde su apariencia (sprite), pasando por sus diálogos,
-         sus habilidades y sus funciones en general. Para esto RPG Maker nos brinda multitud de herramientas, como un editor
-         de sprites, un editor de recompensas, etc.
-         <br><br>
-         &emsp;- Hacer un boceto de nuestro enemigo personalizado.
-         <br><br>
-         &emsp;- Crear una lista de diálogos para nuestro enemigo.
-         <br><br>
-         &emsp;- Crear una apariencia nueva para nuestro enemigo.
-         <br><br>
-         &emsp;- Crear un set de habilidades nuevas.
-         <br><br>
-         &emsp;- Crear un enemigo completo con un botín personalizado.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Aprender a configurar los diferentes tipos de enemigos.
       </p>
-      <h2>Cómo crear un enemigo</h2>
+      <h2>Creando nuestro Personaje No Jugador (NPC) Enemigo</h2>
       <p class="texto">
-         De vuelta a la base de datos del RPG Maker MV. En este caso, iremos a la pestaña “Enemigos” para explicar detalladamente qué hacer.
+         Iremos al segundo mapa, entraremos al modo evento y seleccionaremos un recuadro donde queremos que se 
+         ejecute el evento de batalla con nuestro enemigo y daremos a click derecho <strong>nuevo</strong>. 
          <br><br>
-         Antes que nada, has de tener en mente una idea aproximada de cuántos enemigos habrá en tu partida. Esto es, para aumentar el
-         máximo que viene por defecto; aunque, como es habitual, se puede retocar a medida que avances en el proyecto.
-         En mi caso, reservaré veinticinco espacios.
+         Ya en la ventana de evento, primero debemos escoger una imagen para el evento, que en este caso será la 
+         miniatura del NPC enemigo.
       </p>
-      <p class="img_centrada"><img src="img/tema10/10-1.jpg" width="30%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema10/10-1.png" width="70%" alt=""></p>
       <p class="texto">
-         Además, si tu idea es tener un número ingente de enemigos, es aconsejable que dividas la lista en secciones.
-         Es decir, poniendo a enemigos mágicos juntos, enemigos físicos, enemigos elementales de fuego, etc.
+         Una vez seleccionada la imagen del evento, vamos a añadirle un texto que nos dirá cuando interactuemos con 
+         él. Este texto podrá contener parte de la historia que queremos contar o mostrar una emoción del enemigo 
+         para dar un énfasis mayor a la batalla. Para ello añadiremos una nueva línea de evento y seleccionaremos la
+         opción <strong>Mostrar mensaje</strong> en la pestaña 1.
       </p>
-      <p class="nota">
-         Nota: si tienes algunos nombres en mente, puedes ir apuntándolos en los diferentes espacios, en pos de no olvidarlos y de ver
-         si necesitas aumentar el máximo de huecos.
-      </p>
+      <p class="img_centrada"><img src="img/tema10/10-2.png" width="50%" alt=""></p>
       <p class="texto">
-         Tras esto, elige un lugar vacío de la lista o edita un enemigo existente para comenzar.
-         <br><br>
-         Como verás, cada enemigo se divide en seis apartados: configuración general, recompensas, artículos obtenidos, atributos, 
-         patrones de acción y nota.
+         Terminado el paso anterior, pasaremos a añadir el evento que desatará la batalla, para ellos añadiremos una 
+         nueva línea de evento y seleccionaremos la opción <strong>Procesar batalla...</strong> en la pestaña 3.
+         Dentro elegiremos el enemigo y definiremos si podemos huir o no de la batalla.
       </p>
-      <h2>Configuración general</h2>
+      <p class="img_centrada"><img src="img/tema10/10-3.png" width="60%" alt=""></p>
       <p class="texto">
-         Básicamente, se establece el nombre, la imagen y los parámetros básicos del enemigo.
-         <br><br>
-         No tiene mayor dificultad, sabiendo si vas a crear un enemigo duro de pelar, mágicamente poderoso o con un gran ataque físico,
-         por poner ejemplos.
-         <br><br>
-         En mi caso, el Ghost es un lanzador de hechizos con buena defensa física, nada de ataque físico y el resto de parámetros sobre la media.
+         Si hemos realizado todos los pasos anteriores adecuadamente, deberíamos tener algo como esto.
       </p>
-      <p class="img_centrada"><img src="img/tema10/10-2.jpg" width="60%" alt=""></p>
-      <h2>Recompensas de enemigo</h2>
+      <p class="img_centrada"><img src="img/tema10/10-4.png" width="70%" alt=""></p>
       <p class="texto">
-         Aquí dispondremos la cantidad de experiencia y de oro que da cada enemigo de este tipo, al ganar el combate.
-         <br><br>
-         Si es uno difícil de vencer o provoca un gasto elevado de ítems (pociones, elixires, etc.), sabrás si aumentar la EXP o el oro recibido.
+         Como se puede ver en la imagen, el evento ya esta creado y listo para ser ejecutado.
       </p>
-      <p class="img_centrada"><img src="img/tema10/10-3.jpg" width="20%" alt=""></p>
-      <h2>Artículos obtenidos</h2>
+      <p class="img_centrada"><img src="img/tema10/10-5.png" width="60%" alt=""></p>
       <p class="texto">
-         Recompensas extra que suelta el enemigo tras vencer. Por defecto, está limitado a tres; si necesitas más, hay algún plugin 
-         que lo soluciona, o puedes configurarlo en el evento creado para el combate.
-         <br><br>
-         Cada artículo que especifiques tendrá una posibilidad de aparecer (en forma de fracción); desde 1/1 (esto es, un 100% de
-         probabilidad) hasta 1/1.000 (saldrá una vez cada mil combates con este enemigo).
-         <br><br>
-         Por ejemplo, si es un jefazo final y quieres premiar al jugador con una armadura mágica, selecciona una probabilidad
-         adecuada (1/2 sería un 50%, sabiendo que el combate es muy duro); después de todo, ese enemigo sólo aparecerá una vez
-         en la partida.
-         <br><br>
-         Sin embargo, si creas un murciélago o una rata, puedes configurar un objeto valioso (una espada mágica) con una probabilidad
-         de 1/500, porque en tu proyecto, el jugador se encontrará infinidad de veces con esos tipos de enemigo.
+         Si probamos el mapa podemos ver que el evento se ejecuta sin problemas, cuando interactuamos con el enemigo.
       </p>
-      <p class="img_centrada"><img src="img/tema10/10-4.jpg" width="40%" alt=""></p>
-      <h2>Atributos</h2>
-      <p class="texto">
-         Puede que sea el apartado más complejo de configurar, ya que hay muchísimas opciones. No obstante, sabiendo qué tipo
-         de enemigo estás creando, no deberías liarte demasiado. Por lo general, hay tres atributos básicos: 
-         <br><br>
-         &emsp;- Tasa de acierto (ex-parámetro)
-         <br><br>
-         &emsp;- Tasa de evasión (ex-parámetro)
-         <br><br>
-         &emsp;- Elemento de ataque
-         <br><br>
-         A partir de éstos, ajusta al enemigo a tu gusto, en base a su naturaleza.
-         <br><br>
-         Por ejemplo, el Ghost es un ser proveniente de la oscuridad; por ello, su elemento de ataque es “oscuridad” (en vez de “físico”).
-         Esto significa que, si un PJ fuese débil al elemento oscuridad (tasa del elemento oscuridad por encima del 100%), los ataques del 
-         Ghost le harían más daño de lo normal.
-         <br><br>
-         Otro atributo interesante es “resistencia estado X (sueño, por ejemplo)”, haciendo que el enemigo sea invulnerable al estado X (sueño).
-      </p>
-      <p class="img_centrada"><img src="img/tema10/10-5.jpg" width="50%" alt=""></p>
-      <h2>Patrones de acción</h2>
-      <p class="texto">
-         En este apartado se definen las acciones que podrá realizar el enemigo en batalla.
-         <br><br>
-         Importante tener en cuenta la prioridad (la columna “R”), seleccionada en Clasificación (al hacer doble click sobre una línea
-         vacía o una acción definida, para editarla): se refiere a la probabilidad de esa habilidad se realice sobre el resto, teniendo en
-         cuenta que el número más alto tiene la mayor prioridad.
-         <br><br>
-         Las habilidades con uno o dos puntos menos se llevarán a cabo en un menor porcentaje; las que tengan tres o más puntos menos, no se realizarán.
-         <br><br>
-         Por ejemplo, las acciones definidas para el Ghost se realizarán todas (en mayor o menor probabilidad), ya que la prioridad más alta
-         es 5 y la más baja es 3.
-         <br><br>
-         Otro dato a tener en cuenta es la condición (configurada también al hacer doble click), que define cuándo se podrá realizar una habilidad.
-         <br><br>
-         Por defecto, toda habilidad se realizará siempre, teniendo en cuenta la prioridad. Esto es, si tres habilidades tienen la misma
-         prioridad y condición (5 y siempre, por ejemplo), será como tirar un dado de tres caras: habrá un 33% de probabilidad para cada una.
-         <br><br>
-         En cambio, si una habilidad tiene cierta condición para llevarse a cabo, ésta tendrá que cumplirse (además de tener en cuenta la
-         prioridad) para que el enemigo la realice.
-      </p>
-      <p class="img_centrada"><img src="img/tema10/10-6.jpg" width="60%" alt=""></p>
-      <h2>Configurando notas</h2>
-      <p class="texto">
-         Este cuadro de texto se usa para apuntar información o detalles sobre el enemigo, o para usar etiquetas propias de algún 
-         plugin (AnimatedSVEnemies de Yanfly), por ejemplo.
-         <br><br>
-         Lo escrito aquí no se visualiza en la partida; es código para uso interno o comentarios (estilo //texto-que-sea en JavaScript).
-      </p>
-      <p class="img_centrada"><img src="img/tema10/10-7.jpg" width="50%" alt=""></p>
-      <p class="texto">
-         Por último, para probar al enemigo recién creado, iremos a la pestaña “Tropas” y la configuraremos en un espacio de la
-         lista (recomiendo aumentar el máximo).
-         <br><br>
-         Luego, pulsa “Prueba de batalla” y aparecerá la ventana del juego con el combate correspondiente; así es más fácil comprobar
-         si el enemigo es buen oponente, según el nivel del PJ.
-      </p>
-      <p class="img_centrada"><img src="img/tema10/10-8.jpg" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema10/10-6.png" width="60%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>

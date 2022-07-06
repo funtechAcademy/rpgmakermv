@@ -9,7 +9,7 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 2: Creando eventos</title>
+   <title>Tema 2: Creando Eventos</title>
 </head>
 <body>
    <div id="cabecera">
@@ -21,68 +21,98 @@
    </div>
    <!-- FIN_LOADER -->
    <div id="contenido">
-      <h2>Objetivos del Tema</h2>
+      <h2>Objetivos Del Tema</h2>
       <p class="texto">
-         En este tema estudiaremos el concepto de eventos en los videojuegos y los disparadores de los mismos, también su
-         importancia en nuestros proyectos y los beneficios de su implementación.
+         En este tema estudiaremos el concepto de evento en los videojuegos y los disparadores de los mismos, también 
+         su importancia en nuestros proyectos y los beneficios de su implementación.
          <br><br>
-         Además veremos como utilizar la herramienta evento de RPG Maker y como generar los diferentes eventos de los que
-         disponemos y acoplarlos a nuestros mapas.
+         Además veremos como utilizar la herramienta evento de RPG Maker y como generar los diferentes eventos de los 
+         que disponemos y acoplarlos a nuestros mapas.
          <br><br>
-         Aprenderemos a como crear desde sencillos eventos rápidos predefinidos, hasta eventos hechos a la medida de nuestras
-         necesidades con el fin de darle vida a nuestros mundos virtuales.
+         Aprenderemos a como crear desde sencillos eventos rápidos predefinidos, hasta eventos hechos a la medida de 
+         nuestras necesidades con el fin de darle vida a nuestros mundos virtuales.
          <br><br>
-         &emsp;- Conocer los conceptos de eventos y desencadenantes.
+         &emsp;• Conocer los conceptos de eventos y desencadenantes.
          <br><br>
-         &emsp;- Conocer la herramienta <strong>evento</strong> de RPG Maker.
+         &emsp;• Conocer la herramienta <strong>evento</strong> de RPG Maker.
          <br><br>
-         &emsp;- Conocer los diferentes modos de eventos rápidos que nos proporciona RPG Maker.
+         &emsp;• Conocer los diferentes modos de eventos rápidos que nos proporciona RPG Maker.
          <br><br>
-         &emsp;- Aprender a crear un evento rápido e implementarlo en nuestro proyecto.
+         &emsp;• Aprender a crear un evento rápido e implementarlo en nuestro proyecto.
          <br><br>
-         &emsp;- Conocer la creación de un evento personalizado y su respectiva configuración.
+         &emsp;• Conocer la creación de un evento personalizado y su respectiva configuración.
          <br><br>
-         &emsp;- Aprender a desplegar un evento personalizado con la creación de <strong>enemigos</strong> y NPCs amistosos.
+         &emsp;• Aprender a desplegar un evento personalizado con la creación de <strong>enemigos</strong> y NPCs 
+               amistosos.
          <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Implementar todo lo aprendido a nuestro proyecto principal.
       </p>
-      <h2>Añadiendo eventos</h2>
+      <h2>Añadiendo Eventos</h2>
       <p class="texto">
-         Es una tarea sencilla e intuitiva, aunque llevará tiempo según el nivel de detalle que quieras darle a cada mapa.
+         Un evento es un objeto que ocupa un solo cuadrado en un mapa RMMV y realiza el procesamiento de casi todas 
+         las funciones esenciales del juego. Es algo que ocurre en condiciones determinadas. En definitiva, acciones 
+         que van a suceder en el mapa.
          <br><br>
-         Una posible definición de evento es: algo que ocurre en condiciones determinadas.
-         En definitiva, acciones que van a suceder en el mapa, en batalla o de forma común (estos dos últimos se definen en
-         la base de datos, en tropas y eventos comunes, respectivamente).
+         Por ejemplo, podemos crear una tienda dirigida por un caballo o una puerta que requiera una llave. Todos 
+         los personajes no jugadores (NPC) son eventos.
          <br><br>
-         A este respecto, hay tantas posibilidades que voy a centrarme en los eventos rápidos de mapa. 
+         Crear un Evento es una tarea sencilla e intuitiva, aunque llevará tiempo según el nivel de detalle que 
+         quieras darle a cada mapa.
          <br><br>
-         Antes que nada, hay que seleccionar el modo evento:
+         A este respecto, hay tantas posibilidades que vamos a centrarnos en los eventos rápidos de mapa. 
+         <br><br>
+         Lo primero que haremos en nuestro mapa, será colocar una entrada a una gruta en la parte de arriba que será 
+         la salida de este mapa.
       </p>
-      <p class="img_centrada"><img src="img/tema2/2-1.jpg" width="40%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema2/2-1.png" width="70%" alt=""></p>
       <p class="texto">
-         Tras esto, elegir el tile (casilla) donde quieras colocar el evento y hacer click derecho.
-         Aparecerá el menú secundario; selecciona Creación rápida de evento > Puerta (servirá para colocar una puerta en un edificio, por ejemplo). 
+         Una vez hayamos colocado la salida del mapa, lo primero que haremos será seleccionar el modo evento:
+      </p>
+      <p class="img_centrada"><img src="img/tema2/2-2.png" width="40%" alt=""></p>
+      <p class="texto">
+         Tras esto, daremos click derecho sobre la entrada a la gruta.
+         <br><br>
+         Aparecerá el menú secundario, donde seleccionaremos <strong>Creación rápida de evento</strong> y después
+         en <strong>Puerta</strong> (servirá para colocar una puerta en la entrada a la gruta). 
       </p>
       <p class="nota">
-         <strong>Una recomendación:</strong> cuando pintes el edificio, acuérdate de poner una abertura para la puerta (el cuadrado negro
-         que se ve en la imagen). Así, la transición del evento se verá más natural; de otro modo, la puerta se
-         abriría y se vería la pared exterior.
+         <strong>Una recomendación:</strong> cuando vayamos a ponerle la puerta a un edificio, es recomendable poner 
+         debajo, en lugar de pared, un cuadro negro como abertura de la puerta. Así, la transición del evento se verá 
+         más natural. De otro modo, la puerta se abriría y se vería la pared exterior de fondo.
       </p>
-      <p class="img_centrada"><img src="img/tema2/2-2.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema2/2-3.png" width="50%" alt=""></p>
       <p class="texto">
-         En la ventana que aparecerá, se podrá definir el gráfico de la puerta (haz doble click donde la imagen) y la posición a la que
-         irá el PJ (podrás cambiar de mapa, por supuesto). Es un evento rápido muy fácil de asimilar.
+         En la ventana que aparecerá, se podrá definir el gráfico de la puerta (haciendo doble click donde la imagen) 
+         y la posición a la que irá el PJ (podremos cambiar de mapa). Es un evento rápido muy fácil de crear.
+         <br><br>
+         Para ver su funcionamiento, crearemos un nuevo mapa solo de cesped como ya sabemos. En la puerta, pondremos 
+         que nos lleve a cualquier posición de este segundo mapa.
       </p>
-      <p class="img_centrada"><img src="img/tema2/2-3.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema2/2-4.png" width="50%" alt=""></p>
       <p class="texto">
-         Los otros dos eventos rápidos también son sencillos. Paso a explicar sus opciones:
+         Probaremos nuestro juego.
+         <br><br><br>
+         Los otros tres eventos rápidos también son sencillos:
          <br><br>
-         <strong>Transferir:</strong> Acciona el teletransporte de un mapa a otro, o de una zona a otra (del mismo mapa). Las coordenadas se ajustan en ubicación y el menú dirección ajusta el sprite del personaje (cómo quedaría en pantalla, mirando hacia arriba, abajo, derecha o izquierda).
-         <br><br>
-         <strong>Tesoro:</strong> coloca un cofre en el tile seleccionado, posibilitando que se obtenga oro (dinero), objetos, armas o armaduras. El gráfico del contenedor se puede cambiar en imagen, y en contenido se elegirá lo que guarde. 
+         <strong>Transportar:</strong> Acciona el teletransporte de un mapa a otro, o de una zona a otra (del mismo 
+         mapa). Las coordenadas se ajustan en ubicación y el menú dirección ajusta el sprite del personaje (cómo 
+         quedaría en pantalla, mirando hacia arriba, abajo, derecha o izquierda).
       </p>
+      <p class="img_centrada"><img src="img/tema2/2-5.png" width="50%" alt=""></p>
+      <p class="texto">
+         <strong>Tesoro:</strong> Coloca un cofre en el tile seleccionado, posibilitando que se obtenga oro (dinero), 
+         objetos, armas o armaduras. El gráfico del contenedor se puede cambiar en imagen (haciendo doble click, como 
+         hemos visto en otros sitios), y en contenido se elegirá lo que guarde. 
+      </p>
+      <p class="img_centrada"><img src="img/tema2/2-6.png" width="50%" alt=""></p>
+      <p class="texto">
+         <strong>Posada:</strong> Establece el posadero en las coordenadas seleccionadas, el cual cura al jugador y 
+         a su grupo (si corresponde) por un costo predefinido en monedas. Tanto el importe como la imagen será lo que 
+         podamos definir en primera instancia. 
+      </p>
+      <p class="img_centrada"><img src="img/tema2/2-7.png" width="30%" alt=""></p>
       <p class="nota">
-         Nota: este evento se puede editar para que un cofre suelte más de un objeto.
+         Nota: los eventos rápidos se puede editar para cambiar la configuración como cualquier otro evento.
       </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>

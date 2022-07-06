@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 13: Interruptores</title>
+   <title>Tema 13: Dando Cuerpo A Nuestro Mundo</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Interruptores</h1>
+      <h1>Dando Cuerpo A Nuestro Mundo</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,89 +23,241 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         Ha llegado el momento de darle a nuestro juego un comportamiento dinámico, esto significa que nuestro juego se comportará
-         de una forma distinta dependiendo de las condiciones actuales.
-         Dichas condiciones pueden cambiar mediante eventos, por ejemplo, tener un objeto en concreto, suceder a una hora determinada, etc.
+         Durante los últimos temas, hemos cubierto muchos aspectos básicos pero importantes de RMMV. 
          <br><br>
-         En este tema aprenderemos a crear variables o interruptores y sus diferentes tipos (globales o locales).
-         También aprenderemos a vincularlos a eventos del juego y así obtener comportamientos dependientes de la situación.
+         Ahora es el momento de aprovechar lo aprendido para empezar a crear nuestro propio juego. Lo primera que 
+         haremos será agregar algunos mapas más, ya que solo tenemos los dos que creamos hasta ahora. 
          <br><br>
-         Daremos también un vistazo a la programación básica con el uso de los condicionales y como integrar los interruptores en estos.
+         Para asegurarnos de que estamos usando el mismo contenido, y también para mostrar la características más 
+         relevantes, usemos algunos mapas predefinidos.
          <br><br>
-         &emsp;- Conocer los interruptores y su uso en los juegos.
-         <br><br>
-         &emsp;- Conocer los eventos dependientes.
-         <br><br>
-         &emsp;- Aprender a crear interruptores globales.
-         <br><br>
-         &emsp;- Aprender a crear interruptores locales.
-         <br><br>
-         &emsp;- Aprender a crear eventos que cambien el estado de los interruptores.
-         <br><br>
-         &emsp;- Aprender a crear un evento condicional.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Empezaremos a dar cuerpo a nuestra historia
       </p>
-      <h2>Qué son los interruptores</h2>
+      <h2>Agregar Contenido A Nuestro Mundo</h2>
       <p class="texto">
-         Los interruptores son un tipo de variable que almacenan solo 2 estados, <strong>on</strong> y <strong>off</strong>.
-         Estos dos estados nos permiten definir condiciones dependiendo del estado del interruptor.
+         Dos juegos de rol son pueblos y mazmorras. Además, la mayoría de los juegos de rol tienen un mapa del mundo que conecta las distintas ubicaciones que el jugador puede visitar durante el juego. Entonces, en esa nota, agreguemos tres nuevos mapas de la selección prefabricada que RMMV tiene disponible.
+• Desde la pantalla del mapa principal, haga clic con el botón derecho en el nombre de su proyecto en la esquina inferior izquierda y seleccione Cargar.
+Podría haber hecho lo mismo haciendo clic con el botón derecho en MAP001 o en su segundo mapa. Eso habría provocado que el nuevo mapa se colocara debajo del mapa anterior. Hacerlo es bastante útil para organizar mapas que comparten un propósito similar. Figura 4-1 muestra un ejemplo de lo que quiero decir.
+
+
+
+         &emsp;• Un ataque que atraviesa la defensa del enemigo: Si deseas modificar la fíormula básica, utiliza
+               [a.atk*4] en vez de [a.atk*4-b.def*2]. Una habilidad que no tenga en cuenta la defensa de un enemigo 
+               en la fórmula de daño hará daño según el ataque del usuario. Asimismo, puede realizar un hechizo con 
+               el formato [a.mat], en lugar de [a.mat-b.mdf], tener una habilidad de perforación de defensa mágica.
          <br><br>
-         Por ejemplo si queremos que ocurra un determinado evento solo cuando a sucedido otro previo que es necesario en la historia,
-         podemos usar los interruptores.
+         &emsp;• Un ataque que causa daño basado en el PV del objetivo: También puede conectar PV Máximo y PV 
+               (PV actual) en fórmulas (PM máximo y PM actual). ¿Y si quisieras realizar un ataque de gravedad en la 
+               línea del hechizo de Demi en Final Fantasy? Las habilidades de gravedad, por definición, no pueden 
+               matar a su objetivo. Entonces, usemos PV. Escribiremos [b.hp/4] que resultaría en una habilidad que 
+               causa un daño equivalente a una cuarta parte del PV restante del enemigo. Si tuviéramos que cambiar PV 
+               por PV Máximo, la misma habilidad haría una cuarta parte de su PV máximo en daño.
+         <br><br>
+         &emsp;• Una habilidad que aumenta las estadísticas del usuario mientras daña al enemigo: Si observas la 
+               funcionalidad de stock de RMMV, notarás que esto es aparentemente imposible. Si creas un ataque y usas 
+               Efectos para agregar estados o estadísticas de mejora/desventaja, verás que el objetivo también las 
+               obtendrá. Pero quizás quieras una habilidad que aumente mi Agilidad durante dos turnos cada vez que me 
+               conecto con ella. Podríamos usar .addBuff() para lograr eso (.addDebuff() reduce una estadística en su 
+               lugar). Entonces, una habilidad que aumenta la agilidad del usuario durante dos turnos mientras daña a 
+               un enemigo se vería como: [a.addBuff(6,2);a.atk*4-b.def*2]. 
+         <br><br>
+         &emsp;¿Qué pasa con los números entre paréntesis en el .addBuff()? Cuando agregamos ventajas o desventajas a 
+               través del cuadro de fórmulas de daño, puedes declarar el parámetro (estadística) a afectar, así como 
+               la duración del turno. El primer parámetro es la Agilidad y el segundo la Duración del turno.
+      </p>
+      <h2>Abreviaturas De Los Parámetros</h2>
+      <p class="texto">
+         Si tienes curiosidad por ver las diversas abreviaturas de parámetros en RPGMaker MV, hagamos un breve viaje 
+         a la tierra de JavaScript.
+         <br><br>
+         &emsp;• Si estás usando Windows, abre el Bloc de notas y luego dirígete a la carpeta js de su proyecto de 
+               juego. El archivo JavaScript que nos interesa se llama rpg_objects.js.
+         <br><br>
+         &emsp;• Si estás utilizando Mac OS, cualquier procesador de texto básico le servirá tanto como el Bloc de 
+               notas. Busca el archivo rpg_objects.js en la carpeta js de su proyecto de juego.
+         <br><br>
+         &emsp;• En cualquier caso, abriremos el archivo JavaScript y nos dirigiremos a Game_BattlerBase. Si te 
+               desplazas hacia abajo después de encontrar esta zona del archivo, en la parte derecha del código 
+               encontrarás un objeto JavaScript (Object.defineProperties) que contiene una lista de parámetros y sus 
+               valores internos. Dado que el código MV relevante tiene más de tres páginas, vamos a ver los más 
+               utilizados. 
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-1.png" width="80%" alt=""></p>
+      <p class="nota">
+         Nota: Las ventajas y desventajas solo se aplican a los primeros ocho de la lista (en otras palabras, desde 
+         MHP hasta LUK).
+      </p>
+      <h2>Los Estados</h2>
+      <p class="texto">
+         Los estados principalmente funcionan de la misma manera.
+         <br><br>
+         Puedes declarar .addState(X), donde X es la entrada de la base de datos para el estado que desea utilizar. El 
+         número de turnos que durará un estado está determinado por las propiedades del estado en la base de datos. 
+         <br><br>
+         Entonces si tenemos la lista predeterminada de estados (de los cuales hay 10), podemos realizar un ataque 
+         que envenene al usuario y dañe al enemigo de la siguiente manera: a.addState(4);a.atk*4-b.def*2.
+         <br><br>
+         Es bueno tener en cuenta que solo necesitamos usar los comandos cuando deseamos aplicar efectos tanto al 
+         usuario como al objetivo. Si tienes un hechizo de curación que también aumenta la agilidad, puedes cubrirlo 
+         bien con una fórmula de daño y el efecto de adición de beneficio (o puedes usar también un efecto de 
+         recuperación de PV para la parte de curación del hechizo).
+         <br><br>
+         Echemos un vistazo a la pestaña Estados de la Base de datos.
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-2.png" width="80%" alt=""></p>
+      <p class="texto">
+         Como señalamos anteriormente, usar .addState requiere que se establezca qué estado desea agregar, y examina 
+         el valor de la base de datos para determinar qué agregar. Entonces, Muerte es 1, mientras que Ceguera es 5, 
+         por ejemplo. 
+         <br><br>
+         Los estados tienen una o dos cosas nuevas, pero no muchas que no hayamos visto ya en una forma similar.
+         <br><br>
+         &emsp;• <strong>Configuración general</strong>:
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-3.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Restricción</strong>: Define lo que le sucede a alguien afectado por el estado. La 
+                     mayoría de las opciones son acciones más forzadas que restricciones. En el caso de Muerte, el 
+                     actor o enemigo <strong>No se puede mover</strong> (lógicamente, ¡ya que están muertos!). Sin 
+                     embargo, también tienes <strong>Nada</strong>, <strong>Atacar a los enemigos</strong>, 
+                     <strong>Atacar a cualquiera</strong>, y <strong>Ataca a los aliados</strong>.
+         <br><br><br>
+         &emsp;• <strong>Condiciones de eliminación</strong>: Definimos cuando se elimina un estado. Esto es más 
+               importante para los actores, dado que los enemigos dejan de existir después de que terminas de luchar 
+               con ellos. Si no define ninguna condición de eliminación, la única forma de eliminar el estado sería 
+               tener un elemento o evento que haga precisamente eso.
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-4.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Al final de la batalla</strong>: Es autoexplicativo. Una vez que la batalla termina, 
+                     también termina el estado.
+         <br><br>
+         &emsp;&emsp;- <strong>Por otra restricción</strong>: Será reemplazado por un nuevo estado con una restricción 
+                     de acción diferente. Por ejemplo, puede tener un estado de Rabia que se ve afectado por 
+                     restricciones, de modo que si su actor afectado por Rabia queda aturdido u obstaculizado de 
+                     alguna otra manera, pierde el estado.
+         <br><br>
+         &emsp;&emsp;- <strong>Eliminación automática</strong>: Te permite establecer si el estado se elimina 
+                     automáticamente después de un cierto número de turnos o no.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Fin de la acción</strong>: Significa que el estado se eliminará después de que el 
+                           actor o enemigo afectado realice una determinada cantidad de acciones.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Fin de turno</strong>: Significa que el estado se eliminará después de un cierto 
+                           número de turnos de batalla.
+         <br><br><br>
+         &emsp;&emsp;- <strong>Duración en turnos</strong>: Solo se puede editar si ha seleccionado Fin de la acción o 
+                     Fin de turno en Eliminación automática. El primer cuadro define el número mínimo de turnos que 
+                     durará el estado, mientras que el segundo cuadro indica el número máximo de turnos.
+         <br><br>
+         &emsp;&emsp;- <strong>Remover por daño</strong>: Da un porcentaje de probabilidad basado en el número 
+                     colocado en la casilla correspondiente para eliminar el estado cuando el actor o enemigo sufre 
+                     daño.
+         <br><br>
+         &emsp;&emsp;- <strong>Remover al caminar</strong>: El estado se elimina automáticamente después de que el 
+                     actor da un cierto número de pasos en el mapa. Puede tener cualquier número del 0 al 9999 en ese 
+                     cuadro.
+         <br><br><br>
+         &emsp;• <strong>Mensajes</strong>: Hay cuatro tipos de Mensajes puedes editar. 
+      </p>
+      <p class="img_centrada"><img src="img/tema12/12-5.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;Aparecen cuando un actor recibe un estado, un enemigo recibe un estado, el final de un turno cuando un 
+               actor o enemigo todavía se ve afectado por un estado (si el estado persiste) y cuando el estado se 
+               elimina.
       </p>
       <p class="nota">
-         Nota: todos los interruptores de RPG Maker, están por defecto en <strong>off</strong>.
+         Nota: Vale la pena mencionar que el estado 0001 es un estado especial que se aplica automáticamente cada vez 
+         que los Puntos de Vida (PV) de un personaje llegan a 0. Por defecto, se llama Muerte.
       </p>
-      <h2>Implementando un evento con interruptores</h2>
+      <h2>Volvamos A Las Fórmulas De Daño</h2>
       <p class="texto">
-         Vamos a realizar un ejercicio para ver la potencia de los eventos, en este ejercicio cambiaremos la apariencia de un NPC
-         dependiendo de un interruptor que se activará cuando hablemos con otro NPC.
+         De vuelta a las fórmulas de daño, ya vimos la existencia de addBuff() y addState(). 
          <br><br>
-         Creamos entonces un evento y asignamos una imagen para el NPC con el que vamos a hablar para activar el interruptor.
-      </p>
-      <p class="img_centrada"><img src="img/tema13/13-1.png" width="70%" alt=""></p>
-      <p class="texto">
-         Ahora haremos que NPC nos diga un mensaje para ver si funciona correctamente el evento.
-      </p>
-      <p class="img_centrada"><img src="img/tema13/13-2.png" width="50%" alt=""></p>
-      <p class="texto">
-         Y ahora creamos la línea de evento para el interruptor, para ello iremos a la opción de <strong>Selección de interruptor</strong>,
-         dentro de este menú veremos todos los interruptores que posee el juego, existe un número máximo de interruptores,
-         pero este puede ser cambiado por un número mas alto.
+         De paso, removeBuff() y removeState() también existen. Los métodos de eliminación solo aceptan un único 
+         parámetro entre paréntesis. 
          <br><br>
-         Para nuestro ejemplo crearemos un nuevo interruptor dando click en la zona libre con los nombre de interruptores y escribiendo
-         el nombre en el campo <strong>Nombre</strong>, lo llamaremos *Ejemplo*.
-      </p>
-      <p class="img_centrada"><img src="img/tema13/13-3.png" width="50%" alt=""></p>
-      <p class="texto">
-         Ahora marcaremos teniendo seleccionado el interruptor <strong>Ejemplo</strong> marcaremos la
-         casilla <strong>ON</strong> de la sección <strong>Operación</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema13/13-4.png" width="40%" alt=""></p>
-      <p class="texto">
-         Con esto ya tenemos el NPC preparado para que cambie el estado del <strong>interruptor</strong>, ahora crearemos
-         el otro NPC que será el que cambie su apariencia, para esto crearemos un nuevo evento y le daremos una imagen inicial al NPC.
-      </p>
-      <p class="img_centrada"><img src="img/tema13/13-5.png" width="70%" alt=""></p>
-      <p class="texto">
-         Ahora haremos algo nuevo, crearemos una nueva pagina de evento que solo ejecutará si el evento esta
-         en <strong>ON</strong>, para ello iremos a la parte superior de la ventana de eventos y pincharemos
-         en el botón de <strong>Nueva Pág. de evento</strong>, con esto se nos creará una nueva pagina de evento.
+         En el caso de removeBuff(), declaras para cuál de las ocho estadísticas principales deseas eliminar un 
+         beneficio. Para removeState(), le indicas qué estado se eliminará.
          <br><br>
-         A continuación dentro de la página nueva de evento, iremos al panel izquierdo y marcaremos en la sección
-         de <strong>Condiciones</strong> la casilla de <strong>Interruptor</strong> y seleccionaremos en el desplegable
-         nuestro interruptor llamado <strong>Ejemplo</strong>.
+         En el caso que vimos anteriormente ([a.addBuff(6,2);a.atk*4-b.def*2] hemos utilizado un punto y coma para 
+         dividirlos de la fórmula de daño. Hay una regla poco conocida sobre las fórmulas de daño que no se menciona 
+         dentro de RMMV, pero aquí está: 
       </p>
-      <p class="img_centrada"><img src="img/tema13/13-6.png" width="50%" alt=""></p>
-      <p class="texto">
-         Con esto conseguiremos que solo se active si el interruptor ejemplo está a <strong>ON</strong>. Una vez hecho esto daremos
-         una imagen para el NPC en esta nueva página de evento (que será la imagen a la que cambiará).
+      <p class="advertencia">
+         En cualquier fórmula, debe terminar la fórmula con un valor de daño (o curación, según sea el caso). 
       </p>
-      <p class="img_centrada"><img src="img/tema13/13-7.png" width="70%" alt=""></p>
       <p class="texto">
-         Con esto ya tendremos creado nuestro interruptor para hacer el cambio de apariencia, solo tendremos que hablar con
-         el NPC <strong>desencadenante</strong>.
+         La forma más fácil de probar o refutar esa afirmación es editando la fórmula de daño de tu nueva habilidad 
+         de arco y agregando un punto y coma después del daño con un comando addState() o addBuff() (recuerda que "a" 
+         antes del comando denota usuario, mientras que "b" denota objetivo). Si lo hiciste correctamente, verás que 
+         tu habilidad ahora no hace nada más que aplicar el beneficio o el estado. Ahora, cambia las dos mitades de 
+         la fórmula y volverás a hacer daño.
+         <br><br>
+         Aquí hay algunas otras cosas interesantes que puede hacer con las fórmulas de daño:
+         <br><br>
+         &emsp;• Crear una habilidad que cause más daño según los estados activos del objetivo: Digamos que quieres 
+               un enemigo que envenene al grupo del jugador y luego intente consumir ese veneno para causar daño a 
+               sus víctimas. Podrías tener una fórmula como esta:
+         <br><br>
+         &emsp;&emsp;if (b.isStateAffected(x)) {b.removeState(x); Winter.phys(1.0,a,b);} else {0}
+         <br><br>
+         &emsp;isStateAffected() es otro método dentro de RMMV. Como sugiere el nombre, comprueba si el objetivo tiene 
+         X estado, donde X es el número del estado en la base de datos.
+         <br><br>
+         &emsp;Si el objetivo tiene X estado, la habilidad elimina el estado y luego aplica una fórmula de daño 
+               personalizada (esa es la parte Winter.phys). 
+      </p>
+      <p class="nota">
+         Nota: También necesitaremos otra habilidad que inflija un estado que su nueva habilidad pueda eliminar, si 
+         desea probar la fórmula.
+      </p>
+      <p class="texto">
+         &emsp;Si el objetivo no tiene X estado, entonces la habilidad hace 0 de daño.
+      </p>
+      <p class="nota">
+         Los que tengáis experiencia en programación reconoceréis la fórmula anterior como una rama condicional "If". 
+         La caja de fórmula de daño es completamente robusta. Puede contener cualquier cantidad de JavaScript que 
+         pueda caber en la misma (lo cual, dado que el cuadro de daño de MV no tiene límite de caracteres, es 
+         bastante inmenso).
+      </p>
+      <h2>Retos</h2>
+      <h3>Reto 1</h3>
+      <p class="texto">
+         Haz un grupo de enemigos con un solo monstruo que diga algunas palabras antes de morir.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R11">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 2</h3>
+      <p class="texto">
+         Crea un enemigo con tres habilidades diferentes (incluida la habilidad de ataque normal). Tener una habilidad 
+         requiere que el enemigo esté en un estado para usar, y otra de sus habilidades otorga ese estado.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R12">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 3</h3>
+      <p class="texto">
+         Crea un enemigo que use una sola habilidad en una cuenta regresiva de tres turnos.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R13">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 4</h3>
+      <p class="texto">
+         Crea una fórmula de daño que incluya una variable.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R14">
+            Ejemplo de Solución
+         </a>
       </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>

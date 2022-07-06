@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 7: Punto de Guardado Complejo</title>
+   <title>Tema 7: Los Actores</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Punto de Guardado Complejo</h1>
+      <h1>Los Actores</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,55 +23,452 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         Ya hemos visto anteriormente cómo hacer puntos de guardado, sin embargo las mecánicas de guardado en los videojuegos van mas
-         allá de sólo guardar el juego en un punto en concreto, en algunos casos podemos hacer que los jugadores requieran de un
-         ítem o un evento especifico para poder guardar.
-         <br><br>
-         En este tema aprenderemos a crear puntos de guardado complejos con RPG Maker, además también a desarrollar este concepto,
-         haciendo arcos argumentales alrededor del requisito que solicitemos para el guardado.
-         <br><br>
-         &emsp;- Conocer la importancia de un punto de guardado complejo.
-         <br><br>
-         &emsp;- Conocer los diferentes tipos de guardado complejo (con ítem, evento especial, etc).
-         <br><br>
-         &emsp;- Aprender a crear puntos de guardado complejo en RPG Maker.
-         <br><br>
-         &emsp;- Practicar creando una mini historia alrededor del guardado.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal
+         En este tema echaremos un vistazo al generador de personajes, y crearemos nuestros propios personajes para 
+         exportarlos y usarlos en nuestro juego, teniendo siempre en cuenta la coherencia con nuestra historia.
       </p>
-      <h2>Creando un punto de guardado complejo</h2>
+      <h2>Configurando Nuestro Personaje</h2>
       <p class="texto">
-         Si quieres dedicarle más esfuerzo al asunto, te recomiendo esta opción: crear un punto de guardado que explique lo que
-         es (como un minitutorial) la primera vez que se activa. A partir de ahí, funcionará igual que el sencillo.
-         En realidad, no lleva demasiado trabajo.
+         Es hora de comenzar a poblar nuestro mundo. 
          <br><br>
-         En este caso, vamos a tener dos páginas en el evento. Además, hará falta crear un interruptor (en mi caso, “guardar partida”) que
-         servirá como condición para pasar a la segunda página (y que no se repita la primera).
+         Una cosa que todo videojuego necesita es un personaje que el jugador pueda controlar. Incluso el juego más 
+         sencillo necesita que el jugador llegue a controlar un personaje.
+         <br><br>
+         Hasta ahora hemos estado controlando un grupo formado por los personajes predeterminados de RMMV. Es hora 
+         de conocer un poco mejor a Harold. 
       </p>
-      <p class="img_centrada"><img src="img/tema7/7-1.jpg" width="70%" alt=""></p>
+      <h3>Pestaña Actores</h3>
       <p class="texto">
-         En la primera, elegí un cristal de color gris (simulando que el punto de guardado está inactivo).
-         Además, con la opción “dirección fija” seleccionada (no interesa que se active su animación al iniciar el evento).
-         <br><br>
-         En contenido, se presenta un texto informativo (el minitutorial) y, luego, se ofrece la posibilidad de guardar la
-         partida (sólo pasará esta primera vez, quedando el cristal en modo inactivo. No problem).
-         Finalmente, se activa el interruptor, pasando a la página 2.
+         Nos dirigimos a la <strong>Base de datos</strong> (presionando F9 o buscándola en el elemento Herramientas 
+         de la barra de herramientas del menú) y abra la pestaña <strong>Actores</strong>.
       </p>
-      <p class="img_centrada"><img src="img/tema7/7-2.jpg" width="70%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema7/7-1.png" width="80%" alt=""></p>
       <p class="texto">
-         En la segunda, hay que activar la condición (eligiendo el interruptor creado). Además, selecciona la opción “paso a paso”
-         (ahora sí interesa que la animación del cristal se active al iniciar el evento). En contenido, es copiar lo hecho en la
-         primera página, salvo el texto informativo y el comando activación del interruptor.
+         Explicaremos en detalle cada zona de esta parte de la base de datos.
          <br><br>
-         Cuando vayas a reutilizar el evento en otros mapas, si piensas que el jugador podría no guardar la partida en ese primer
-         punto, copia y pega el evento completo en el resto de mapas (donde quieras que haya punto de guardado).
-         Si piensas que sí guardará, puedes copiar y pegar (gracias al interruptor creado, iría directamente a la página 2) o
-         tomar solamente lo hecho en la página 2 (quitando la condición que selecciona el interruptor, pues no es necesaria).
-         De este modo, al activar el primer cristal, es como si el resto de cristales (repartidos a lo largo y ancho de tu juego) se
-         hubiesen activado al mismo tiempo. Épico.
+         En RMMV, los personajes del jugador (aquellos que el jugador puede mezclar y combinar en su grupo) se llaman 
+         actores.
+         <br><br>
+         Nuestro juego viene con cuatro actores prefabricados por defecto, aunque para empezar lo que hemos haecho ha 
+         sido dejar solo a Harold. Podemos cambiar el número máximo de personajes y agregar algunos más creados por 
+         nosotros mismos. También se pueden editar o borrar los actores predefinidos. 
       </p>
-      <p class="img_centrada"><img src="img/tema7/7-3.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema7/7-2.png" width="20%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Configuración general</strong>: Cubre la información básica de un actor y en gran medida se 
+               explican por sí mismos. 
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-3.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- Es de destacar <strong>Rol</strong>, que se discutirá cuando lleguemos a la pestaña 
+                     correspondiente de la Base de datos. 
+         <br><br>
+         &emsp;&emsp;- <strong>Perfil</strong> es el resumen biográfico de un personaje. “Busca en la tierra al 
+                     elegido” es un ejemplo de tal resumen.
+         <br><br>
+         &emsp;&emsp;- Puedes modificar el <strong>Nivel inicial</strong> de un actor, que determinará en qué nivel 
+                     se une al grupo cuando se coloca en el juego. 
+         <br><br>
+         &emsp;&emsp;- También puedes cambiar el <strong>Nivel máximo</strong> de un actor, limitando su crecimiento, 
+                     si tienes una razón para hacerlo. Es común limitar el nivel máximo de un personaje cuando tienes 
+                     un miembro temporal del grupo. Puedes establecer su nivel inicial igual a su máximo, y él/ella 
+                     permanecerá en el mismo nivel mientras dure su pertenencia al grupo.
+         <br><br><br>
+         &emsp;• <strong>Gráficos</strong>: Hay un conjunto de tres imágenes.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-4.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- El de la izquierda es el retrato del personaje
+         <br><br>
+         &emsp;&emsp;- El del medio es su conjunto de sprites, que cubre tanto la apariencia como los patrones de 
+                     movimiento. 
+         <br><br>
+         &emsp;&emsp;- El gráfico de la derecha es el llamado [VL] Luchador. VL es la abreviatura de Vista Lateral, 
+                     un tipo de batalla con el que estarás familiarizado si has jugado antes al Final Fantasy. Lo 
+                     usaremos para las batallas de nuestro juego.
+         <br><br><br>
+         &emsp;• <strong>Equipamiento inicial</strong>: Determina con qué elementos comienza un actor determinado. 
+               Un personaje generalmente debe comenzar con algún tipo de equipo, aunque hay ocasiones en las que no 
+               sería apropiado (como cuando un protagonista comienza el juego como prisionero; él o ella puede tener 
+               la ropa puesta y nada más).
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-5.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Atributos</strong>: Son algo importante en RMMV. Verás rápidamente que los cuatro actores 
+               tienen cada uno una lista de rasgos en blanco, y eso se debe a que los personajes predeterminados 
+               tienen todos sus rasgos contenidos en sus clases y no en ellos mismos. La forma en que RMMV gestiona 
+               esto de forma predeterminada está bien, aunque hay casos específicos en los que sería mejor tener 
+               algunos rasgos diferenciadores a nivel de actor. Si tienes dos personajes de la misma clase y no son 
+               gemelos idénticos, puedes diferenciar algunas de sus estadísticas mediante el uso de Rasgos en el 
+               nivel de Actor. Por ejemplo, podrías darle a uno de los personajes HP * 80% y al otro MP * 110%.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-6.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Nota</strong>: Es solo una especie de bloc de notas. Si necesitas tomar notas sobre un 
+               determinado personaje, puedes escribirlas aquí. La mayoría de las partes de RMMV tienen una sección 
+               de notas.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-7.png" width="40%" alt=""></p>
+      <h3>Pestaña Roles</h3>
+      <p class="texto">
+         Los cuatro actores tienen cada uno su propio Rol. El Rol de Harold es Héroe (lo que quizás explica por qué 
+         era el líder del grupo por defecto). Échale un vistazo a cada una de los roles y observa cómo difieren sus 
+         rasgos y habilidades (no verás ninguna diferencia en sus curvas de parámetros).
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-8.png" width="80%" alt=""></p>
+      <p class="texto">
+         RMMV prefiere colocar los rasgos que definen al personaje dentro de la pestaña Roles, ya que el rol de un 
+         actor lo define altamente. 
+         <br><br>
+         &emsp;• <strong>Configuración general</strong>
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-9.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Curva de EXP</strong>: EXP es la abreviatura de "Experiencia". Si hace clic en el botón 
+                     donde se encuentran los números entre corchetes, verás con qué se relacionan esos cuatro valores 
+                     y cómo podemos usarlos para modificar la tasa de avance. Puedes hacer que los niveles sean más 
+                     fáciles o más difíciles de obtener mediante el uso de esta propiedad. 
+         <br><br>
+         &emsp;&emsp;De forma predeterminada, las cuatro clases predefinidas tienen la misma curva de experiencia. 
+                     Si quieres que los actores suban de nivel según su clase, puedes modificar sus curvas aquí. 
+         <br><br>
+         &emsp;&emsp;Para tomar un ejemplo, Dragones y Mazmorras, tenía un sistema de experiencia en el que las clases 
+                     subían de nivel a un ritmo proporcional a su poder. Así que los lanzadores de hechizos, que 
+                     posiblemente tenían más poder, tardaron más tiempo en ganar un solo nivel que las clases "más 
+                     débiles", como Ladrón, que subieron de nivel más rápido para compensar su nivel de poder general 
+                     más bajo.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-10.png" width="80%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Curvas de parámetro</strong>: Estos afectan la velocidad a la que una clase determinada 
+               obtiene sus estadísticas.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-11.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;Puede editar un parámetro haciendo doble click en él, lo que mostrará un gráfico. Hay ocho estadísticas 
+               en RMMV.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-12.png" width="60%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>PV Máx.</strong>: Puntos máximos de vida. Si estos caen a 0, el personaje está muerto 
+                     y requiere alguna forma de reactivación.
+         <br><br>
+         &emsp;&emsp;- <strong>PM Máx.</strong>: Puntos máximos de magia. Se utiliza para lanzar todo tipo de hechizos 
+                     mágicos.
+         <br><br>
+         &emsp;&emsp;- <strong>Ataque</strong>: Influye en la cantidad de daño que hace un personaje con el arma que 
+                     elija.
+         <br><br>
+         &emsp;&emsp;- <strong>Defensa</strong>: Influye en la cantidad de daño que sufre un personaje por los ataques 
+                     enemigos. La fórmula de daño predeterminada para el comando de ataque básico es 
+                     [ATK * 4 - DEF * 2]. Esencialmente, la fórmula básica favorece el impulso de su ataque sobre su 
+                     defensa.
+         <br><br>
+         &emsp;&emsp;- <strong>Ataq. mág.</strong>: Ataque de mágico. Se puede utilizar en fórmulas de hechizos para 
+                     determinar el daño.
+         <br><br>
+         &emsp;&emsp;- <strong>Defen. mág</strong>: Defensa mágica. Se puede utilizar en fórmulas de hechizos para 
+                     determinar la mitigación de daños.
+         <br><br>
+         &emsp;&emsp;- <strong>Agilidad</strong>: Cuanto mayor sea la Agilidad de un personaje, antes actuará en un 
+                     turno de batalla determinado.
+         <br><br>
+         &emsp;&emsp;- <strong>Suerte</strong>: Al igual que en muchos otros juegos que tienen esa estadística, Suerte 
+                     en RMMV es la estadística comodín. La información sobre herramientas de Suerte en RMMV establece 
+                     que Suerte "afecta cosas como la posibilidad de que ocurran problemas de estado".
+         <br><br><br>
+         &emsp;• <strong>Habilidades a aprender</strong>: Estos son uno de los aspectos más intrínsecos de un 
+               personaje de RPG. Si un personaje no tuviera ninguna habilidad, solo podría atacar con su arma, y eso 
+               probablemente se volvería aburrido después de un tiempo. 
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-13.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;Algunos ejemplos de habilidades incluyen hechizos curativos y ataques de poder. Harold comienza con un 
+               hechizo de curación y un hechizo que hace daño de Trueno. No aprende ninguna habilidad nueva durante 
+               el transcurso del juego.
+         <br><br><br>
+         &emsp;• <strong>Atributos</strong>: Estos definen muchos aspectos diversos, pero importantes, de un rol. 
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-14.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;Analicemos el rol de héroe, rasgo por rasgo:
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa del objetivo</strong>: Marca la velocidad a la que un miembro de este rol es el 
+                     objetivo de enemigos. La tasa predeterminada es 100% y se puede aumentar o disminuir según se 
+                     desee. Un guerrero particularmente grande podría justificar una tasa objetivo más alta, mientras 
+                     que un ladrón más pequeño probablemente justificaría una tasa objetivo más baja. 
+         <br><br>
+         &emsp;&emsp;Supongamos que tiene un grupo de tres: un guerrero grande con una tasa objetivo del 200%, un 
+                     guardia de tamaño normal con una tasa objetivo del 100% y un pequeño ladrón con una tasa objetivo 
+                     del 50%. Es cuatro veces más probable que el guerrero sea atacado que el ladrón. Es la mitad de 
+                     probable que el ladrón sea atacado que el guardia.
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa de acierto</strong>: Es lo que se conoce más genéricamente en los juegos de rol 
+                     como exactitud. En RMMV, la precisión total de un personaje es igual a su Tasa de aciertos más 
+                     cualquier Tasa de aciertos adicional que obtenga de su equipo. La capacidad de un personaje para 
+                     lanzar sus ataques y habilidades se modifica negativamente por cualquier Evasión que tenga el 
+                     enemigo. La funcionalidad estándar de RMMV está configurada para que el juego calcule primero 
+                     para ver si un actor aterriza su ataque y, si es así, verifica si el enemigo esquiva el ataque.
+         <br><br>
+         &emsp;&emsp;- <strong>Tasa de críticos</strong>: Es la posibilidad que tiene un personaje de asestar un golpe 
+                     crítico por el triple del daño normal. La probabilidad de un actor de conseguir un golpe crítico 
+                     se reduce según la tasa de evasión crítica del enemigo.
+         <br><br>
+         &emsp;&emsp;- <strong>Añadir tipo de habilidad</strong>: Es un rasgo que permite a un rol elegido utilizar 
+                     una categoría de habilidades. En este caso, los héroes pueden usar habilidades de tipo mágico. 
+                     Por defecto, RMMV tiene dos tipos de habilidades: especial y mágica. Un rol requiere acceso a un 
+                     tipo de habilidad para poder usar habilidades de ese tipo.
+         <br><br>
+         &emsp;&emsp;- <strong>Equipar Arma y armadura</strong>: Ambos se explican por sí mismos. Definen qué tipo de 
+                     armas y armaduras puede usar un rol determinado. Si no asigna ningún rasgo de equipamiento a un 
+                     rol, no podrá equipar nada (lo cual podría ser bueno para un tipo de personaje de jugador 
+                     completamente inusual, como un lobo o un yeti).
+      </p>
+      <h3>Pestaña Habilidades</h3>
+      <p class="texto">
+            Pasemos a la pestaña Habilidades, que tiene mucha información.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-15.png" width="80%" alt=""></p>
+      <p class="texto">
+         Estamos viendo la primera habilidad en la lista de 10 proporcionadas por defecto dentro de RMMV. 
+         <br><br>
+         Las habilidades 1 y 2 son internamente importantes para RMMV, así que tened cuidado de no editarlas, a menos 
+         que esteis seguro de los cambios. 
+         <br><br>
+         La primera habilidad en RMMV es el ataque básico:
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-16.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Configuración general</strong>: Proporciona valores básicos, aunque esenciales, que se deben 
+               modificar. 
+         <br><br>
+         &emsp;&emsp;- <strong>Tipo de habilidad</strong>: Indica qué tipo de categoría de habilidad debe desbloquearse 
+                     para que un jugador use esa habilidad. Como Ataque es un ataque básico genérico, cualquiera puede 
+                     usarlo. Del mismo modo, no tiene coste de PM o PT (Puntos de técnica). Un personaje gana PT por 
+                     recibir daño y usar habilidades, incluido Ataque.
+         <br><br>
+         &emsp;&emsp;- <strong>Afecta a</strong>: Define lo que se ve afectado por la habilidad. El ataque básico 
+                     golpea a un solo enemigo objetivo.
+         <br><br>
+         &emsp;&emsp;- <strong>Ocasión</strong>: Alterna cuando se puede usar una habilidad.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Siempre</strong>: La habilidad se puede usar dentro y fuera de la batalla.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Pantalla de batalla</strong>: La habilidad solo se puede usar en batalla.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Pantalla de menú</strong>: Este es el menú de personajes al que accedimos en el 
+                           capítulo 1.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Nunca</strong>: Parece inútil, pero en realidad es útil para una habilidad que 
+                           solo desea que se use en circunstancias muy específicas. Probablemente querrás crear un 
+                           evento para activar la habilidad, en ese caso.
+         <br><br><br>
+         &emsp;• <strong>Daño</strong>: Además de tener un nombre ligeramente engañoso, ya que también puedes usar la 
+               fórmula para hechizos de curación, esto tiene algunas complejidades propias:
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-17.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Tipo</strong>: El tipo de efecto que desea que tenga esta habilidad. Además, tiene 
+                     Recuperación de PV y PM como dos de las siete opciones posibles. El tipio Nada puede ser útil 
+                     para habilidades que causan efectos de estado pero no causan ningún daño real al causarlos.
+         <br><br>
+         &emsp;&emsp;- <strong>Elemento</strong>: Determina la tipificación elemental de la habilidad. El Ataque 
+                     normal es su propio elemento especial, está codificado de esa manera para que el Ataque pueda 
+                     beneficiarse de las propiedades elementales del arma de un personaje, por poner un ejemplo.
+         <br><br>
+         &emsp;&emsp;- <strong>Fórmula</strong>: Esa pequeña caja que ves tiene un potencial casi infinito. Más 
+                     adelante veremos algunos de los que usaremos en nuestro juego. Por ahora, debes saber que el 
+                     "usuario" de una habilidad se expresa mediante un <strong>a.atk</strong> en el caso de Ataque y 
+                     el "objetivo" de una habilidad se expresa mediante <strong>b.def</strong>, para esta habilidad. 
+                     Si dejas el cursor sobre el cuadro de fórmula durante unos segundos, aparecerá una sugerencia de 
+                     herramienta muy útil.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-18.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Variación</strong>: Determina el rango de valores que devuelve una habilidad. El ataque 
+                     tiene una variación del 20%. Para dar un ejemplo, un personaje capaz de hacer 100 de daño con 
+                     Ataque en realidad haría entre 80 y 120. Es preferible que la variación de mi habilidad sea baja, 
+                     pero también es preferible que los personajes tengan estadísticas bajas en lugar de estadísticas 
+                     altas que vienen con los caracteres predeterminados en RMMV.
+         <br><br>
+         &emsp;&emsp;- <strong>Golpes críticos</strong>: Determina si una habilidad puede dar un golpe crítico o no.
+         <br><br><br>
+         &emsp;• <strong>Efectos</strong>: Estos son para las habilidades lo que los Atributos son para los actores. 
+               Cuando se usa, Ataque tiene un efecto especial para agregar un estado llamado Ataque Normal. No 
+               deberíamos de alterarlo. Sin embargo, puedes agregar otros efectos al ataque básico si tienes 
+               curiosidad.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-19.png" width="40%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Invocación</strong>: Esto afecta el uso de la habilidad en sí:
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-20.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Velocidad</strong>: Esto ajusta la agilidad del usuario hacia arriba o hacia abajo al 
+                     usar la habilidad. La velocidad puede ser un valor negativo. Puedes crear una habilidad que esté 
+                     garantizada para golpear primero, dándole una velocidad alta. También puedes realizar una 
+                     habilidad que haga que su usuario actúe en último lugar, otorgándole una Velocidad muy negativa.
+         <br><br>
+         &emsp;&emsp;- <strong>Éxito</strong>: La posibilidad de que la habilidad se conecte realmente. Tiendo que 
+                     usar una tasa de éxito que no sea del 100% para habilidades que causan efectos de estado 
+                     desagradables, como muerte instantánea o petrificación.
+         <br><br>
+         &emsp;&emsp;- <strong>Repetición</strong>: Cuántas veces se activa la habilidad cuando se usa una vez. La 
+                     mayoría de las habilidades solo deberían activarse una vez, pero las habilidades de golpes 
+                     múltiples funcionan con precisión repitiéndose.
+         <br><br>
+         &emsp;&emsp;- <strong>PT ganado</strong>: La cantidad de PT que gana un personaje por el uso de la habilidad 
+                     se rige por este valor aquí. Por lo tanto, podrías crear fácilmente una habilidad con el único 
+                     propósito de aumentar el PT de tu personaje a 100 (el límite de PT es de 100, a diferencia de MP, 
+                     que puede llegar hasta 9999). Asimismo, puedes crear una habilidad que no otorgue PT a su usuario.
+         <br><br>
+         &emsp;&emsp;- <strong>Tipo de golpe</strong>: Hay tres tipos de golpes posibles para cualquier habilidad 
+                     determinada:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Golpe certero</strong>: Una habilidad con este tipo de impacto ignora la 
+                           precisión del usuario y las estadísticas de evasión del objetivo. El único determinante de 
+                           si una habilidad de Golpe certero funcionará es su % de éxito.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque físico</strong>: Una habilidad con este tipo de impacto se conecta según 
+                           la tasa de aciertos del usuario y se ve afectada por la tasa de evasión del objetivo, así
+                           como por su propio % de éxito.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Ataque mágico</strong>: Una habilidad con este tipo de impacto se conecta según 
+                           la tasa de evasión mágica del objetivo y el % de éxito de la habilidad.
+         <br><br><br>
+         &emsp;&emsp;- <strong>Animación</strong>: Qué se muestra cuando usas la habilidad en la batalla.
+         <br><br><br>
+         &emsp;• <strong>Mensaje</strong>: Esto se explica por sí mismo. Lo único que hay que señalar es que necesita 
+               un espacio antes de su mensaje de habilidad. 
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-21.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- Debajo del mensaje, hay tres botones: <strong>"¡lanza *!"</strong>, 
+                     <strong>"realiza *!"</strong> y <strong>"usa *!"</strong>. Hacer click en uno de esos botones 
+                     reemplaza el texto en el Mensaje de texto con texto predeterminado. 
+         <br><br><br>
+         &emsp;• <strong>Armas requeridas</strong>: Puedes ajustarlo para que cierta habilidad requiera un cierto tipo 
+               de arma (como la habilidad de lluvia de flechas que requiere un arco o ballesta). Puede ser estricto y 
+               dejarlo en un tipo de arma o relajar un poco la restricción y agregar un segundo tipo de arma. Un golpe 
+               poderoso de tu arma es una habilidad que se puede hacer tanto con una espada como con un hacha, por 
+               ejemplo.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-22.png" width="50%" alt=""></p>
+      <h3>Pestaña Objetos</h3>
+      <p class="texto">
+         Esta pestaña tiene muchas similitudes con la pestaña Habilidades. Internamente, las habilidades también se 
+         consideran elementos, por lo que este es simplemente un caso de la funcionalidad estándar que coincide con el 
+         código. Por lo tanto, solo hay una o dos cosas nuevas para mencionar:
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-23.png" width="80%" alt=""></p>
+      <p class="texto">
+         &emsp;• <strong>Configuración general</strong>: 
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-24.png" width="50%" alt=""></p>
+      <p class="texto">
+         &emsp;&emsp;- <strong>Tipo de objeto</strong>: Estos se subdividen en:
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Objeto normal</strong>: Casi todos los tipos de objetos que se te ocurran. Una 
+                           poción, comida y una bomba de humo son tres ejemplos de Objetos normales.
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Objeto clave</strong>: Los elementos clave son cosas importantes que el jugador 
+                           adquiere y de las que nunca debe deshacerse, o que debe usar para un propósito específico. 
+                           Una llave antigua o una misiva real son buenos ejemplos de Objetos clave. 
+         <br><br>
+         &emsp;&emsp;&emsp;◦ <strong>Objeto oculto A y B</strong>: Solo son visibles durante los eventos que implican 
+                           la selección de elementos. Son buenos para objetos de tipo simbólico ,como coleccionables 
+                           y llaves, que no necesariamente quieres que el jugador vea en su inventario por ningún
+                           motivo.
+         <br><br><br>
+         &emsp;&emsp;- <strong>Precio</strong>: Los objetos, armas y armaduras pueden tener un precio fijo en la 
+                     moneda del juego. Los objetos con un valor de 0 no se pueden vender, pero puedes tener un objeto 
+                     que cuesta 0 a la venta en una tienda, aunque no se recomienda. Los objetos se venden por la 
+                     mitad de su valor.
+      </p>
+      <p class="nota">
+         Nota: Con muy pocas excepciones, debe establecer el precio de sus objetos clave en 0, para que no se puedan 
+         vender. Podríamos pensar que los objetos clave tienen protección contra la venta, pero ese no es el caso en 
+         RMMV.
+      </p>
+      <p class="texto">
+         &emsp;• <strong>Efectos</strong>: Al igual que en el caso de las habilidades, sus elementos pueden tener una 
+               variedad de efectos. Si lo prefieres, incluso puedes usar la fórmula de daño para elementos curativos o
+                elementos de daño consumibles (piense en bombas y estrellas arrojadizas).
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-25.png" width="50%" alt=""></p>
+      <h3>Pestañas Armas y Armaduras</h3>
+      <p class="texto">
+         De estas pestañas también hay poco nuevo que decir. Las dós son básibamente iguales.
+      </p>
+      <p class="img_centrada"><img src="img/tema7/7-26.png" width="80%" alt=""></p>
+      <p class="texto">
+         Así como los objetos tienen dos tipos diferentes, también puedes definir tu tipo de arma (y armadura, para el 
+         caso). 
+         <br><br>
+         El menú desplegable Tipo de arma (y Tipo de armadura) se completarán con los tipos enumerados en la pestaña 
+         Tipos para esas categorí. Lo que hace que las armas y armaduras sean diferentes de los elementos es su 
+         capacidad para ser equipados por actores elegibles. 
+         <br><br>
+         Como equipo, otorgan cambios de parámetros (generalmente bonificaciones, pero podría tener elementos malditos 
+         que también reducen las estadísticas) y tienen características que se suman a sus propiedades. 
+         <br><br>
+         En el caso de las armas, también debes definir su elemento de ataque. La mayoría de las armas causan daño 
+         físico, pero una hoja en llamas causaría daño por fuego, mientras que un arco de hielo podría infligir frío 
+         extremo o daño por agua.
+         <br><br>
+         Con las armaduras, también podemos definir su elemento de defensa.
+      </p>
+      <p class="nota">
+         Nota: A diferencia de otros sistemas de juegos de rol, RMMV no da a las armas un rango de daño inherente. 
+         Lo que ves en los cambios de parámetros de un arma es lo que obtienes.
+      </p>
+      <h2>Retos</h2>
+      <h3>Reto 1</h3>
+      <p class="texto">
+         Cambia a Harold para que pueda usar tanto arcos como espadas.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R4">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 2</h3>
+      <p class="texto">
+         Aumenta la pestaña de Habilidades como máximo a 40 y crea una habilidad en el espacio 11 que requiera el uso 
+         de un arco.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R5">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 3</h3>
+      <p class="texto">
+         Dale a Harold la habilidad que has creado.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R6">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 4</h3>
+      <p class="texto">
+         Aumenta la pestaña de Objetos como máximo a 40. Crea un objeto normal que se pueda usar para atacar enemigos 
+         y se consuma con el uso y un objeto clave.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R7">
+            Ejemplo de Solución
+         </a>
+      </p>
+      <h3>Reto 5</h3>
+      <p class="texto">
+         Aumente la pestaña de Armas como máximo a 40 y crea un arco para que lo use Harold.
+      </p>
+      <p class="texto">
+         <a class="link_b" href="soluciones.html#R8">
+            Ejemplo de Solución
+         </a>
+      </p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>

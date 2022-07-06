@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 8: Incluir Enemigos</title>
+   <title>Tema 8: El Generador de Personajes</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Incluir Enemigos</h1>
+      <h1>El Generador de Personajes</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,65 +23,65 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         ¿Qué sería de un videojuego sin sus antagonistas? Ciertamente, los enemigos tienen casi la misma importancia que el
-         personaje principal, debido a que la historia también se desarrolla en torno a ellos.
+         En este tema le echaremos un vistazo al generador de personajes, y crearemos nuestros propios personajes para 
+         exportarlos y usarlos en nuestro juego, teniendo siempre en cuenta la coherencia con nuestra historia.
          <br><br>
-         En este tema daremos un vistazo al concepto de enemigos y su importancia en los videojuegos y su papel en el balanceo
-         del juego, así como también los tipos de enemigos, ya sean enemigos especiales (jefes) y enemigos de entorno (mobs).
+         &emsp;• Aprender a utilizar el generador de personajes.
          <br><br>
-         Aprenderemos también a incluirlos con RPG Maker y a configurar sus diferentes variaciones para adaptarlos al gameplay.
-         <br><br>
-         &emsp;- Conocer la importancia de los enemigos en un videojuego.
-         <br><br>
-         &emsp;- Aprender a darle un trasfondo narrativo a los enemigos especiales.
-         <br><br>
-         &emsp;- Aprender a balancear la dificultad del juego con estos elementos.
-         <br><br>
-         &emsp;- Aprender a agregar enemigos especiales con RPG Maker.
-         <br><br>
-         &emsp;- Aprender a crear grupos de enemigos con RPG Maker.
-         <br><br>
-         &emsp;- Aprender a configurar los diferentes tipos de enemigos.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Aprender a exportar personajes desde el generador e importarlos a nuestro proyecto.
       </p>
-      <h2>Enemigos en los videojuegos</h2>
+      <h2>El Generador De Personajes</h2>
       <p class="texto">
-         A lo largo del desarrollo necesitaremos implementar NPCs enemigos con los que solo iniciaremos una batalla cuando
-         interactuemos con ellos, además que, si queremos darle profundidad a nuestro juego, podemos darles un dialogo previo
-         a la batalla y que luego, al ser derrotados, nos den mas información acerca de la historia.
+         Herramienta utilizada para crear personajes principales y, también, para PNJs (personajes no jugadores), 
+         además de para enemigos de tipo humanoide. 
+         <br><br>
+         Básicamente, genera la cara y los sprites correspondientes (de movimiento, de batalla y de estados).
       </p>
-      <h2>Creando NPC enemigo</h2>
+      <p class="img_centrada"><img src="img/tema8/8-1.png" width="40%" alt=""></p>
       <p class="texto">
-         Una vez tengamos diseñado el recinto, entraremos al modo evento y seleccionaremos un recuadro donde queremos que
-         se ejecute el evento y daremos a click derecho <strong>nuevo</strong>. Ya en la ventana de evento, primero debemos escoger una imagen
-         para el evento, que en este caso será la miniatura del NPC enemigo.
-      <p class="img_centrada"><img src="img/tema8/8-1.png" width="70%" alt=""></p>
-      <p class="texto">
-         Una vez seleccionada la imagen del evento, vamos a añadirle un texto que nos dirá cuando interactuemos con él.
-         Este texto podrá contener parte de la historia que queremos contar o mostrar una emoción del enemigo para dar
-         un énfasis mayor a la batalla. Para ello añadiremos una nueva línea de evento y seleccionaremos la
-         opción <strong>Mostrar mensaje</strong> en la pestaña 1.
+         Si consigues material para añadir más recursos al generador, ten en cuenta que esos archivos irán en la 
+         carpeta “Generator” (en las subcarpetas correspondientes), en el directorio de instalación del RPG Maker MV.
+         <br><br>
+         Vamos a ver las funciones del generador. Crear un personaje paso por paso es sencillo: elige sus 
+         características una a una hasta que te guste el resultado final.
       </p>
-      <p class="img_centrada"><img src="img/tema8/8-2.png" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema8/8-2.png" width="80%" alt=""></p>
       <p class="texto">
-         Terminado el paso anterior, pasaremos a añadir el evento que desatará la batalla, para ellos añadiremos una nueva
-         línea de evento y seleccionaremos la opción <strong>Procesar batalla...</strong> en la pestaña 3.
-         Dentro elegiremos el enemigo y definiremos si podemos huir o no de la batalla.
-      </p>
-      <p class="img_centrada"><img src="img/tema8/8-3.png" width="60%" alt=""></p>
+         &emsp;• <strong>Aleatorio</strong>: Si te cansa lo de ir probando cada combinación, dale a este botón hasta 
+               que te satisfaga el personaje generado.
+         <br><br>
+         &emsp;• <strong>Imagen de rostro</strong>: Guarda la face creada en un archivo con ocho espacios (en la 
+               carpeta faces). Ese mismo archivo servirá para guardar otras sietes caras de diferentes personajes o 
+               siete expresiones distintas del mismo personaje.
+         <br><br>
+         &emsp;• <strong>Personaje caminando</strong>: Guarda los sprites de movimiento del personaje (en la carpeta 
+               characters). Ese mismo archivo servirá para guardar siete más.
+         <br><br>
+         &emsp;• <strong>Personaje herido</strong>: Guarda los sprites del personaje cuando está fuera de combate 
+               (en la carpeta characters). En este caso, un mismo archivo servirá para guardar treinta y dos más.
+         <br><br>
+         &emsp;• <strong>Luchador</strong>: Guarda los sprites del personaje en combate (en la carpeta sv_actors). 
+               En este caso, será un archivo por personaje, puesto que son cincuenta y cuatro sprites.
+         <br><br>
+         &emsp;• <strong>Guardar configuración</strong>: Guarda la configuración con los parámetros actuales, por si 
+               quieres retocar en otro momento el personaje que estabas creando. El archivo generado tendrá 
+               extensión .json (archivo de datos en JavaScript).
+         <br><br>
+         &emsp;• <strong>Cargar configuración</strong>: Permite cargar una configuración previamente guardada, para 
+               continuar la edición de un personaje ya empezado.
+      <h3>¿Cómo Optimizar El Uso De Un Mismo Archivo?</h3>
       <p class="texto">
-         Si hemos realizado todos los pasos anteriores adecuadamente, deberíamos tener algo como esto.
+         Primero exporta para crear el archivo nuevo con el primer personaje generado (por ejemplo, la face).
+         <br><br>
+         Luego, genera otro personaje; selecciona imagen de rostro y haz click en la segunda posición de la ventana 
+         de Exportar o Importar (o cualquier otra posición, menos la primera que ya tenemos ocupada con el anterior 
+         rostro) y dale a importar. En este momento veremos los rostros que hasta el momento hemos generado.
+         <br><br>
+         Ahora, vuelve a exportar el archivo para guardar los rostros generados. Estos pasos también servirán 
+         para personaje caminando y herido.
+         <br><br>
+         Finalmente, abre el archivo creado y te aparecerán los rostros generados.
       </p>
-      <p class="img_centrada"><img src="img/tema8/8-4.png" width="70%" alt=""></p>
-      <p class="texto">
-         Como se puede ver en la imagen, el evento ya esta creado y listo para ser ejecutado.
-      </p>
-      <p class="img_centrada"><img src="img/tema8/8-5.png" width="60%" alt=""></p>
-      <p class="texto">
-         Si probamos el mapa podemos ver que el evento se ejecuta sin problemas, cuando interactuamos con el enemigo.
-      </p>
-      <p class="img_centrada"><img src="img/tema8/8-6.png" width="60%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>

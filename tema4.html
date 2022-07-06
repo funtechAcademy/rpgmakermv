@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 4: Diálogos</title>
+   <title>Tema 4: Variables</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Diálogos</h1>
+      <h1>Variables</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -21,132 +21,211 @@
    </div>
    <!-- FIN_LOADER -->
    <div id="contenido">
-      <h2>Objetivos del Tema</h2>
+      <h2>Objetivos Del Tema</h2>
       <p class="texto">
-         En este tema veremos uno de los pilares fundamentales de cualquier videojuego, los <strong>diálogos</strong>. Veremos la importancia de
-         los diálogos de los personajes como medio para transmitir parte de la historia y de como esta se va desarrollando
-         mediante la información que podemos hacer que los NPCs (Non-Player Character) cuenten al jugador.
+         En este tema aprenderemos a utilizar las variables en nuestros eventos.
          <br><br>
-         Además veremos como crearlos utilizando el asistente de diálogos de RPG Maker, los diferentes tipos, como diálogos
-         encadenados, elecciones, dar énfasis a texto mediante colores, etc y cómo implementarlos mediante un evento en el juego.
-         <br><br>
-         &emsp;- Conocer la importancia de los diálogos en los videojuegos.
-         <br><br>
-         &emsp;- Aprender a crear un dialogo simple con RPG Maker.
-         <br><br>
-         &emsp;- Aprender a crear un dialogo encadenado.
-         <br><br>
-         &emsp;- Aprender a crear un dialogo de decisión.
-         <br><br>
-         &emsp;- Aprender a crear un dialogo desencadenante de evento.
-         <br><br>
-         &emsp;- Aprender a colorear un texto.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         Dicho elemento nos permite asignar comportamientos a los eventos para que dependan de ciertas condiciones.
       </p>
-      <h2>Cómo crear un diálogo</h2>
+      <h2>De Nuevo Lo Básico</h2>
       <p class="texto">
-         Se trata de crear un evento (persona, ente invisible, narrador, monstruo, enemigo, cosa que habla, etc.), dándole un 
-         aspecto gráfico en ciertos casos.
+         Si estas familiarizado con algún lenguaje de programación, probablemente ya sabes como se utilizan las 
+         variables. 
          <br><br>
-         La mecánica será igual para todos los casos. Lo único que va a diferir es la complejidad y el tamaño del diálogo o conversación.
-         Lo primero será crear el evento, crear un nuevo comando de evento (doble click o click derecho > nuevo…) y seleccionar 
-         Mostrar texto (pestaña 1, en el cuadro Mensaje).
+         Sin embargo si no lo estas, vamos a ver a las variables como cajas en la vida real. Dichas cajas pueden 
+         contener cualquier cosa pero por fuera siguen viéndose como cajas. 
+         <br><br>
+         Este principio se aplica igual en la programación, ya que una variable puede contener algún valor que podemos 
+         utilizar mas adelante en nuestro código y como su nombre indica, este contenido puede variar dependiendo de 
+         nuestras necesidades.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-1.jpg" width="60%" alt=""></p>
+      <h2>El Funcionamiento De Las Variables</h2>
       <p class="texto">
-         De este modo, aparecerá la ventana de Mostrar texto, donde escribirás la parrafada que se te ocurra.
-         Tiene varias opciones que explico a continuación:
+         Pero, ¿cómo podemos usar esto en RPG Maker? 
+         <br><br>
+         Pues, aquí algunas ideas:
+         <br><br>
+         &emsp;• Hacer un seguimiento de los cofres abiertos a lo largo del juego.
+         <br><br>
+         &emsp;• Cambiar la recompensa de una misión dependiendo de cómo el jugador la completó. Por ejemplo, dando 
+               una recompensa mayor si mato a todos los bandidos de la zona en lugar de solo esquivarlos.
+         <br><br>
+         &emsp;• Contando el número de enemigos que quedan en una determinada pantalla.
+         <br><br>
+         &emsp;• Contando los pasos que ha dado su jugador. Esto tiene varias aplicaciones, como causar un Game Over
+               no estándar cuando el jugador excede un cierto número de pasos u otorgar al jugador un logro o 
+               habilidad.
+         <br><br>
+         &emsp;• También puedes usar una variable para aumentar o disminuir el poder de una habilidad.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-2.jpg" width="60%" alt=""></p>
+      <h2>Dibujemos Un Nuevo Mapa</h2>
       <p class="texto">
-         <strong>Rostro:</strong> haciendo doble click, aparecerá una ventana donde podrás elegir la face que quieras
-         (incluso la del PJ, si estás escribiendo un texto pronunciado por el susodicho).
+         Veamos un ejemplo de como funcionan las variables, creando un mapa donde tendremos una serie de árboles que 
+         tendremos que encontrar.
          <br><br>
-         <strong>Texto:</strong> aquí introducirás las palabras y códigos para crear el mensaje. Si dejas el puntero del ratón sobre
-         el cuadro unos segundos, aparecerá un tag con los códigos (carácter de control) que puedes usar.
-         Por ejemplo: si escribes “\$” (sin comillas), se abrirá la ventana del dinero/oro al ejecutar el evento en la partida.
-         <br><br>
-         Si te fijas, en la parte derecha hay una raya finita: marca el límite para el texto. Si te pasas, el texto se cortará.
-         Lo recomendable, en ese caso, es pasar a la siguiente línea (dándole a Enter).
-         <br><br>
-         <strong>Fondo:</strong> el background donde se visualizará el texto (ventana, oscurecer o transparente). Por defecto, ventana.
-         <br><br>
-         <strong>Posición de ventana:</strong> dónde aparecerá el texto en el juego (superior, centro o inferior). Por defecto, inferior.
-         <br><br>
-         <strong>Vista previa:</strong> muestra cómo quedaría el texto en el juego, incluyendo algunos códigos (como, por ejemplo, colores).
-         <br><br>
-         <strong>Entrada de lote:</strong> activar esta opción te permite crear mensajes con más de cuatro líneas. Es otro límite, ya que a partir de la quinta línea (inclusive), se cortará el mensaje.
+         Para ello empezaremos creando un nuevo mapa con las siguientes características:
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-3.jpg" width="60%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-1.png" width="50%" alt=""></p>
       <p class="texto">
-         Explicado esto, pasaré a definir casos específicos: un texto simple (informativo), un texto variable y un texto con opciones.
-      </p>
-      <h2>Cómo crear un texto simple o informativo</h2>
-      <p class="texto">
-         Interacciones fáciles como: un cartel indicador, un gato que maúlla, un perro que ladra, un PNJ que siempre dice lo mismo, etc. 
-         ¿Qué hay que hacer? Tan fácil como escribir el mensaje, poner una face (si es necesario) y configurar el resto de opciones al gusto.
-      </p>
-      <p class="img_centrada"><img src="img/tema4/4-4.jpg" width="60%" alt=""></p>
-      <p class="texto">
-         El resultado en el juego:
-      </p>
-      <p class="img_centrada"><img src="img/tema4/4-5.jpg" width="70%" alt=""></p>
-      <h2>Cómo crear un texto variable</h2>
-      <p class="texto">
-         Interacciones que cambian según unas condiciones como, por ejemplo, una variable que almacene los días de la semana;
-         de esta forma, el PNJ dirá algo diferente el lunes, el martes, etc. también, utilizando un interruptor para que,
-         una vez hecha la primera acción con un evento, salte a una segunda pestaña con otro texto.
+         Si bien MAP001 viene con mosaicos de césped ya configurados, los mapas creados posteriormente están 
+         completamente en blanco. 
          <br><br>
-         <strong>¿Qué hay que hacer?</strong> 
+         Es señalable el hecho de que un mapa de 30×30 es lo suficientemente grande como para requerir que use las 
+         barras de desplazamiento. 
          <br><br>
-         Tomando el segundo ejemplo, se escribirá el primer mensaje en la página 1, se activará el interruptor automático A y se creará una nueva página del evento. Y, en esta segunda página, se aplicará la condición de tener el interruptor automático A activo y se escribirá otro texto. De esta forma, el PNJ creado dirá el texto de la página 1 en la primera interacción; luego, repetirá el texto de la segunda página.
+         Nos ponemos en modo mapa para poder poder dibujar sobre nuestro mapa. 
+         <br><br>
+         Dibujaremos un rectángulo con el mosaico Meadow (césped) que comience en (0,0) y termine en (21,12), para un 
+         rectángulo de 22×13 para ajustar el mapa al tamaño maximizado de la pantalla sin tener barras de scroll. 
+         Si no es así, tendremos que ajustarlo para que se vea de esta forma.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-6.jpg" width="80%" alt=""></p>
+      <p class="nota">
+         Notas:
+         <br><br>
+         &emsp;• Puedes encontrar las coordenadas específicas de un determinado cuadrado en su mapa mirando cerca de 
+               la esquina inferior derecha de la pantalla del mapa mientras su cursor está sobre ese cuadrado.
+         <br><br>
+         &emsp;• Puede marcar la ubicación final de su rectángulo con la herramienta de lápiz para tener una referencia
+               a dónde desea arrastrar. Esto puede ser útil dado que las coordenadas X e Y dejan de mostrarse mientras 
+               arrastra un rectángulo.
+      </p>
       <p class="texto">
-         El resultado en el juego:
+         Dibujaremos nuestro mapa para que tenga un detalle similar a este.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-7.jpg" width="70%" alt=""></p>
-      <h2>Cómo crear un texto con opciones</h2>
+      <p class="img_centrada"><img src="img/tema4/4-2.png" width="80%" alt=""></p>
       <p class="texto">
-         Interacciones que dan la posibilidad de elegir, provocando un resultado en cada caso. En algunas ocasiones, se podrá volver
-         a elegir cada opción (como en un libro dividido en varios temas); en otras, habrá que elegir una vez, descartando
-         las demás opciones (una toma de decisión frente a un PNJ para abrir un cofre de tres posibles, por ejemplo).
-         Otra posibilidad es que un evento haga una pregunta y aparezcan dos o más opciones para responderla (una tendera, por ejemplo).
-         <br><br>
-         ¿Qué hay que hacer? 
-         <br><br>
-         Tomando el tercer ejemplo, se escribiría el texto con la correspondiente pregunta, se seleccionaría Mostrar
-         opciones (en la pestaña 1 de comandos, debajo de Mostrar texto), especificando el texto de cada opción (y su configuración).
-         Tras esto, de vuelta en el código, se escribiría el texto dentro de cada opción.
+         Una vez creado el mapa, haremos un evento de transferencia al mapa anterior en el punto más alto del 
+         camino (9,0). No olvides cambiar el accionamiento del evento a Toque del jugador y en contenido añadir un 
+         comando de Transportar al jugador al primer mapa (Mapa Inicial), debajo de la entrada a la cueva y con 
+         dirección Abajo.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-8.jpg" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema4/4-3.png" width="40%" alt=""></p>
       <p class="texto">
-         El resultado en el juego:
+         Ahora volveremos al Mapa Inicial para editar el evento de transferencia de la puerta de la cueva a este 
+         nuevo mapa (Arboles). Colocaremos a nuestro personaje en la posición 8,2 (dos casillas más abajo del inicio 
+         del camino) y con dirección Abajo. Nunca deberíamos de redireccionar el evento de transferencia justo encima
+         de otro evento de transferencia en el mapa de destino ya que podría darnos problemas.
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-9.jpg" width="70%" alt=""></p>
-      <h2>Código para darle color al texto</h2>
+      <p class="img_centrada"><img src="img/tema4/4-4.png" width="40%" alt=""></p>
+      <h2>¿Cuantos Árboles Hemos Encontrado?</h2>
       <p class="texto">
-         Para darle color a una palabra, a varias o a todo un texto, se utiliza el código `\c[n]` (sin las comillas), donde n es
-         un número entre 0 y 31. Así está programado en el RMMV. ¿Y cómo saber qué color es cada número? Yendo a la carpeta del
-         juego, dentro de img/system está el archivo Window. En la parte inferior-derecha podrás ver los colores; se cuentan de
-         izquierda a derecha y de arriba abajo, empezando por el 0 (blanco, el color por defecto).
+         Apliquemos el uso de variables a nuestro nuevo mapa. 
+         <br><br>
+         Si no lo hemos hecho ya, colocaremos 5 árboles en el mapa dentro del área dibujada.
+         <br><br>
+         Lo que vamos a hacer ahora es que cada árbol aumente el valor de una variable en uno cuando el jugador 
+         interactúe con ellos. Tenemos que asegurarnos de que el jugador no pueda interactuar con el mismo árbol 
+         varias veces. En otras palabras, cada árbol solo se puede contar una vez.
+         <br><br>
+         Hay varias formas, pero vamos a aprovechar lo aprendido ya. Utilizaremos los interruptores locales.
+         <br><br>
+         Entonces necesitamos un evento que haga lo siguiente:
+         <br><br>
+         &emsp;• Muestra un cuadro de texto que le dice al jugador un poco sobre el árbol.
+         <br><br>
+         &emsp;• Aumenta el valor de la variable Árbol en 1, si es la primera vez que el jugador interactúa con ese 
+               árbol. De lo contrario, no hará nada.
+         <br><br>
+         Tenemos que tener en cuenta lo siguiente:
+         <br><br>
+         &emsp;• El árbol es un objeto sólido, a diferencia del resto de baldosas que hemos utilizado como nuestro par 
+               de transiciones. Eso significa que el jugador no podrá pisar la casilla del evento.
+         <br><br>
+         &emsp;• Es preferible que el jugador interactúe con el árbol en lugar de tener que toparse con él para 
+               desencadenar el evento.
+         <br><br>
+         &emsp;• Necesitaremos un nuevo comando de evento llamado <strong>Derivación condicional</strong> para 
+               comprobar el interruptor local.
+         <br><br>
+         &emsp;• También tenemos que hacer uso del comando <strong>Control de variables</strong>.
+         <br><br>
+         &emsp;• Además, necesitaremos un comando de <strong>Control de interruptor local</strong>. De lo contrario, 
+               usar el comando <strong>Derivación condicional</strong> sería en vano.
+         <br><br>
+         &emsp;• Básicamente, estás usando el mismo evento cinco veces.
+         <br><br>
+         Vamos a intentar crear estos eventos con sólo estas indicaciones. Si no somos capaces, seguiremos los 
+         siguientes pasos.
+         <br><br>
+         Empezaremos por ver el comando <strong>Derivación condicional</strong>
       </p>
-      <p class="img_centrada"><img src="img/tema4/4-10.jpg" width="40%" alt=""></p>
+      <p class="nota">
+         Nota: En programación, un condicional es una declaración que es verdadera cuando se cumple una determinada 
+         condición. En este caso, estamos hablando de una condición simple if/else. Por ejemplo, si tengo más de 
+         tres gatos, soy una persona de gatos; de lo contrario, no lo soy.
+      </p>
       <p class="texto">
-         <strong>Por ejemplo, en el siguiente texto:</strong>
-         <br><br>
-         Hola, \c[3]mundo\c[0]. \c[19]Amanece otro día\c[0] esplendoroso.
-         <br><br>
-         La palabra “mundo” se verá en verde, la frase “Amanece otro día” en azul oscuro y el resto en color blanco.
-         <br><br>
-         Es importante no olvidarse de poner \c[0], porque si no todo el texto aparecerá del último color utilizado (que no sea el propio blanco).
+         Hacemos click en el check de interruptor local y luego la configuramos de modo que la verificación de 
+         condición para A esté APAGADA (OFF). 
       </p>
+      <p class="img_centrada"><img src="img/tema4/4-5.png" width="50%" alt=""></p>
+      <p class="texto">
+         La Derivación condicional comprueba si el interruptor local A del evento está desactivado. Si es así, agrega 1 al 
+         valor de Arbol y activa el interruptor local A, evitando que un solo árbol agregue más de uno a la variable.
+         <br><br>
+         El segundo comando de evento que vamos a ver es Control de variables.
+         <br><br>
+         Al igual que los interruptores de control, las variables de control le permiten manipular una sola variable
+         o un lote (grupo) de variables al mismo tiempo. Sin embargo, las variables le permiten hacer muchas más 
+         cosas que los interruptores. Esto se debe principalmente al hecho de que una variable puede contener 
+         cualquier número (o carácter), mientras que un interruptor solo puede contener un apagado o un en estado. 
+         <br><br>
+         Para este caso, todo lo que tenemos que hacer es nombrar la variable en cuestión (la llamaremos Arbol), 
+         cambiar la operación a Sumar y establecer el Operando en Constante con un valor de 1. Si dejamos la operación 
+         en Ajustar, se le da a la variable el valor de 1. Queremos que la variable gane 1, no se quede en 1, cuando    
+         el jugador interactúe con el árbol. 
+         <br><br>
+         Para resumir, cuando el jugador realiza una acción en el árbol por primera vez, la variable "Arbol" aumentará 
+         en 1.
+         <br><br>
+         Debe quedar de esta forma.
+      </p>
+      <p class="img_centrada"><img src="img/tema4/4-6.png" width="50%" alt=""></p>
+      <p class="texto">
+         Finalmente, necesitamos agregar un evento <strong>Control de interruptor local</strong>. Es un comando de 
+         evento bastante simple que ya hemos visto. Todo lo que puede hacer con ese comando es seleccionar uno de los 
+         cuatro interruptores automáticos y establecer su estado en ON u OFF. Pondremos el interruptor local A en ON.
+         <br><br>
+         Terminaremos nuestro evento ajustando la <strong>Prioridad</strong> a <strong>Igual que los 
+         personajes</strong> y el <strong>Accionamiento</strong> a <strong>Botón de acción</strong>, quedando de la 
+         siguiente forma.
+      </p>
+      <p class="img_centrada"><img src="img/tema4/4-7.png" width="80%" alt=""></p>
+      <p class="texto">
+         Una vez probado y visto que funciona correctamente nuestro evento, copiaremos y pegaremos este evento en los 
+         otros cuatro árboles que hemos colocado en el mapa y listo. 
+         <br><br>
+         Podemos hacer esto haciendo click derecho en el evento en el editor de mapas y seleccionando Copiar, luego 
+         haga click con el botón derecho en el cuadrado en el que queremos pegar el evento y seleccionar Pegar. 
+         Alternativamente, puedes utilizar el Copiar página de evento dentro de las propiedades del evento.
+      </p>
+      <p class="texto">
+         Ahora, agreguemos un evento final que requiera que la variable Arbol esté en 5. Lo convertiremos en un cofre 
+         del tesoro, para mostrar el Evento rápido relevante.
+         <br><br>
+         En la zona del mapa que elijamos para que aparezca nuestro cofre, haremos click derecho y seleccionaremos 
+         Crear eventos predefinidos/Tesoro...
+      </p>
+      <p class="img_centrada"><img src="img/tema4/4-8.png" width="50%" alt=""></p>
+      <p class="texto">
+         Debido a que la misión involucró árboles, démosle al jugador algo hecho con madera como recompensa. 
+         Seleccione la <strong>Vara</strong> de la lista de armas y luego haga clic en Aceptar.
+         <br><br>
+         Ahora, hacemos click derecho en ese evento y pulsamos Editar. Lo que queremos es hacer que el cofre sea 
+         invisible hasta que el jugador haya echado un vistazo a los cinco árboles. Para hacerlo, marcaremos la 
+         condición de Variable en la primera página del evento y lo configúraremos para que solo aparezca cuando 
+         sea >= que 5, quedando de esta forma.
+      </p>
+      <p class="img_centrada"><img src="img/tema4/4-9.png" width="70%" alt=""></p>
+      <p class="texto">
+         Ahora toca probar que todo funciona perfectamente.
+      </p>
+      <p class="img_centrada"><img src="img/tema4/4-10.gif" width="50%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
    <div id="pie">
       <h1> Fun Tech Academy - Calle Alcobendas, 23 Leganés 28914 Madrid - www.funtech.academy </h1>
-	</div>
+   </div>
 </body>
 </html>

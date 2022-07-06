@@ -9,11 +9,11 @@
    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
    <script src="js/scripts.js"></script>
-   <title>Tema 11: Crear una Tienda</title>
+   <title>Tema 11: Regiones</title>
 </head>
 <body>
    <div id="cabecera">
-      <h1>Crear una Tienda</h1>
+      <h1>Regiones</h1>
    </div>
    <!-- INICIO_LOADER -->
    <div id="pageloader">
@@ -23,80 +23,48 @@
    <div id="contenido">
       <h2>Objetivos del Tema</h2>
       <p class="texto">
-         En algunas partes de la aventura necesitamos que el jugador pueda reabastecerse y comprar nuevos suministros para su
-         aventura, por lo que es necesario crear lugares donde este pueda adquirirlos.
+         En este tema aprenderemos a definir las zonas de nuestro mapa donde realizaremos las batallas con los 
+         Grupos de enemigos con lo que se denominan las Regiones.
          <br><br>
-         En este tema veremos los conceptos básicos que deben respetar las tiendas y como estas afectan en la dificultad del juego.
-         <br><br>
-         Además aprenderemos a implementar todo esto en RPG Maker y veremos los diferentes tipos de tienda que podemos crear.
-         <br><br>
-         &emsp;- Conocer la importancia de los vendedores/tiendas en los juegos.
-         <br><br>
-         &emsp;- Conocer el balance al juego que aporta este recurso.
-         <br><br>
-         &emsp;- Aprender a crear una tienda básica
-         <br><br>
-         &emsp;- Aprender a diseñar un mapa de tienda.
-         <br><br>
-         &emsp;- Implementar todo lo aprendido a nuestro proyecto principal.
+         &emsp;• Aprender a crear Regiones para nuestras batallas.
       </p>
-      <h2>Creando una tienda</h2>
+      <h2>Incluyendo Una Región</h2>
       <p class="texto">
-         Una tienda en RPG Maker es un concepto muy utilizado cuando queremos que el jugador disponga de un punto en donde comerciar y poder obtener beneficios varios. Las entidades comercian con la moneda del juego en este caso <strong>oro</strong> y no se admiten trueques u otro tipo de intercambio.
+         Las Regiones definen como la zona de nuestro mapa donde se pueden encontrar ciertas tropas de enemigos. RMMV 
+         te permite colocar hasta 255 Regiones distintas en un solo mapa, aunque será difícil usar tantas en 
+         cualquier lugar excepto en un mapa del mundo más grande.
          <br><br>
-         Para definir una tienda necesitamos crear un evento especifico, por lo que primero debemos cambiar al modo eventos, una vez alli haremos doble clic sobre el recuadro donde queramos posicionar al vendedor y se abrirá el panel de eventos.
+         RMMV integra el creador de Regiones en la pestaña "R" de los conjuntos de tilesets. Esto significa que puedes 
+         pintar mosaicos de Región usando el modo de edición de mapa.
+         <br><br>
+         Vamos a buscar una zona solitaria de nuestro mapa, cambiaremos al conjunto de mosaicos R y haremos un pequeño 
+         cuadrado o rectángulo con la Región 1.
       </p>
       <p class="img_centrada"><img src="img/tema11/11-1.png" width="80%" alt=""></p>
       <p class="texto">
-         Una vez allí daremos <strong>doble clic</strong> sobre la sección de <strong>imagen</strong>, a continuación se nos abrirá un menu de selección de miniaturas de personajes, escogeremos la que mas se ajuste a nuestra necesidades.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-2.png" width="80%" alt=""></p>
+         ¡Juguemos a probar el juego con los cambios apropiados! Recuerda que tenemos que dar un númetro de pasos 
+         antes de que aparezca la batalla en la Región.
+      <h2>Cambiando El Fondo De Batalla</h2>
       <p class="texto">
-         Una vez hecho esto, empezaremos con la configuración del evento en la sección de contenido.
+         Si no hemos establecido un fondo de batalla adecuado de antemano, la pantalla de combate se parecerá a la 
+         siguiente: 
+      </p>
+      <p class="img_centrada"><img src="img/tema11/11-2.png" width="70%" alt=""></p>
+      <p class="texto">
+         Cuando no estableces un fondo de batalla predeterminado para un área determinada, RMMV solo muestra una 
+         imagen estática del entorno actual del jugador como fondo de batalla. Como puedes ver, se nos queda un poco 
+         decepcionante. Así que cierre la prueba de tu juego y dirígete a las propiedades del segundo mapa una vez 
+         más. 
          <br><br>
-         En este caso daremos doble clic en la zona de contenido y nos aparecerá una ventana con todas las opciones de evento disponibles, nosotros buscaremos la de <strong>mostrar mensaje</strong> que esta en la pestaña 1.
+         Busca <strong>Especifica un fondo de batalla</strong>, activa la casilla de verificación y explora los 
+         gráficos. Usa Grassland, por ejemplo, tanto para el primer plano como para el fondo, pero puedes elegir el 
+         que más te guste, siempre que sea similar al entorno donde se va a realizar la batalla.
       </p>
-      <p class="img_centrada"><img src="img/tema11/11-3.png" width="50%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema11/11-3.png" width="80%" alt=""></p>
       <p class="texto">
-         A continuación seleccionaremos un rostro adecuado para la miniatura escogida anteriormente y un texto para el diálogo.
+         Volveremos a probar nuestro juego y veremos la diferencia. El fondo ahora es mucho más real.
       </p>
-      <p class="img_centrada"><img src="img/tema11/11-4.png" width="60%" alt=""></p>
-      <p class="texto">
-         Con esto ya tendremos un NPC con un diálogo como ya habíamos visto antes, ahora necesitamos que nos deje elegir, para ello volveremos a la sección de contenido y daremos doble clic para desplegar las opciones de evento disponibles y seleccionaremos <strong>mostrar elecciones</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-5.png" width="40%" alt=""></p>
-      <p class="texto">
-         Aceptaremos el cuadro y ahora daremos un contenido para la elección <strong>SI</strong> y para la
-         elección <strong>NO</strong>.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-6.png" width="80%" alt=""></p>
-      <p class="texto">
-         - <strong>Opción SI</strong>: En esta opción queremos que se ejecute la tienda por lo que en este campo introduciremos el evento
-         de la tienda, haciendo doble clic en esa zona y seleccionando la opción <strong>procesar tienda</strong> de la pestaña 3.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-7.png" width="60%" alt=""></p>
-      <p class="texto">
-         Ahora configuraremos el contenido de la tienda, de esta forma podemos crear tiendas que solo vendan armaduras o que vendan solo armas, etc.
-         <br><br>
-         Para esto, daremos doble clic en alguno de los espacios del meno de procesar tienda.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-8.png" width="40%" alt=""></p>
-      <p class="texto">
-         Hecho esto, nos aparecerá una ventana para la selección de objetos en venta, divididos en 3 categorías (objeto,
-         arma y armadura), así como también la configuración del precio que podemos dejarla a decisión del juego o ajustarla manualmente.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-9.png" width="40%" alt=""></p>
-      <p class="texto">
-         Una vez cargada la tienda con algunos productos daremos a aceptar.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-10.png" width="40%" alt=""></p>
-      <p class="texto">
-         - <strong>Opción NO</strong>: Para esta opción sencillamente queremos que la conversación con el NPC termine, por lo que no
-         hará falta colocar nada.
-         <br><br>
-         Con esto ya tendremos nuestro NPC tienda preparado para comerciar con nuestro personaje.
-      </p>
-      <p class="img_centrada"><img src="img/tema11/11-11.png" width="80%" alt=""></p>
+      <p class="img_centrada"><img src="img/tema11/11-4.png" width="70%" alt=""></p>
       <br><br>
       <a class="texto volver" href="index.html">Volver al índice</a>
    </div>
