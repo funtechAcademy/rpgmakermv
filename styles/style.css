@@ -156,11 +156,18 @@ a.volver
 
 .advertencia
 {
+   font-family: 'Sanchez';
    color: tomato;
+   display: inline-block;
    background-color: wheat;
-   margin: 25px;
+   margin: 20px;
+   margin-bottom: 30px;
+   margin-right: 30px;
+   margin-left: 50px;
    padding: 20px;
    border-radius: 10px;
+   font-size: 1.2em;
+   width: fit-content;
 }
 
 .codigo
